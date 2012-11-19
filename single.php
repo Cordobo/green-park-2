@@ -55,7 +55,8 @@
 					</p>
 				</div>
 
-      <?php include (TEMPLATEPATH . '/ad_middle.php'); ?>
+      <?php get_template_part( 'ads', 'middle' ); ?>
+      <?php get_template_part( 'content', 'missing' ); ?>
 
 		</div>
 
@@ -64,7 +65,7 @@
 
 	<?php endwhile; else: ?>
 
-    <?php include (TEMPLATEPATH . "/missing.php"); ?>
+    <?php get_template_part( 'content', 'missing' ); ?>
 
 <?php endif; ?>
 

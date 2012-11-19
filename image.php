@@ -55,7 +55,7 @@
 
 	<?php endwhile; else: ?>
 
-		<?php include (TEMPLATEPATH . "/missing.php"); ?>
+		<?php get_template_part( 'content', 'missing' ); ?>
 
 <?php endif; ?>
 

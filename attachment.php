@@ -30,7 +30,7 @@
   			<?php the_tags( '<p class="tags">Tags: ', ' ', '</p>'); ?>
 				</div>
 
-      <?php include (TEMPLATEPATH . '/ad_middle.php'); ?>
+      <?php get_template_part( 'ads', 'middle' ); ?>
 
 		</div>
 		
@@ -38,7 +38,7 @@
 
 	<?php endwhile; else: ?>
 
-    <?php include (TEMPLATEPATH . "/missing.php"); ?>
+    <?php get_template_part( 'content', 'missing' ); ?>
 
 <?php endif; ?>
 

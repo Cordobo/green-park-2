@@ -3,7 +3,7 @@
 	<div id="container">
 		<div id="content">
 
-		  <?php include (TEMPLATEPATH . "/missing.php"); ?>
+		  <?php get_template_part( 'content', 'missing' ); ?>
 
 		</div><!-- #content -->
 	</div><!-- #container -->
