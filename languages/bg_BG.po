@@ -1,0 +1,424 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: GP2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-09 11:53+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Konstantin Yovev <yovev_k@hotmail.com>\n"
+"Language-Team: Konstantin Yovev <yovev_k@hotmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: Bulgaria\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: C:\\xampp\\htdocs\\wordpress\\wp-content\\themes\n"
+"X-Poedit-SearchPath-0: greenpark_2_beta_2\n"
+
+#: greenpark_2_beta_2/ad_middle.php:2
+msgid "Реклама"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:10
+msgid "Архив за"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:10
+msgid "категория"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:12
+msgid "Публикации с етикети"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:14
+#: greenpark_2_beta_2/archive.php:16
+#: greenpark_2_beta_2/archive.php:18
+msgid "Архив за"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:14
+#: greenpark_2_beta_2/archive.php:34
+#: greenpark_2_beta_2/index-ads.php:12
+#: greenpark_2_beta_2/index.php:12
+msgid "F jS, Y"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:16
+msgid "F, Y"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:18
+msgid "Y"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:20
+msgid "Архив на автора"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:22
+msgid "Архиви в блога"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:27
+#: greenpark_2_beta_2/archive.php:55
+#: greenpark_2_beta_2/index-ads.php:41
+#: greenpark_2_beta_2/index.php:41
+msgid "&laquo; По-стари публикации"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:28
+#: greenpark_2_beta_2/archive.php:56
+#: greenpark_2_beta_2/index-ads.php:42
+#: greenpark_2_beta_2/index.php:42
+msgid "По-нови публикации &raquo;"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:34
+#: greenpark_2_beta_2/attachment.php:13
+msgid "Редактирай"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:37
+#: greenpark_2_beta_2/image.php:14
+#: greenpark_2_beta_2/index-ads.php:20
+#: greenpark_2_beta_2/index.php:20
+msgid "&raquo; Прочети още: "
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:42
+#: greenpark_2_beta_2/comments.php:20
+#: greenpark_2_beta_2/index-ads.php:15
+#: greenpark_2_beta_2/index-ads.php:25
+#: greenpark_2_beta_2/index.php:15
+#: greenpark_2_beta_2/index.php:25
+msgid "Няма коментари"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:42
+#: greenpark_2_beta_2/comments.php:20
+#: greenpark_2_beta_2/index-ads.php:15
+#: greenpark_2_beta_2/index-ads.php:25
+#: greenpark_2_beta_2/index.php:15
+#: greenpark_2_beta_2/index.php:25
+msgid "1 коментар"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:42
+#: greenpark_2_beta_2/comments.php:20
+#: greenpark_2_beta_2/index-ads.php:15
+#: greenpark_2_beta_2/index-ads.php:25
+#: greenpark_2_beta_2/index.php:15
+#: greenpark_2_beta_2/index.php:25
+#, php-format
+msgid "% коментара"
+msgstr ""
+
+#: greenpark_2_beta_2/archive.php:45
+#: greenpark_2_beta_2/attachment.php:30
+#: greenpark_2_beta_2/image.php:24
+#: greenpark_2_beta_2/index-ads.php:28
+#: greenpark_2_beta_2/index.php:28
+msgid "Публикувано в "
+msgstr ""
+
+#: greenpark_2_beta_2/archives.php:12
+msgid "Архив по месеци"
+msgstr ""
+
+#: greenpark_2_beta_2/archives.php:19
+msgid "Архив по заглавие"
+msgstr ""
+
+#: greenpark_2_beta_2/attachment.php:12
+#: greenpark_2_beta_2/functions.php:330
+msgid "от"
+msgstr ""
+
+#: greenpark_2_beta_2/attachment.php:22
+msgid "Предишна публикация"
+msgstr ""
+
+#: greenpark_2_beta_2/attachment.php:23
+msgid "Следваща публикация"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:8
+msgid "Тази публикация е защитена с парола. Въведете паролата за да видите коментарите"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:22
+msgid "Добавете своя коментар"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:36
+#: greenpark_2_beta_2/comments.php:46
+msgid "&laquo; По-стари коментари"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:37
+#: greenpark_2_beta_2/comments.php:47
+msgid "По-нови коментари &raquo;"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:57
+msgid "Проследявания"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:59
+msgid "Pingbacks"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:76
+msgid "Коментарите са забранени"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:85
+msgid "Отговори"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:85
+#, php-format
+msgid "Отговори на %s"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:88
+msgid "Натисни тук за да отмениш отговора."
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:94
+msgid "Трябва да си"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:94
+msgid "влязъл/влязла"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:94
+msgid "за да коментираш"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:102
+msgid "Влязъл/влязла си като"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:102
+msgid "Излез от този профил"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:102
+msgid "Изход"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:108
+msgid "Име"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:111
+msgid "Е-поща (няма да бъде публикувана)"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:114
+msgid "Уебсайт"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:119
+msgid "Можеш да използваш тези етикети"
+msgstr ""
+
+#: greenpark_2_beta_2/comments.php:123
+msgid "Коментирай"
+msgstr ""
+
+#: greenpark_2_beta_2/functions.php:312
+msgid "Green Park 2 Настройки"
+msgstr ""
+
+#: greenpark_2_beta_2/functions.php:321
+msgid "върни се горе"
+msgstr ""
+
+#: greenpark_2_beta_2/functions.php:326
+msgid "Гордо задвижван от"
+msgstr ""
+
+#: greenpark_2_beta_2/functions.php:327
+msgid "Блог-приложение от Wordpress"
+msgstr ""
+
+#: greenpark_2_beta_2/functions.php:335
+msgid "Валиден XHTML 1.0 Преходен | Валиден CSS 3"
+msgstr ""
+
+#: greenpark_2_beta_2/header.php:36
+msgid "Към началото"
+msgstr ""
+
+#: greenpark_2_beta_2/header.php:36
+#: greenpark_2_beta_2/header.php:56
+msgid "начало"
+msgstr ""
+
+#: greenpark_2_beta_2/header.php:37
+msgid "съдържание"
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:28
+msgid "Можеш да следиш всички отговори на тази публикация през"
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:28
+msgid "RSS 2.0 емисиите"
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:32
+msgid "Можеш да"
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:32
+msgid "отговориш"
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:32
+msgid ", или "
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:32
+#: greenpark_2_beta_2/image.php:36
+msgid "проследиш"
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:32
+#: greenpark_2_beta_2/image.php:36
+msgid "от твоя сайт"
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:36
+msgid "Отговорите са забранени за момента, но можеш да"
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:40
+msgid "Можеш да отидеш накрая и да отговориш. Пингването сега не е позволено."
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:44
+msgid "Коментарите и пингването са забранени."
+msgstr ""
+
+#: greenpark_2_beta_2/image.php:46
+#: greenpark_2_beta_2/index-ads.php:12
+#: greenpark_2_beta_2/index.php:12
+#: greenpark_2_beta_2/page.php:9
+msgid "Редактирай тази публикация"
+msgstr ""
+
+#: greenpark_2_beta_2/index-ads.php:9
+#: greenpark_2_beta_2/index.php:9
+msgid "Постоянна връзка към"
+msgstr ""
+
+#: greenpark_2_beta_2/links.php:12
+msgid "връзки"
+msgstr ""
+
+#: greenpark_2_beta_2/missing.php:2
+msgid "Не е намерен"
+msgstr ""
+
+#: greenpark_2_beta_2/missing.php:4
+msgid "Съжалявам, но не намерих това, което търсиш. Опитай да потърсиш нещо подобно и може да успеем."
+msgstr ""
+
+#: greenpark_2_beta_2/missing.php:8
+msgid "Или се върни в началото"
+msgstr ""
+
+#: greenpark_2_beta_2/search.php:8
+msgid "Резултати от твоето търсене"
+msgstr ""
+
+#: greenpark_2_beta_2/search.php:28
+msgid "Не са намерени публикации. Да потърсим нещо друго?"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:10
+msgid "Последно от twitter"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:13
+msgid "Следи ме в twitter"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:13
+msgid "тук"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:23
+msgid "Абонирай се за моите емисии - Ще ти хареса!"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:24
+msgid "Абонирай се"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:25
+msgid "Абонирай се за емисиите от блога ми"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:61
+msgid "В момента разглеждаш архивите за"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:64
+msgid "В момента разглеждаш архивите за ден:"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:67
+msgid "В момента разглеждаш архивите за"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:70
+msgid "В момента разглеждаш архивите за година:"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:73
+msgid "Търсеше"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:74
+msgid "Ако не намериш каквото търсиш в тези резултати, може да пробваш някоя от тези връзки"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:77
+msgid "В момента разглеждаш"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:77
+msgid "архивите на блога"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:90
+msgid "Страници"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:94
+msgid "Архиви"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:102
+msgid "Категории"
+msgstr ""
+
+#: greenpark_2_beta_2/sidebar.php:118
+msgid "Мета"
+msgstr ""
+
+#: greenpark_2_beta_2/single.php:16
+msgid "Отговори"
+msgstr ""
+
+#: greenpark_2_beta_2/single.php:40
+msgid ", или"
+msgstr ""
+
