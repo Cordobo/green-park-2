@@ -1,7 +1,7 @@
 <?php
 // Language files loading
 function theme_init(){
-	load_theme_textdomain('default', get_template_directory() . '/languages');
+	load_theme_textdomain( 'default', TEMPLATEPATH . '/languages' );
 }
 add_action ('init', 'theme_init');
 

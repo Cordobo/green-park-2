@@ -56,21 +56,14 @@
 
 		<?php endwhile; ?>
 
-		<div class="pagination navigation clearfix">
-		  <?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
-  		  <div class="alignleft"><?php next_posts_link(__('&laquo; Older Entries', 'default')) ?></div>
-  			<div class="alignright"><?php previous_posts_link(__('Newer Entries &raquo;', 'default')) ?></div>
-		  <?php } ?>
-		</div>		
-
-		<?php /* Display navigation to next/previous pages when applicable */ ?>
-		<?php if ( $wp_query->max_num_pages > 1 ) : ?>
+                <?php // Display navigation to next/previous pages when applicable ?>
+                <?php if ( $wp_query->max_num_pages > 1 ) : ?>
                     <div class="pagination navigation clearfix">
                         <?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
                             <div class="nav-previous"><?php next_posts_link(__('&laquo; Older Entries', 'default')) ?></div>
                             <div class="nav-next"><?php previous_posts_link(__('Newer Entries &raquo;', 'default')) ?></div>
                         <?php } ?>
-                    </div><!-- #nav-above -->
+                    </div>
 		<?php endif; ?>
                         
 	<?php else : ?>

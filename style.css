@@ -352,7 +352,7 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
 #accessibility ul {
   position: absolute;
   top: 8px;
-  right: 28px;
+  right: 0;
 }
 
 #accessibility li,
@@ -370,13 +370,13 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
   width: 914px;
 }
 
-.menu ul.children { display: none; display: block; left: 0; position: absolute; top: 40px; }
+.menu ul.children { display: none; left: 0; position: absolute; top: 40px; }
 
 .menu .children ul.children { position: relative; top: 0; right: 100%;}
 
-.menu li ul.children { display: block; }
+.menu li:hover ul.children { display: block; }
 
-.menu li ul.children a { white-space:nowrap; }
+.menu li ul.children a { white-space: nowrap; }
 
 .menu li,
 .menu a { display: block; float: left; }

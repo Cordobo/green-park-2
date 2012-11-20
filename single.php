@@ -56,7 +56,6 @@
 				</div>
 
       <?php get_template_part( 'ads', 'middle' ); ?>
-      <?php get_template_part( 'content', 'missing' ); ?>
 
 		</div>
 

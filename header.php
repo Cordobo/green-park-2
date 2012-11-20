@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/ie6.css" type="text/css" />
 <![endif]-->
 
+<link rel="profile" href="http://gmpg.org/xfn/11" />
 <meta name="robots" content="index,follow" />
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
@@ -44,52 +45,88 @@ if (top.location != self.location) top.location = self.location;
 <body id="home" <?php body_class(); ?>>
 
 
-<div id="header" class="clearfix">
+<div id="accessibility">
+	<?php if (get_option('greenpark2_accessibility_disable') != 'yes')
+	{
+		echo('<ul>');
+			if (get_option('greenpark2_accessibility_home') != 'yes')
+			{
+				echo '<li><a href="';
+				echo home_url();
+				echo '" title="';
+				echo _e('Go to homepage', 'default');
+				echo '">';
+				echo _e('Home', 'default');
+				echo '</a></li>';
+			}
+			if (get_option('greenpark2_accessibility_content') != 'yes')
+			{
+				echo '<li><a href="#content" title="Skip to content">';
+				echo _e('Content', 'default');
+				echo '</a></li>';
+			}
+			if (get_option('greenpark2_accessibility_feed') != 'yes')
+			{
+				echo '<li><a href="';
+				if (get_option('greenpark2_feed_enable') == 'yes')
+					echo 'http://feeds.feedburner.com/' . get_option('greenpark2_feed_uri');
+				else
+					echo get_bloginfo('rss2_url');
+				echo '">RSS</a></li>';
+			}
+			if (get_option('greenpark2_accessibility_meta') != 'yes')
+				wp_meta();
+			if (get_option('greenpark2_accessibility_register') != 'yes')
+				wp_register();
+			if (get_option('greenpark2_accessibility_loginout') != 'yes')
+			{
+				echo '<li class="last-item">';
+				echo wp_loginout();
+				echo '</li>';
+			}
+		echo '</ul>';
+	}?>
+</div>
 
-	<ul id="accessibility">
-		<li><a href="<?php echo home_url(); ?>/" title="<?php _e('Go to homepage', 'default'); ?>"><?php _e('Home', 'default'); ?></a></li>
-		<li><a href="#content" title="Skip to content"><?php _e('Content', 'default'); ?></a></li>
-		<li><a href="<?php if (get_option('greenpark2_feed_enable') == 'yes') { echo 'http://feeds.feedburner.com/' . get_option('greenpark2_feed_uri'); } else { echo get_bloginfo('rss2_url'); }?>">RSS</a></li>
-		<?php wp_meta(); ?>
-		<?php wp_register(); ?>
-		<li class="last-item"><?php wp_loginout(); ?></li>
-	</ul>
 
-	<div id="branding">
-		<?php if ( is_home() ) { ?>
-      <h1 id="logo"><a href="<?php echo get_option('home'); ?>/" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h1>
-    <?php } else { ?>
-      <h4 id="logo"><a href="<?php echo get_option('home'); ?>/" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h4>
-    <?php } ?>
-		<div class="description">
-		  <?php bloginfo('description'); ?>
-    </div>
-	</div>
+<div id="header">
 	
-	<div id="nav" class="clearfix">
+	<div id="branding" role="banner">
+		<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
+		<<?php echo $heading_tag; ?> id="site-title" class="<?php if(get_option('greenpark2_logo_show')!= 'yes'){echo 'brand';}else{echo 'logo';}?>">
+			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+		</<?php echo $heading_tag; ?>>
+		<div id="site-description"><?php bloginfo( 'description' ); ?></div>
+
+		<?php
+			// Check if this is a post or page, if it has a thumbnail, and if it's a big one
+			if ( is_singular() &&
+					has_post_thumbnail( $post->ID ) &&
+					( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
+					$image[1] >= HEADER_IMAGE_WIDTH ) :
+				// Houston, we have a new header image!
+				echo get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
+			else : ?>
+				<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
+			<?php endif; ?>
+	</div><!-- #branding -->
+
+	<div id="access" role="navigation">
 		<div id="nav-search">
 			<?php get_search_form(); ?>
 		</div>
-		<ul id="menu">
-  		<li class="page-item-home <?php if ( is_home() ) { ?> current_page_item <?php } ?>"><a href="<?php echo get_option('home'); ?>/"><?php _e('Home', 'default'); ?></a></li>
-  		<?php greenpark_globalnav() ?>
-		</ul>
-    <div id="submenu-bg">    
-      <?php if ( !is_search() && !is_404() ) {
-    		if($post->post_parent)
-    		$children = wp_list_pages("title_li=&child_of=".$post->post_parent."&echo=0");
-    		else
-    		$children = wp_list_pages("title_li=&child_of=".$post->ID."&echo=0");
-    		if ($children) {
-    		  echo "<ul id=\"submenu\">";
-          echo $children;
-          echo "</ul>";
-  		  }
-      } ?>
-    </div>
-	</div>
 
-</div>
+		<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
+		<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
+
+	    <div id="nav_l"></div>
+	    <div id="nav_r"></div>
+
+  	    <div id="submenu-bg"></div>
+	</div><!-- #access -->
+
+
+</div> <!-- #header -->
 
 
 <div id="main" class="clearfix">
