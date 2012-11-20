@@ -93,8 +93,19 @@ if (top.location != self.location) top.location = self.location;
 	
 	<div id="branding" role="banner">
 		<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
-		<<?php echo $heading_tag; ?> id="site-title" class="<?php if(get_option('greenpark2_logo_show')!= 'yes'){echo 'brand';}else{echo 'logo';}?>">
-			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+		<<?php echo $heading_tag; ?> id="site-title" class="<?php if(get_option('greenpark2_logo_show')!= 'yes') { echo 'brand'; } else { echo 'logo'; } ?>">
+			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                        <?php if(get_option('greenpark2_logo_show')== 'yes') { ?>
+                            
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" alt="Cordobo Green Park 2 logo" title="Cordobo Green Park 2" width="87" height="19" />
+                            
+                        <?php } else { ?>
+                            
+                            <?php bloginfo( 'name' ); ?>
+                        
+                        <?php } ?>
+                        
+                        </a>
 		</<?php echo $heading_tag; ?>>
 		<div id="site-description"><?php bloginfo( 'description' ); ?></div>
 
