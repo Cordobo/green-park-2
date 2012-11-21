@@ -227,7 +227,8 @@ img.nav-next { display: inline; margin: 0 0 2px 7px; padding: 4px; }
 
 .wp-caption img { border: 0 none; margin: 0; padding: 0; }
 
-.wp-caption p.wp-caption-text {
+.wp-caption p.wp-caption-text,
+.gallery-caption {
    font-size: 11px;
    line-height: 17px;
    padding: 0 4px 5px;
@@ -524,6 +525,7 @@ ul#submenu { display: block; padding: 5px 21px 0; }
 .post, .nocomments { padding-bottom: 20px; }
 .post { margin-bottom: 30px; }
 .entry { margin: 15px 0 5px; font-size: 13px; line-height: 20px; }
+.sticky { /* @TODO */ }
 
 .meta {
   background-color: #F4F8F9;
@@ -724,6 +726,7 @@ li.thread-alt { }
 .commentlist .depth-1 { }
 .commentlist .odd { }
 .commentlist .even,
+.commentlist .bypostauthor,
 .commentlist .alt { }
 .comment-author cite {
   background-color: #F9FBFC;

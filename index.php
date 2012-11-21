@@ -3,21 +3,27 @@
 	<div id="container">
 		<div id="content">
       
-      <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'default'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-				<small class="meta">
-          <span class="alignleft">
-            <?php the_time(__('F jS, Y', 'default')) ?> <?php _e('by', 'default'); ?> <?php the_author() ?>
-            <?php edit_post_link(__( 'Edit this entry', 'default' ), ' | ', ''); ?>
-          </span>
-          <span class="alignright">
-            <a href="<?php comments_link(); ?>" class="button-style" rel="nofollow">
-              <?php comments_number( __( 'No comments', 'default' ), __( '1 comment', 'default' ), __( '% comments', 'default' )); ?> &#187;
-            </a>
-          </span>
-        </small>
+        <div <?php post_class() ?> id="post-<?php the_ID(); ?>">
+            <?php if ( is_sticky() ) : ?>
+                <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'default'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <?php else : ?>
+                <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'default'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <?php endif; ?>
+
+
+            <small class="meta">
+              <span class="alignleft">
+                <?php the_time(__('F jS, Y', 'default')) ?> <?php _e('by', 'default'); ?> <?php the_author() ?>
+                <?php edit_post_link(__( 'Edit this entry', 'default' ), ' | ', ''); ?>
+              </span>
+              <span class="alignright">
+                <a href="<?php comments_link(); ?>" class="button-style" rel="nofollow">
+                  <?php comments_number( __( 'No comments', 'default' ), __( '1 comment', 'default' ), __( '% comments', 'default' )); ?> &#187;
+                </a>
+              </span>
+            </small>
 
 				<div class="entry">
 					<?php the_content((__( '&raquo; Read more: ', 'default')) . the_title('', '', false)); ?>

@@ -20,6 +20,40 @@ function theme_init(){
 add_action ('init', 'theme_init');
 
 
+	// This theme styles the visual editor with editor-style.css to match the theme style.
+	add_editor_style();
+
+	// This theme uses post thumbnails
+	add_theme_support( 'post-thumbnails' );
+
+	// Add default posts and comments RSS feed links to head
+	add_theme_support( 'automatic-feed-links' );
+
+
+function greenpark2_widgets_init() {
+	register_sidebar( array(
+		'name' => __( 'Sidebar', 'greenpark2' ),
+		'id' => 'primary-widget-area',
+		'description' => __( 'The widget area in the right side', 'greenpark2' ),
+    'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    'after_widget' => '</li>',
+    'before_title' => '<div class="sb-title widgettitle">',
+    'after_title' => '</div>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Blog', 'greenpark2' ),
+		'id' => 'blog-widget-area',
+		'description' => __( 'The widget area in the right side of the blog', 'greenpark2' ),
+    'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    'after_widget' => '</li>',
+    'before_title' => '<div class="sb-title widgettitle">',
+    'after_title' => '</div>',
+	) );
+}
+add_action( 'widgets_init', 'greenpark2_widgets_init' );
+
+
+
 
 if ( function_exists('register_sidebar') ) {
   register_sidebar(array(
@@ -352,7 +386,11 @@ function greenpark2() {
 }
 
 function greenpark2_options() { // Adds to menu
-	add_menu_page('greenpark2 Settings', __('Green Park 2 Settings', 'default'), 'edit_themes', __FILE__, 'greenpark2');
+	// add_menu_page('greenpark2 Settings', __('Green Park 2 Settings', 'default'), 'edit_themes', __FILE__, 'greenpark2');
+        // add_theme_page('greenpark2 Settings', __('Green Park 2 Settings', 'default'), 'edit_themes', __FILE__, 'greenpark2');
+        add_theme_page(__('Green Park 2 Settings', 'default'), __('Green Park 2 Settings', 'default'), 'edit_theme_options', 'theme_options', 'greenpark2');
+        // add_theme_page('My Plugin Theme', 'My Plugin', 'read', 'my-unique-identifier', 'my_plugin_function');
+        // add_theme_page( $page_title, $menu_title, $capability, $menu_slug, $function);
 }
 
 
@@ -611,7 +649,7 @@ function widget_twitter_init() {
 				<select id="twitter-number" name="twitter-number" value="<?php echo $options['number']; ?>">
 	<?php for ( $i = 1; $i < 10; ++$i ) echo "<option value='$i' ".($options['number']==$i ? "selected='selected'" : '').">$i</option>"; ?>
 				</select>
-				<span class="submit"><input type="submit" name="twitter-number-submit" id="twitter-number-submit" value="<?php echo attribute_escape(__('Save')); ?>" /></span></p>
+				<span class="submit"><input type="submit" name="twitter-number-submit" id="twitter-number-submit" value="<?php echo esc_attr(__('Save')); ?>" /></span></p>
 			</form>
 		</div>
 	<?php
