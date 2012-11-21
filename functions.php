@@ -1,7 +1,17 @@
 <?php
+
+if ( ! isset( $content_width ) )
+	$content_width = 607;
+
+
 // Language files loading
 function theme_init(){
 	load_theme_textdomain( 'default', TEMPLATEPATH . '/languages' );
+	
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
+		'primary' => __( 'Primary Navigation', 'default' ),
+	) );
 }
 add_action ('init', 'theme_init');
 
