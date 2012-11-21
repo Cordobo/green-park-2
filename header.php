@@ -7,9 +7,6 @@
 <title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>" />
-<!--[if IE 6]>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/ie6.css" type="text/css" />
-<![endif]-->
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <meta name="robots" content="index,follow" />

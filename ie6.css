@@ -1,3 +1,15 @@
+/*
+
+IE6 is no longer officially supported although you can include this snippet in header.php
+
+<!--[if IE 6]>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/ie6.css" type="text/css" />
+<![endif]-->
+
+
+*/
+
+
 /* body bg */
 body { background: url(img/bg-body-ie6.png) 50% 85px no-repeat; }
 
