@@ -6,12 +6,16 @@ if ( ! isset( $content_width ) )
 
 // Language files loading
 function theme_init(){
-	load_theme_textdomain( 'default', TEMPLATEPATH . '/languages' );
+	load_theme_textdomain( 'default', get_template_directory() . '/languages' );
 	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Navigation', 'default' ),
+            'primary' => __( 'Primary Navigation', 'default' ),
+            'accessibility_menu' => __( 'Accessibility Menu', 'default' ),
+            'sidebar_menu' => __( 'Sidebar Menu', 'default' ),
+            'footer_menu' => __( 'Footer Menu', 'default' )
 	) );
+
 }
 add_action ('init', 'theme_init');
 
