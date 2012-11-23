@@ -4,51 +4,53 @@ if ( ! isset( $content_width ) )
 	$content_width = 607;
 
 
+
 // Language files loading
 function theme_init(){
-	load_theme_textdomain( 'default', get_template_directory() . '/languages' );
-	
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-            'primary' => __( 'Primary Navigation', 'default' ),
-            'accessibility_menu' => __( 'Accessibility Menu', 'default' ),
-            'sidebar_menu' => __( 'Sidebar Menu', 'default' ),
-            'footer_menu' => __( 'Footer Menu', 'default' )
-	) );
 
+    load_theme_textdomain( 'default', get_template_directory() . '/languages' );
+
+    // This theme uses wp_nav_menu() in four locations.
+    register_nav_menus( array(
+        'primary' => __( 'Primary Navigation', 'default' ),
+        'accessibility_menu' => __( 'Accessibility Menu', 'default' ),
+        'sidebar_menu' => __( 'Sidebar Menu', 'default' ),
+        'footer_menu' => __( 'Footer Menu', 'default' )
+    ) );
 }
 add_action ('init', 'theme_init');
 
 
-	// This theme styles the visual editor with editor-style.css to match the theme style.
-	add_editor_style();
 
-	// This theme uses post thumbnails
-	add_theme_support( 'post-thumbnails' );
+// This theme styles the visual editor with editor-style.css to match the theme style.
+add_editor_style();
 
-	// Add default posts and comments RSS feed links to head
-	add_theme_support( 'automatic-feed-links' );
+// This theme uses post thumbnails
+add_theme_support( 'post-thumbnails' );
+
+// Add default posts and comments RSS feed links to head
+add_theme_support( 'automatic-feed-links' );
 
 
 function greenpark2_widgets_init() {
-	register_sidebar( array(
-		'name' => __( 'Sidebar', 'greenpark2' ),
-		'id' => 'primary-widget-area',
-		'description' => __( 'The widget area in the right side', 'greenpark2' ),
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget' => '</li>',
-    'before_title' => '<div class="sb-title widgettitle">',
-    'after_title' => '</div>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Blog', 'greenpark2' ),
-		'id' => 'blog-widget-area',
-		'description' => __( 'The widget area in the right side of the blog', 'greenpark2' ),
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget' => '</li>',
-    'before_title' => '<div class="sb-title widgettitle">',
-    'after_title' => '</div>',
-	) );
+    register_sidebar( array(
+        'name' => __( 'Sidebar', 'greenpark2' ),
+        'id' => 'primary-widget-area',
+        'description' => __( 'The widget area in the right side', 'greenpark2' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget' => '</li>',
+        'before_title' => '<div class="sb-title widgettitle">',
+        'after_title' => '</div>',
+    ) );
+    register_sidebar( array(
+        'name' => __( 'Blog', 'greenpark2' ),
+        'id' => 'blog-widget-area',
+        'description' => __( 'The widget area in the right side of the blog', 'greenpark2' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget' => '</li>',
+        'before_title' => '<div class="sb-title widgettitle">',
+        'after_title' => '</div>',
+    ) );
 }
 add_action( 'widgets_init', 'greenpark2_widgets_init' );
 
@@ -87,15 +89,6 @@ if ( function_exists('register_sidebar') ) {
 }
 
 
-
-// Generates the menu
-function greenpark_globalnav() {
-	if ( $menu = str_replace( array( "\r", "\n", "\t" ), '', wp_list_pages('title_li=&echo=0&depth=1') ) )
-	echo apply_filters( 'globalnav_menu', $menu );
-}
-
-
-
 // http://sivel.net/2008/10/wp-27-comment-separation/
 function list_pings($comment, $args, $depth) {
   $GLOBALS['comment'] = $comment;
@@ -107,62 +100,146 @@ function list_pings($comment, $args, $depth) {
 
 
 // Note: Custom Admin Panel Functions
+add_action('admin_menu', 'greenpark2_options', 'wp_head', 'greenpark2_feed', 'greenpark2_twitter');
 
-add_action('admin_menu', 'greenpark2_options');
-add_action('wp_head', 'greenpark2_feed', 'greenpark2_twitter');
+
+/**
+ * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
+ */
+function greenpark2_page_menu_args( $args ) {
+    $args['show_home'] = true;
+    return $args;
+}
+add_filter( 'wp_page_menu_args', 'greenpark2_page_menu_args' );
+
 
 
 function greenpark2_feed() {
-	$enable = get_option('greenpark2_feed_enable');
+    $enable = get_option('greenpark2_feed_enable');
 }
 
+
 function greenpark2_twitter() {
-	$enable = get_option('greenpark2_twitter_enable');
+    $enable = get_option('greenpark2_twitter_enable');
 }
 
 
 function greenpark2() {
-	
-	if(isset($_POST['submitted']) and $_POST['submitted'] == 'yes') :
-		update_option("greenpark2_sidebar_about_title", stripslashes($_POST['sidebar_about_title']));
-		update_option("greenpark2_sidebar_about_content", stripslashes($_POST['sidebar_about_content']));
-		update_option("greenpark2_feed_uri", stripslashes($_POST['feed_uri']));
-		update_option("greenpark2_twitter_uri", stripslashes($_POST['twitter_uri']));
-		update_option("greenpark2_about_site", stripslashes($_POST['about_site']));
-		update_option("google_analytics", stripslashes($_POST['google_analytics']));
-		update_option("google_adsense_bottom", stripslashes($_POST['google_adsense_bottom']));
-		update_option("google_adsense_sidebar", stripslashes($_POST['google_adsense_sidebar']));
 
-		if(isset($_POST['twitter_enable']) and $_POST['twitter_enable'] == 'yes') :
-			update_option("greenpark2_twitter_enable", "yes");
-		else :
-			update_option("greenpark2_twitter_enable", "no");
-		endif;
-		
+    if(isset($_POST['submitted']) and $_POST['submitted'] == 'yes') :
+        update_option("greenpark2_sidebar_about_title", stripslashes($_POST['sidebar_about_title']));
+        update_option("greenpark2_sidebar_about_content", stripslashes($_POST['sidebar_about_content']));
+        update_option("greenpark2_sidebar_disablesidebar", stripslashes($_POST['sidebar_disablesidebar']));
+        update_option("greenpark2_feed_uri", stripslashes($_POST['feed_uri']));
+        update_option("greenpark2_twitter_uri", stripslashes($_POST['twitter_uri']));
+        update_option("greenpark2_about_site", stripslashes($_POST['about_site']));
+        update_option("google_analytics", stripslashes($_POST['google_analytics']));
+        update_option("google_adsense_bottom", stripslashes($_POST['google_adsense_bottom']));
+        update_option("google_adsense_sidebar", stripslashes($_POST['google_adsense_sidebar']));
+
+    if(isset($_POST['logo_show']) and $_POST['logo_show'] == 'yes') :
+        update_option("greenpark2_logo_show", "yes");
+    else :
+        update_option("greenpark2_logo_show", "no");
+    endif;
+
+
+    if(isset($_POST['twitter_enable']) and $_POST['twitter_enable'] == 'yes') :
+        update_option("greenpark2_twitter_enable", "yes");
+    else :
+        update_option("greenpark2_twitter_enable", "no");
+    endif;
+
+
 		if(isset($_POST['feed_enable']) and $_POST['feed_enable'] == 'yes') :
 			update_option("greenpark2_feed_enable", "yes");
 		else :
 			update_option("greenpark2_feed_enable", "no");
 		endif;
-		
+
+
 		if(isset($_POST['sidebar_about_title']) and $_POST['sidebar_about_title'] == '') {
-			update_option("greenpark2_sidebar_about_title", "About");
+                    update_option("greenpark2_sidebar_about_title", "About");
 		}
-		
+
+
 		if(isset($_POST['sidebar_about_content']) and $_POST['sidebar_about_content'] == '') {
 			update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
 		}
+
+                
+	if(get_option('greenpark2_sidebar_about_title') == '') {
+            update_option("greenpark2_sidebar_about_title", "About");
+	}
+	
+	if(get_option('greenpark2_sidebar_about_content') == '') {
+            update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
+	}
+
+
+                if(isset($_POST['sidebar_disablesidebar']) and $_POST['sidebar_disablesidebar'] == 'yes') :
+                    update_option("greenpark2_sidebar_disablesidebar", "yes");
+                else :
+                    update_option("greenpark2_sidebar_disablesidebar", "no");
+                endif;
+                
+
+                if(isset($_POST['accessibility_disable']) and $_POST['accessibility_disable'] == 'yes') :
+                        update_option("greenpark2_accessibility_disable", "yes");
+                else :
+                      	update_option("greenpark2_accessibility_disable", "no");
+                endif;
+
+
+                if(isset($_POST['accessibility_home']) and $_POST['accessibility_home'] == 'yes') :
+                        update_option("greenpark2_accessibility_home", "yes");
+                else :
+                      	update_option("greenpark2_accessibility_home", "no");
+                endif;
+
+                if(isset($_POST['accessibility_content']) and $_POST['accessibility_content'] == 'yes') :
+                        update_option("greenpark2_accessibility_content", "yes");
+                else :
+                      	update_option("greenpark2_accessibility_content", "no");
+                endif;
+
+                if(isset($_POST['accessibility_feed']) and $_POST['accessibility_feed'] == 'yes') :
+                        update_option("greenpark2_accessibility_feed", "yes");
+                else :
+                      	update_option("greenpark2_accessibility_feed", "no");
+                endif;
+
+                if(isset($_POST['accessibility_meta']) and $_POST['accessibility_meta'] == 'yes') :
+                        update_option("greenpark2_accessibility_meta", "yes");
+                else :
+                      	update_option("greenpark2_accessibility_meta", "no");
+                endif;
+
+                if(isset($_POST['accessibility_register']) and $_POST['accessibility_register'] == 'yes') :
+                        update_option("greenpark2_accessibility_register", "yes");
+                else :
+                      	update_option("greenpark2_accessibility_register", "no");
+                endif;
+
+                if(isset($_POST['accessibility_loginout']) and $_POST['accessibility_loginout'] == 'yes') :
+                        update_option("greenpark2_accessibility_loginout", "yes");
+                else :
+                      	update_option("greenpark2_accessibility_loginout", "no");
+                endif;
+
+
+
+                if(isset($_POST['comments_page_disable']) and $_POST['comments_page_disable'] == 'yes') :
+                        update_option("greenpark2_comments_page_disable", "yes");
+                else :
+                        update_option("greenpark2_comments_page_disable", "no");
+                endif;
+
 		
 		echo "<div id=\"message\" class=\"updated fade\"><p><strong>Your settings have been saved.</strong></p></div>";
 	endif; 
 	
-	if(get_option('greenpark2_sidebar_about_title') == '') {
-		update_option("greenpark2_sidebar_about_title", "About");
-	}
-	
-	if(get_option('greenpark2_sidebar_about_content') == '') {
-		update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
-	}
+
 	
 	$data = array(
 		'twitter' => array(
@@ -175,11 +252,28 @@ function greenpark2() {
 		),
 		'sidebar' => array(
 			'about_title' => get_option('greenpark2_sidebar_about_title'),
-			'about_content' => get_option('greenpark2_sidebar_about_content')
+			'about_content' => get_option('greenpark2_sidebar_about_content'),
+                        'disablesidebar' => get_option('greenpark2_sidebar_disablesidebar')
 		),
+		'logo' => array(
+			'show' => get_option('greenpark2_logo_show')
+		),
+                'accessibility' => array(
+                        'disable' => get_option('greenpark2_accessibility_disable'),
+                        'home' => get_option('greenpark2_accessibility_home'),
+                        'content' => get_option('greenpark2_accessibility_content'),
+                        'feed' => get_option('greenpark2_accessibility_feed'),
+                        'meta' => get_option('greenpark2_accessibility_meta'),
+                        'register' => get_option('greenpark2_accessibility_register'),
+                        'loginout' => get_option('greenpark2_accessibility_loginout')
+                ),
 		'aside' => get_option('greenpark2_aside_cat'),
+		'comments' => array(
+			'page_disable' => get_option('greenpark2_comments_page_disable')
+		),
 		'about' => get_option('greenpark2_about_site')
 	);
+
 ?>
 
 <!-- Cordobo Green Park 2 settings -->
@@ -190,9 +284,62 @@ function greenpark2() {
 	<div style="margin-right: 200px;">
 	<form method="post" name="update_form" target="_self">
 
+    <h3 id="greenpark2_sidebar">General Settings</h3>
 
-    <h3 id="greenpark2_sidebar">Sidebar</h3>
-		<p>Sidebar Box (About Box) &nbsp; <a href="#greenpark2_sidebar_doc">( ? )</a></p>
+		<table class="form-table">
+			<tr>
+				<th>
+					Sidebar:
+				</th>
+				<td>
+					<input type="checkbox" name="sidebar_disablesidebar" <?php echo ($data['sidebar']['disablesidebar'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to disable the sidebar
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Comments:
+				</th>
+				<td>
+					<input type="checkbox" name="comments_page_disable" <?php echo ($data['comments']['page_disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the comments area on pages
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Logo:
+				</th>
+				<td>
+					<input type="checkbox" name="logo_show" <?php echo ($data['logo']['show'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to show the logo in <strong>img/logo.png</strong> instead of the brand
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Accessibility:
+				</th>
+				<td>
+				    <input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide all accessibility links in the top right corner (this will override all the following function of this section)<br />
+					<input type="checkbox" name="accessibility_home" <?php echo ($data['accessibility']['home'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Home link<br />
+					<input type="checkbox" name="accessibility_content" <?php echo ($data['accessibility']['content'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Content link<br />
+					<input type="checkbox" name="accessibility_feed" <?php echo ($data['accessibility']['feed'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Feed link<br />
+					<input type="checkbox" name="accessibility_meta" <?php echo ($data['accessibility']['meta'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Meta link<br />
+					<input type="checkbox" name="accessibility_register" <?php echo ($data['accessibility']['register'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Register link<br />
+					<input type="checkbox" name="accessibility_loginout" <?php echo ($data['accessibility']['loginout'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Login/Logout link
+				</td>
+			</tr>
+		</table>
+		<br />
+
+
+    <h3 id="greenpark2_sidebar">Sidebar Box (About Box)</h3>
 		<table class="form-table">
 			<tr>
 				<th>
@@ -208,13 +355,13 @@ function greenpark2() {
 				</th>
 				<td>
 					<textarea name="sidebar_about_content" rows="10" style="width: 95%;"><?php echo $data['sidebar']['about_content']; ?></textarea>
+					<br/>The &quot;Sidebar Box&quot; can be used for pretty anything. Personally, I use it as an &quot;About section&quot; to tell my readers a little bit about myself, but generally it's completely up to you: put your google adsense code in it, describe your website, add your photo etc.
 				</td>
 			</tr>
 		</table>
 		<br />
 
     <h3 id="greenpark2_twitter">Twitter</h3>
-		<p>Twitter information</p>
 		<table class="form-table">
 			<tr>
 				<th>
@@ -230,7 +377,6 @@ function greenpark2() {
 
 
     <h3 id="greenpark2_feedburner">Feedburner</h3>
-		<p>Feedburner information</p>
 		<table class="form-table">
 			<tr>
 				<th>
@@ -246,7 +392,6 @@ function greenpark2() {
 		
 
     <h3 id="greenpark2_admanager">Ad Manager</h3>
-		<p>Code for Google Adsense.</p>
 		<table class="form-table">
 			<tr>
 				<th>
@@ -264,7 +409,6 @@ function greenpark2() {
 		
 
     <h3 id="greenpark2_analytics">Analytics</h3>
-		<p>Google Analytics code</p>
 		<table class="form-table">
 			<tr>
 				<th>
@@ -288,46 +432,15 @@ function greenpark2() {
 	
 	<h3 id="greenpark2_about_doc">About your new theme</h3>
 	<p>Thank you for using the Green Park 2 theme, a free premium wordpress theme by German webdesigner <a href="http://cordobo.com/about/">Andreas Jacob</a>.</p>
-  <p>Cordobo Green Park 2 is a <strong>simple &amp; elegant light-weight</strong> theme for Wordpress with a <strong>clean typography</strong>, built with <strong>seo and page-rendering optimizations</strong> in mind. Green Park 2 has been rebuild from scratch and supports Wordpress 2.7 and up. The theme is released as &quot;BETA&quot;, to let you know I’m still adding features and improvements.</p>
-	<p>If you need any support or want some tips, please visit <a href="http://cordobo.com/green-park-2/">Cordobo Green Park 2 project page</a></p>
+    	<p>If you need any support or want some tips, please visit <a href="http://cordobo.com/">Cordobo Green Park 2 project page</a></p>
 	
 
 	<h3 id="greenpark2_logo_doc">Logo Setup</h3>
 	<p>
-  You can easily replace the "text logo" with your image.
-  Open the file "styles.css" in the themes folder
   <ul>
-  <li>Find the text<br />
-    <code>Start EXAMPLE CODE for an image logo</code> (line 224)</li>
-  
-  <li>Delete <code>/*</code> before<br />
-    <code>#logo,</code> (line 225)</li>
-  
-  <li>Delete <code>*/</code> (line 230) after<br />
-    <code>.description</code> (line 229)</li>
-  
-  <li>Find <code>logo.png</code> (line 228) and replace it with the name of your logo.</li>
-  
-  <li>Change the height and width to fit your logo (line 226)<br />
-    <code>#logo, #logo a { display: block; height: 19px; width: 87px; }</code></li>
-  
-  <li>Find the text<br />
-    <code>Start EXAMPLE CODE for a text logo</code> (line 234)</li>
-  
-  <li>Add <code>/*</code> before<br />
-    <code>#branding</code> (line 235)</li>
-  
-  <li>Add <code>*/</code> (line 239) after<br />
-    <code>#logo, .description { color: #868F98; float: left; margin: 17px 0 0 10px; }</code> (line 238)</li>
-  
-  <li>Save your changes and upload the file style.css to your themes folder.</li>
+ 	    <li>Check the checkbox on this page (Logo section)</li>
+ 	    <li>Replace img/logo.png within the themes directory with your logo</li>
   </ul>
-	</p>
-	
-
-	<h3 id="greenpark2_sidebar_doc">Sidebar</h3>
-	<p>
-	The &quot;Sidebar Box&quot; can be used for pretty anything. Personally, I use it as an &quot;About section&quot; to tell my readers a little bit about myself, but generally it's completely up to you: put your google adsense code in it, describe your website, add your photo&hellip;
 	</p>
 	
 
@@ -337,12 +450,14 @@ function greenpark2() {
 	</p>
 	<p>
 	<ul>
-		<li><a href="http://cordobo.com/1119-provide-visual-feedback-css/">Provide visual feedback using CSS</a> &mdash; an introduction to the themes usage of CSS3</li>
+		<li><a href="http://cordobo.com/1119-provide-visual-feedback-css/">Provide visual feedback using CSS</a> &mdash; An introduction to the themes usage of CSS3</li>
+		<li><a href="http://cordobo.com/1381-green-park-2-beta-5-pre/">Green Park 2 for translators</a> &mdash; Help translating Green Park 2 into your language</li>
+		
 	</ul>
 	</p>
 	
 
-	<h3 id="greenpark2_licence_doc">Licence</h3>
+	<h3 id="greenpark2_license_doc">Licence</h3>
 	<p>
 	Released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl.html">GPL License</a> (<a target="_blank" href="http://en.wikipedia.org/wiki/GNU_General_Public_License">What is the GPL</a>?)
   </p>
@@ -353,11 +468,9 @@ function greenpark2() {
 	</div>
 	</div>
 	
-			<div style="position: fixed; right: 20px; width: 170px; background:#F1F1F1; float: right; border: 1px solid #E3E3E3; -moz-border-radius: 6px; padding: 0 10px 10px;">
-		<h3 id="bordertitle">Navigation</h3>
-		
-		<h4>Settings</h4>
-		<ul style="list-style-type: none; padding-left: 10px;">
+			<div style="position: fixed; right: 15px; width: 175px; background:#F1F1F1; float: right; border: 1px solid #E3E3E3; -moz-border-radius: 6px; padding: 0 10px 10px;">
+		<h4 style="margin-bottom: 8px;">Settings</h4>
+		<ul style="list-style-type: none; padding-left: 10px; font-size: 11px; line-height: 13px;">
 			<li><a href="#greenpark2_sidebar">Sidebar (About Box)</a></li>
 			<li><a href="#greenpark2_twitter">Twitter</a></li>
 			<li><a href="#greenpark2_feedburner">FeedBurner</a></li>
@@ -365,11 +478,10 @@ function greenpark2() {
 			<li><a href="#greenpark2_analytics">Analytics</a></li>
 		</ul>
 		
-		<h4>Documentation</h4>
-		<ul style="list-style-type: none; padding-left: 10px;">
+		<h4 style="margin-bottom: 8px;">Documentation</h4>
+		<ul style="list-style-type: none; padding-left: 10px; font-size: 11px; line-height: 13px;">
 			<li><a href="#greenpark2_about_doc">About this Theme</a></li>
 			<li><a href="#greenpark2_logo_doc">Logo setup</a></li>
-			<li><a href="#greenpark2_sidebar_doc">Sidebar</a></li>
 			<li><a href="#greenpark2_tutorials_doc">Tutorials</a></li>
 			<li><a href="#greenpark2_license_doc">License</a></li>
 		</ul>
@@ -377,13 +489,21 @@ function greenpark2() {
 		<br/>
 		<small>&uarr; <a href="#wpwrap">Top</a> | <a href="#jump_submit">Goto &quot;Save&quot;</a></small>
 		
+		<br/><br/>
+		Like it? Buy me a coffee ;-)
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_s-xclick" />
+      <input type="hidden" name="hosted_button_id" value="5976565" />
+      <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+      <img alt="" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" />
+    </form>
+		
 	</div>
 
 	<div class="clear"></div>
 	
 </div>
-<?php
-}
+<?php }
 
 function greenpark2_options() { // Adds to menu
 	// add_menu_page('greenpark2 Settings', __('Green Park 2 Settings', 'default'), 'edit_themes', __FILE__, 'greenpark2');
@@ -394,44 +514,12 @@ function greenpark2_options() { // Adds to menu
 }
 
 
-/*
-   Please leave the credits. Thanks!
- */
-function greenpark2_footer() { ?>
-
-<?php }
-
-  add_action('wp_footer', 'greenpark2_footer');
-
-
 
 /*
-Plugin Name: Twitter for Wordpress
-Version: 1.9.7
-Plugin URI: http://rick.jinlabs.com/code/twitter
-Description: Displays your public Twitter messages for all to read. Based on <a href="http://cavemonkey50.com/code/pownce/">Pownce for Wordpress</a> by <a href="http://cavemonkey50.com/">Cavemonkey50</a>.
-Author: Ricardo Gonz&aacute;lez
-Author URI: http://rick.jinlabs.com/
+Twitter for Wordpress
+Based on work by Ricardo Gonzalez http://rick.jinlabs.com/code/twitter
+Released under the GPL
 */
-
-/*  Copyright 2007  Ricardo González Castro (rick[in]jinlabs.com)
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
-
-
 
 define('MAGPIE_CACHE_ON', 1); //2.7 Cache Bug
 define('MAGPIE_CACHE_AGE', 180);
@@ -497,11 +585,11 @@ function twitter_messages($username = '', $num = 1, $list = false, $update = tru
           $time = strtotime($message['pubdate']);
           
           if ( ( abs( time() - $time) ) < 86400 )
-            $h_time = sprintf( __('%s ago'), human_time_diff( $time ) );
+            $h_time = sprintf( __('%s ago', 'default'), human_time_diff( $time ) );
           else
-            $h_time = date(__('Y/m/d'), $time);
+            $h_time = date(__('Y/m/d', 'default'), $time);
 
-          echo sprintf( __('%s', 'twitter-for-wordpress'),' <span class="twitter-timestamp"><abbr title="' . date(__('Y/m/d H:i:s'), $time) . '">' . $h_time . '</abbr></span>' );
+          echo sprintf( __('%s', 'twitter-for-wordpress'),' <span class="twitter-timestamp"><abbr title="' . date(__('Y/m/d H:i:s', 'default'), $time) . '">' . $h_time . '</abbr></span>' );
          }          
                   
 					if ($list) echo '</li>'; elseif ($num != 1) echo '</p>';
@@ -644,12 +732,12 @@ function widget_twitter_init() {
 	?>
 		<div class="wrap">
 			<form method="POST">
-				<h2><?php _e('Twitter Widgets'); ?></h2>
-				<p style="line-height: 30px;"><?php _e('How many Twitter widgets would you like?'); ?>
+				<h2><?php _e('Twitter Widgets', 'default'); ?></h2>
+				<p style="line-height: 30px;"><?php _e('How many Twitter widgets would you like?', 'default'); ?>
 				<select id="twitter-number" name="twitter-number" value="<?php echo $options['number']; ?>">
 	<?php for ( $i = 1; $i < 10; ++$i ) echo "<option value='$i' ".($options['number']==$i ? "selected='selected'" : '').">$i</option>"; ?>
 				</select>
-				<span class="submit"><input type="submit" name="twitter-number-submit" id="twitter-number-submit" value="<?php echo esc_attr(__('Save')); ?>" /></span></p>
+				<span class="submit"><input type="submit" name="twitter-number-submit" id="twitter-number-submit" value="<?php echo esc_attr(__('Save', 'default')); ?>" /></span></p>
 			</form>
 		</div>
 	<?php
@@ -663,7 +751,7 @@ function widget_twitter_init() {
 		$class = array('classname' => 'widget_twitter');
 
 		for ($i = 1; $i <= 9; $i++) {
-			$name = sprintf(__('Twitter #%d'), $i);
+			$name = sprintf(__('Twitter #%d', 'default'), $i);
 			$id = "twitter-$i"; // Never never never translate an id
 			wp_register_sidebar_widget($id, $name, $i <= $options['number'] ? 'widget_twitter' : /* unregister */ '', $class, $i);
 			wp_register_widget_control($id, $name, $i <= $options['number'] ? 'widget_twitter_control' : /* unregister */ '', $dims, $i);
@@ -678,5 +766,6 @@ function widget_twitter_init() {
 
 // Run our code later in case this loads prior to any required plugins.
 add_action('widgets_init', 'widget_twitter_init');
+
 
 ?>

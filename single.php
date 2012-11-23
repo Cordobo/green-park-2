@@ -8,12 +8,12 @@
 		<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<h1><?php the_title(); ?></h1>
 			<small class="meta">
-  			<span class="alignleft">
-          <?php the_time(__('F jS, Y', 'default')) ?> <?php _e('by', 'default'); ?> <?php the_author() ?>
-          <?php edit_post_link(__( 'Edit this entry', 'default' ), ' | ', ''); ?> <?php if(function_exists('wp_print')) { print_link(); } ?>
-  			</span>
-  			<span class="alignright">
-          <a href="#comments" class="button-style" rel="nofollow"><?php _e('Leave a reply', 'default'); ?> &raquo;</a>
+  	<span class="alignleft">
+            <?php the_time(__('F jS, Y', 'default')) ?> <?php _e('by', 'default'); ?> <?php the_author() ?>
+            <?php edit_post_link(__( 'Edit this entry', 'default' ), ' | ', ''); ?> <?php if(function_exists('wp_print')) { print_link(); } ?>
+        </span>
+        <span class="alignright">
+            <a href="#comments" class="button-style" rel="nofollow"><?php _e('Leave a reply', 'default'); ?> &raquo;</a>
         </span>
       </small>
 

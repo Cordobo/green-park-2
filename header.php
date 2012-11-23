@@ -41,7 +41,6 @@ if (top.location != self.location) top.location = self.location;
 
 <body id="home" <?php body_class(); ?>>
 
-
 <div id="accessibility">
 	<?php if (get_option('greenpark2_accessibility_disable') != 'yes')
 	{
@@ -88,23 +87,18 @@ if (top.location != self.location) top.location = self.location;
 
 <div id="header">
 	
-	<div id="branding" role="banner">
-		<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
-		<<?php echo $heading_tag; ?> id="site-title" class="<?php if(get_option('greenpark2_logo_show')!= 'yes') { echo 'brand'; } else { echo 'logo'; } ?>">
-			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-                        <?php if(get_option('greenpark2_logo_show')== 'yes') { ?>
-                            
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" alt="Cordobo Green Park 2 logo" title="Cordobo Green Park 2" width="87" height="19" />
-                            
-                        <?php } else { ?>
-                            
-                            <?php bloginfo( 'name' ); ?>
-                        
-                        <?php } ?>
-                        
-                        </a>
-		</<?php echo $heading_tag; ?>>
-		<div id="site-description"><?php bloginfo( 'description' ); ?></div>
+    <div id="branding" role="banner">
+        <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
+        <<?php echo $heading_tag; ?> id="site-title" class="<?php if(get_option('greenpark2_logo_show')!= 'yes') { echo 'brand'; } else { echo 'logo'; } ?>">
+        <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+        <?php if(get_option('greenpark2_logo_show')== 'yes') { ?>
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" alt="Cordobo Green Park 2 logo" title="Cordobo Green Park 2" width="87" height="19" />
+        <?php } else { ?>
+            <?php bloginfo( 'name' ); ?>
+        <?php } ?>
+        </a>
+        </<?php echo $heading_tag; ?>>
+        <div id="site-description"><?php bloginfo( 'description' ); ?></div>
 
 		<?php
 			// Check if this is a post or page, if it has a thumbnail, and if it's a big one
@@ -124,13 +118,12 @@ if (top.location != self.location) top.location = self.location;
 			<?php get_search_form(); ?>
 		</div>
 
-		<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-		<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
+<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
+<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
 
 	    <div id="nav_l"></div>
 	    <div id="nav_r"></div>
 
-  	    <div id="submenu-bg"></div>
 	</div><!-- #access -->
 
 
