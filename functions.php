@@ -166,7 +166,7 @@ function greenpark2() {
 
 
 		if(isset($_POST['sidebar_about_content']) and $_POST['sidebar_about_content'] == '') {
-			update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
+                    update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
 		}
 
                 
@@ -279,90 +279,169 @@ function greenpark2() {
 ?>
 
 <!-- Cordobo Green Park 2 settings -->
+
+
+<style>
+
+div.settings-liquid-left {
+    clear: left;
+    float: left;
+    margin-right: -325px;
+    width: 100%;
+}
+
+div.settings-liquid-right {
+    clear: right;
+    float: right;
+    width: 300px;
+}
+
+div.settings-left {
+    margin-left: 5px;
+    margin-right: 325px;
+}
+
+div.settings-right {
+    margin: 0 auto;
+    width: 285px;
+}
+
+
+p.description {
+    margin: 1em 10px 12px;
+}
+
+.widget-holder {
+    background-color: #FCFCFC;
+    border-color: #DFDFDF;
+    padding: 7px 5px 0;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+}
+
+.form-table th,
+.form-table td {
+    padding: 0 10px 10px;
+}
+
+ul.children {
+    margin: 0 0 0 18px;
+}
+
+ul.children li {
+    margin: 0 0 2px;
+}
+
+    
+</style>
+
+
 <div class="wrap">	
     <h2>Cordobo Green Park 2 Settings</h2>
 
-<div class="settings_container" style="width: 100%; margin-right: -200px; float: left;">
-    <div style="margin-right: 200px;">
+<div class="settings-liquid-left" id="settings_container">
+    <div class="settings-left">
     <form method="post" name="update_form" target="_self">
 
-    <h3 id="greenpark2_sidebar">General Settings</h3>
+<div class="widgets-holder-wrap">
+    <div class="sidebar-name">
+        <h3 id="greenpark2_sidebar">General Settings</h3>
+    </div>
 
-		<table class="form-table">
-			<tr>
-				<th>Sidebar:</th>
-				<td>
-					<label><input type="checkbox" name="sidebar_disablesidebar" <?php echo ($data['sidebar']['disablesidebar'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to disable the sidebar</label>
-				</td>
-			</tr>
-			<tr>
-				<th>Comments:</th>
-				<td>
-					<label><input type="checkbox" name="comments_page_disable" <?php echo ($data['comments']['page_disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the comments area on pages</label>
-				</td>
-			</tr>
-			<tr>
-				<th>Logo:</th>
-				<td>
-					<label><input type="checkbox" name="logo_show" <?php echo ($data['logo']['show'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to show the logo in <strong>img/logo.png</strong> instead of the brand</label>
-				</td>
-			</tr>
-			<tr>
-				<th>Accessibility:</th>
-				<td>
-                                    <label><input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                        Check to hide all accessibility links in the top right corner (this will override all the following function of this section)</label>
-					<p><label><input type="checkbox" name="accessibility_home" <?php echo ($data['accessibility']['home'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Home link</label><br/>
-					<label><input type="checkbox" name="accessibility_content" <?php echo ($data['accessibility']['content'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                        Check to hide the Content link</label><br/>
-					<label><input type="checkbox" name="accessibility_feed" <?php echo ($data['accessibility']['feed'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Feed link</label><br />
-					<label><input type="checkbox" name="accessibility_meta" <?php echo ($data['accessibility']['meta'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Meta link</label><br />
-					<label><input type="checkbox" name="accessibility_register" <?php echo ($data['accessibility']['register'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Register link</label><br />
-					<label><input type="checkbox" name="accessibility_loginout" <?php echo ($data['accessibility']['loginout'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Login/Logout link</label></p>
-				</td>
-			</tr>
-		</table>
-		<br />
+    <div class="widget-holder">
+        <p class="description">General settings for Green Park 2</p>
+        
+        <table class="form-table">
+            <tr>
+                <th>Sidebar:</th>
+                <td>
+                    <label><input type="checkbox" name="sidebar_disablesidebar" <?php echo ($data['sidebar']['disablesidebar'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                    Check to disable the sidebar</label>
+                </td>
+            </tr>
+            <tr>
+                <th>Comments:</th>
+                <td>
+                    <label><input type="checkbox" name="comments_page_disable" <?php echo ($data['comments']['page_disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                    Check to hide the comments area on pages</label>
+                </td>
+            </tr>
+            <tr>
+                <th>Logo:</th>
+                <td>
+                    <label><input type="checkbox" name="logo_show" <?php echo ($data['logo']['show'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                    Check to show the logo in <strong>img/logo.png</strong> instead of the brand</label>
+                </td>
+            </tr>
+            <tr>
+                <th>Accessibility:</th>
+                <td>
+                    <ul>
+                        <li><label><input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                        Check to hide all accessibility links in the top right corner (this will override all the following function of this section)</label>
+                        <ul class="children">
+                            <li><label><input type="checkbox" name="accessibility_home" <?php echo ($data['accessibility']['home'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                            Check to hide the Home link</label></li>
+                            <li><label><input type="checkbox" name="accessibility_content" <?php echo ($data['accessibility']['content'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                            Check to hide the Content link</label></li>
+                            <li><label><input type="checkbox" name="accessibility_feed" <?php echo ($data['accessibility']['feed'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                            Check to hide the Feed link</label></li>
+                            <li><label><input type="checkbox" name="accessibility_meta" <?php echo ($data['accessibility']['meta'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                            Check to hide the Meta link</label></li>
+                            <li><label><input type="checkbox" name="accessibility_register" <?php echo ($data['accessibility']['register'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                            Check to hide the Register link</label></li>
+                            <li><label><input type="checkbox" name="accessibility_loginout" <?php echo ($data['accessibility']['loginout'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                            Check to hide the Login/Logout link</label></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br class="clear">
+</div>
 
-
+<div class="widgets-holder-wrap">
+    <div class="sidebar-name">
     <h3 id="greenpark2_sidebar">Sidebar Box (About Box)</h3>
-    <p>The &quot;Sidebar Box&quot; can be used for pretty anything. Personally, I use it as an &quot;About section&quot; to tell my readers a little bit about myself, but generally it's completely up to you: put your google adsense code in it, describe your website, add your photo etc.</p>
-		<table class="form-table">
-			<tr>
-				<th>Title:</th>
-				<td>
-					<input type="text" name="sidebar_about_title" value="<?php echo $data['sidebar']['about_title']; ?>" size="35" />
-				</td>
-			</tr>
-			<tr>
-				<th>Content:</th>
-				<td>
-					<textarea name="sidebar_about_content" rows="10" style="width: 95%;"><?php echo $data['sidebar']['about_content']; ?></textarea>
-				</td>
-			</tr>
-		</table>
-		<br />
+    </div>
+
+    <div class="widget-holder">
+        <p class="description">The &quot;Sidebar Box&quot; can be used for pretty anything. Personally, I use it as an &quot;About section&quot; to tell my readers a little bit about myself, but generally it's completely up to you: put your google adsense code in it, describe your website, add your photo etc.</p>
+	
+        <table class="form-table">
+            <tr>
+                <th>Title:</th>
+                <td>
+                    <input type="text" name="sidebar_about_title" value="<?php echo $data['sidebar']['about_title']; ?>" size="35" />
+                </td>
+            </tr>
+            <tr>
+                <th>Content:</th>
+                <td>
+                    <textarea name="sidebar_about_content" rows="10" style="width: 95%;"><?php echo $data['sidebar']['about_content']; ?></textarea>
+                </td>
+            </tr>
+	</table>
+    </div>
+    <br class="clear">
+</div>
 
     <h3 id="greenpark2_twitter">Twitter</h3>
-		<table class="form-table">
-			<tr>
-				<th>Twitter URI:</th>
-				<td>
-					http://twitter.com/<input type="text" name="twitter_uri" value="<?php echo $data['twitter']['uri']; ?>" size="30" />
-                                        <br />
-                                        <label><input type="checkbox" name="twitter_enable" <?php echo ($data['twitter']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Enable Twitter</label>
-				</td>
-			</tr>
-		</table>	
-		<br />
+        <table class="form-table">
+            <tr>
+                <th>Twitter URI:</th>
+                <td>
+                    http://twitter.com/<input type="text" name="twitter_uri" value="<?php echo $data['twitter']['uri']; ?>" size="30" placeholder="username" />
+                    <br />
+                    <label><input type="checkbox" name="twitter_enable" <?php echo ($data['twitter']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Show Twitter</label>
+                </td>
+            </tr>
+        </table>	
+        <br />
 
 
     <h3 id="greenpark2_feedburner">Feedburner</h3>
@@ -370,8 +449,9 @@ function greenpark2() {
 			<tr>
 				<th>Feed URI:</th>
 				<td>
-					http://feeds.feedburner.com/<input type="text" name="feed_uri" value="<?php echo $data['feed']['uri']; ?>" size="30" />
-          <br /><label><input type="checkbox" name="feed_enable" <?php echo ($data['feed']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Enable Feedburner</label>
+					http://feeds.feedburner.com/<input type="text" name="feed_uri" value="<?php echo $data['feed']['uri']; ?>" size="30" placeholder="username" />
+          <br /><label><input type="checkbox" name="feed_enable" <?php echo ($data['feed']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Use Feedburner</label>
+          <br/>If the checkbox is unchecked, internal WordPress functions are used.
 				</td>
 			</tr>
 		</table>	
@@ -446,41 +526,56 @@ function greenpark2() {
 	<p>
   Free to download, free to use, free to customize. Basically you can do whatever you want as long as you credit me with a link.
 	</p>
-	
-	</div>
-	</div>
-	
-			<div style="position: fixed; right: 15px; width: 175px; background:#F1F1F1; float: right; border: 1px solid #E3E3E3; -moz-border-radius: 6px; padding: 0 10px 10px;">
-		<h4 style="margin-bottom: 8px;">Settings</h4>
-		<ul style="list-style-type: none; padding-left: 10px; font-size: 11px; line-height: 13px;">
-                    <li><a href="#greenpark2_sidebar">Sidebar (About Box)</a></li>
-                    <li><a href="#greenpark2_twitter">Twitter</a></li>
-                    <li><a href="#greenpark2_feedburner">FeedBurner</a></li>
-                    <li><a href="#greenpark2_admanager">Ad Manager</a></li>
-                    <li><a href="#greenpark2_analytics">Analytics</a></li>
-		</ul>
-		
-		<h4 style="margin-bottom: 8px;">Documentation</h4>
-		<ul style="list-style-type: none; padding-left: 10px; font-size: 11px; line-height: 13px;">
-                    <li><a href="#greenpark2_about_doc">About this Theme</a></li>
-                    <li><a href="#greenpark2_logo_doc">Logo setup</a></li>
-                    <li><a href="#greenpark2_tutorials_doc">Tutorials</a></li>
-                    <li><a href="#greenpark2_license_doc">License</a></li>
-		</ul>
-		
-		<br/>
-		<small>&uarr; <a href="#wpwrap">Top</a> | <a href="#jump_submit">Goto &quot;Save&quot;</a></small>
-		
-		<br/><br/>
-		Like it? Buy me a coffee ;-)
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-      <input type="hidden" name="cmd" value="_s-xclick" />
-      <input type="hidden" name="hosted_button_id" value="5976565" />
-      <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
-      <img alt="" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" />
-    </form>
-		
-	</div>
+
+
+
+</div> <!-- END .settings-left -->
+</div> <!-- END .settings-liquid-left -->
+
+
+
+<div class="settings-liquid-right" style="position: fixed; right: 15px;">
+    <div class="settings-right">
+
+        <div class="widgets-holder-wrap">
+
+        <div class="sidebar-name"><h3>Menu</h3></div>
+            
+        <div class="widget-holder">
+        <h4 style="margin-bottom: 8px;">Settings</h4>
+        <ul style="list-style-type: none; font-size: 11px; line-height: 13px;">
+            <li><a href="#greenpark2_sidebar">Sidebar (About Box)</a></li>
+            <li><a href="#greenpark2_twitter">Twitter</a></li>
+            <li><a href="#greenpark2_feedburner">FeedBurner</a></li>
+            <li><a href="#greenpark2_admanager">Ad Manager</a></li>
+            <li><a href="#greenpark2_analytics">Analytics</a></li>
+        </ul>
+
+        <h4 style="margin-bottom: 8px;">Documentation</h4>
+        <ul style="list-style-type: none; font-size: 11px; line-height: 13px;">
+            <li><a href="#greenpark2_about_doc">About this Theme</a></li>
+            <li><a href="#greenpark2_logo_doc">Logo setup</a></li>
+            <li><a href="#greenpark2_tutorials_doc">Tutorials</a></li>
+            <li><a href="#greenpark2_license_doc">License</a></li>
+        </ul>
+
+        <br/>
+        <small>&uarr; <a href="#wpwrap">Top</a> | <a href="#jump_submit">Goto &quot;Save&quot;</a></small>
+
+        <br/><br/>
+        Like it? Buy me a coffee ;-)
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="5976565" />
+        <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+        <img alt="" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+
+        </div>
+    </div>
+
+</div>
+</div>
 
 	<div class="clear"></div>
 	
@@ -708,41 +803,40 @@ function widget_twitter_init() {
 	}
 	
 	
-	function widget_twitter_page() {
-		$options = $newoptions = get_option('widget_twitter');
-	?>
-		<div class="wrap">
-			<form method="POST">
-				<h2><?php _e('Twitter Widgets', 'default'); ?></h2>
-				<p style="line-height: 30px;"><?php _e('How many Twitter widgets would you like?', 'default'); ?>
-				<select id="twitter-number" name="twitter-number" value="<?php echo $options['number']; ?>">
-	<?php for ( $i = 1; $i < 10; ++$i ) echo "<option value='$i' ".($options['number']==$i ? "selected='selected'" : '').">$i</option>"; ?>
-				</select>
-				<span class="submit"><input type="submit" name="twitter-number-submit" id="twitter-number-submit" value="<?php echo esc_attr(__('Save', 'default')); ?>" /></span></p>
-			</form>
-		</div>
-	<?php
-	}
+function widget_twitter_page() {
+$options = $newoptions = get_option('widget_twitter');
+?>
+<div class="wrap">
+<form method="POST">
+<h2><?php _e('Twitter Widgets', 'default'); ?></h2>
+<p style="line-height: 30px;"><?php _e('How many Twitter widgets would you like?', 'default'); ?>
+<select id="twitter-number" name="twitter-number" value="<?php echo $options['number']; ?>">
+<?php for ( $i = 1; $i < 10; ++$i ) echo "<option value='$i' ".($options['number']==$i ? "selected='selected'" : '').">$i</option>"; ?>
+</select>
+<span class="submit"><input type="submit" name="twitter-number-submit" id="twitter-number-submit" value="<?php echo esc_attr(__('Save', 'default')); ?>" /></span></p>
+</form>
+</div>
+<?php }
 	
 	
-	function widget_twitter_register() {
-		
-		$options = get_option('widget_twitter');
-		$dims = array('width' => 300, 'height' => 300);
-		$class = array('classname' => 'widget_twitter');
+function widget_twitter_register() {
 
-		for ($i = 1; $i <= 9; $i++) {
-			$name = sprintf(__('Twitter #%d', 'default'), $i);
-			$id = "twitter-$i"; // Never never never translate an id
-			wp_register_sidebar_widget($id, $name, $i <= $options['number'] ? 'widget_twitter' : /* unregister */ '', $class, $i);
-			wp_register_widget_control($id, $name, $i <= $options['number'] ? 'widget_twitter_control' : /* unregister */ '', $dims, $i);
-		}
-		
-		add_action('sidebar_admin_setup', 'widget_twitter_setup');
-		add_action('sidebar_admin_page', 'widget_twitter_page');
-	}
+        $options = get_option('widget_twitter');
+        $dims = array('width' => 300, 'height' => 300);
+        $class = array('classname' => 'widget_twitter');
 
-	widget_twitter_register();
+        for ($i = 1; $i <= 9; $i++) {
+                $name = sprintf(__('Twitter #%d', 'default'), $i);
+                $id = "twitter-$i"; // Never never never translate an id
+                wp_register_sidebar_widget($id, $name, $i <= $options['number'] ? 'widget_twitter' : /* unregister */ '', $class, $i);
+                wp_register_widget_control($id, $name, $i <= $options['number'] ? 'widget_twitter_control' : /* unregister */ '', $dims, $i);
+        }
+
+        add_action('sidebar_admin_setup', 'widget_twitter_setup');
+        add_action('sidebar_admin_page', 'widget_twitter_page');
+}
+
+    widget_twitter_register();
 }
 
 // Run our code later in case this loads prior to any required plugins.

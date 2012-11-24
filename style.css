@@ -60,11 +60,15 @@ body {
 
 /* @TODO OVERWRITE */
 body {
-    color: #687178;
-    background-color: #D5DADD;
-    background-repeat: repeat, repeat-x;
     background-attachment: fixed;
-    background-image: radial-gradient(50% 50%, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.5)), url(img/bg-html.jpg);
+    background-color: #D5DADD;
+    /*
+    background-image: radial-gradient(50% 50%, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.5)), url(img/bg-html-alt.jpg);
+    background-position: 50% 50%, 0 -40px;
+    background-repeat: repeat, repeat-x;
+    */
+    background: #D5DADD url(img/bg-html-alt.jpg) fixed 0 -40px repeat-x;
+    color: #687178;
 }
 
 
@@ -235,7 +239,7 @@ img.nav-next { display: inline; margin: 0 0 2px 7px; padding: 4px; }
 
 /* Tables and #wp-calendar */
 table { color: #3E5867; width: 100%; }
-caption { background-color: #E6F0F2; border-top: 1px solid #E6F0F2; text-align: center; }
+caption { background-color: #E6F0F2; border-top: 1px solid #E6F0F2; margin: 0 2px; text-align: center; }
 thead { background-color: #F4F8F9; text-align: center; }
 tbody { background-color: #f7f7f7; text-align: center; }
 tfoot { background-color: #fff; text-align: left; }
