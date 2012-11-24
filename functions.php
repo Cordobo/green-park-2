@@ -358,21 +358,21 @@ ul.children li {
                 <th>Sidebar:</th>
                 <td>
                     <label><input type="checkbox" name="sidebar_disablesidebar" <?php echo ($data['sidebar']['disablesidebar'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                    Check to disable the sidebar</label>
+                    Disable the sidebar on pages</label>
                 </td>
             </tr>
             <tr>
                 <th>Comments:</th>
                 <td>
                     <label><input type="checkbox" name="comments_page_disable" <?php echo ($data['comments']['page_disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                    Check to hide the comments area on pages</label>
+                    Disable comments on pages</label>
                 </td>
             </tr>
             <tr>
                 <th>Logo:</th>
                 <td>
                     <label><input type="checkbox" name="logo_show" <?php echo ($data['logo']['show'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                    Check to show the logo in <strong>img/logo.png</strong> instead of the brand</label>
+                    Show image instead of text logo (<strong>img/logo.png</strong> in your themes folder will be used)</label>
                 </td>
             </tr>
             <tr>
@@ -435,7 +435,7 @@ ul.children li {
             <tr>
                 <th>Twitter URI:</th>
                 <td>
-                    http://twitter.com/<input type="text" name="twitter_uri" value="<?php echo $data['twitter']['uri']; ?>" size="30" placeholder="username" />
+                    http://twitter.com/<input type="text" name="twitter_uri" value="<?php echo $data['twitter']['uri']; ?>" size="24" placeholder="username" />
                     <br />
                     <label><input type="checkbox" name="twitter_enable" <?php echo ($data['twitter']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Show Twitter</label>
                 </td>
@@ -449,9 +449,9 @@ ul.children li {
 			<tr>
 				<th>Feed URI:</th>
 				<td>
-					http://feeds.feedburner.com/<input type="text" name="feed_uri" value="<?php echo $data['feed']['uri']; ?>" size="30" placeholder="username" />
+					http://feeds.feedburner.com/<input type="text" name="feed_uri" value="<?php echo $data['feed']['uri']; ?>" size="24" placeholder="username" />
           <br /><label><input type="checkbox" name="feed_enable" <?php echo ($data['feed']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Use Feedburner</label>
-          <br/>If the checkbox is unchecked, internal WordPress functions are used.
+          <br/>If the checkbox is unchecked, regular WordPress feeds are used.
 				</td>
 			</tr>
 		</table>	
@@ -488,46 +488,6 @@ ul.children li {
 			<input type="submit" name="Submit" value="Save Changes" class="button-primary" />
 		</p>
 	</form>
-	<br /><br /><br /><br />
-	
-	<h2>Cordobo Green Park 2 Documentation</h2>
-	
-	<h3 id="greenpark2_about_doc">About your new theme</h3>
-	<p>Thank you for using the Green Park 2 theme, a free premium wordpress theme by German webdesigner <a href="http://cordobo.com/about/">Andreas Jacob</a>.</p>
-    	<p>If you need any support or want some tips, please visit <a href="http://cordobo.com/">Cordobo Green Park 2 project page</a></p>
-	
-
-	<h3 id="greenpark2_logo_doc">Logo Setup</h3>
-	<p>
-  <ul>
- 	    <li>Check the checkbox on this page (Logo section)</li>
- 	    <li>Replace img/logo.png within the themes directory with your logo</li>
-  </ul>
-	</p>
-	
-
-	<h3 id="greenpark2_tutorials_doc">Tutorials</h3>
-	<p>
-	List of tutorials based on this theme.
-	</p>
-	<p>
-	<ul>
-		<li><a href="http://cordobo.com/1119-provide-visual-feedback-css/">Provide visual feedback using CSS</a> &mdash; An introduction to the themes usage of CSS3</li>
-		<li><a href="http://cordobo.com/1381-green-park-2-beta-5-pre/">Green Park 2 for translators</a> &mdash; Help translating Green Park 2 into your language</li>
-		
-	</ul>
-	</p>
-	
-
-	<h3 id="greenpark2_license_doc">Licence</h3>
-	<p>
-	Released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl.html">GPL License</a> (<a target="_blank" href="http://en.wikipedia.org/wiki/GNU_General_Public_License">What is the GPL</a>?)
-  </p>
-	<p>
-  Free to download, free to use, free to customize. Basically you can do whatever you want as long as you credit me with a link.
-	</p>
-
-
 
 </div> <!-- END .settings-left -->
 </div> <!-- END .settings-liquid-left -->
@@ -541,7 +501,7 @@ ul.children li {
 
         <div class="sidebar-name"><h3>Menu</h3></div>
             
-        <div class="widget-holder">
+        <div class="widget-holder" style="padding: 1px 10px 10px;">
         <h4 style="margin-bottom: 8px;">Settings</h4>
         <ul style="list-style-type: none; font-size: 11px; line-height: 13px;">
             <li><a href="#greenpark2_sidebar">Sidebar (About Box)</a></li>
@@ -578,8 +538,49 @@ ul.children li {
 </div>
 
 	<div class="clear"></div>
+        
+        
+	<br /><br /><br /><br />
 	
-</div>
+	<h2>Cordobo Green Park 2 Documentation</h2>
+	
+	<h3 id="greenpark2_about_doc">About your new theme</h3>
+	<p>Thank you for using the Green Park 2 theme, a free premium wordpress theme by German webdesigner <a href="http://cordobo.com/about/">Andreas Jacob</a>.</p>
+    	<p>If you need any support or want some tips, please visit <a href="http://cordobo.com/">Cordobo Green Park 2 project page</a></p>
+	
+
+	<h3 id="greenpark2_logo_doc">Logo Setup</h3>
+	<p>
+  <ul>
+ 	    <li>Check the checkbox on this page (Logo section)</li>
+ 	    <li>Replace img/logo.png within the themes directory with your logo</li>
+  </ul>
+	</p>
+	
+
+	<h3 id="greenpark2_tutorials_doc">Tutorials</h3>
+	<p>
+	List of tutorials based on this theme.
+	</p>
+	<p>
+	<ul>
+            <li><a href="http://cordobo.com/1119-provide-visual-feedback-css/">Provide visual feedback using CSS</a> &mdash; An introduction to the themes usage of CSS3</li>
+            <li><a href="http://cordobo.com/1381-green-park-2-beta-5-pre/">Green Park 2 for translators</a> &mdash; Help translating Green Park 2 into your language</li>	
+	</ul>
+	</p>
+	
+
+	<h3 id="greenpark2_license_doc">Licence</h3>
+	<p>
+	Released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl.html">GPL License</a> (<a target="_blank" href="http://en.wikipedia.org/wiki/GNU_General_Public_License">What is the GPL</a>?)
+  </p>
+	<p>
+  Free to download, free to use, free to customize. Basically you can do whatever you want as long as you credit me with a link.
+	</p>
+        
+        
+        
+</div> <!-- .wrap -->
 <?php }
 
 
@@ -588,259 +589,6 @@ ul.children li {
 function greenpark2_options() {
     add_theme_page(__('Green Park 2 Settings', 'default'), __('Green Park 2 Settings', 'default'), 'edit_theme_options', 'theme_options', 'greenpark2');
 }
-
-
-
-/*
-Twitter for Wordpress
-Based on work by Ricardo Gonzalez http://rick.jinlabs.com/code/twitter
-Released under the GPL
-*/
-
-define('MAGPIE_CACHE_ON', 1); //2.7 Cache Bug
-define('MAGPIE_CACHE_AGE', 180);
-define('MAGPIE_INPUT_ENCODING', 'UTF-8');
-define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');
-
-$twitter_options['widget_fields']['title'] = array('label'=>'Title:', 'type'=>'text', 'default'=>'');
-$twitter_options['widget_fields']['username'] = array('label'=>'Username:', 'type'=>'text', 'default'=>'');
-$twitter_options['widget_fields']['num'] = array('label'=>'Number of links:', 'type'=>'text', 'default'=>'5');
-$twitter_options['widget_fields']['update'] = array('label'=>'Show timestamps:', 'type'=>'checkbox', 'default'=>true);
-$twitter_options['widget_fields']['linked'] = array('label'=>'Linked:', 'type'=>'text', 'default'=>'#');
-$twitter_options['widget_fields']['hyperlinks'] = array('label'=>'Discover Hyperlinks:', 'type'=>'checkbox', 'default'=>true);
-$twitter_options['widget_fields']['twitter_users'] = array('label'=>'Discover @replies:', 'type'=>'checkbox', 'default'=>true);
-$twitter_options['widget_fields']['encode_utf8'] = array('label'=>'UTF8 Encode:', 'type'=>'checkbox', 'default'=>false);
-
-
-$twitter_options['prefix'] = 'twitter';
-
-// Display Twitter messages
-function twitter_messages($username = '', $num = 1, $list = false, $update = true, $linked  = '#', $hyperlinks = true, $twitter_users = true, $encode_utf8 = false) {
-
-	global $twitter_options;
-	include_once(ABSPATH . WPINC . '/rss.php');
-	
-	$messages = fetch_rss('http://twitter.com/statuses/user_timeline/'.$username.'.rss');
-
-	if ($list) echo '<ul class="twitter">';
-	
-	if ($username == '') {
-		if ($list) echo '<li>';
-		echo 'RSS not configured';
-		if ($list) echo '</li>';
-	} else {
-			if ( empty($messages->items) ) {
-				if ($list) echo '<li>';
-				echo 'No public Twitter messages.';
-				if ($list) echo '</li>';
-			} else {
-        $i = 0;
-				foreach ( $messages->items as $message ) {
-					$msg = " ".substr(strstr($message['description'],': '), 2, strlen($message['description']))." ";
-					if($encode_utf8) $msg = utf8_encode($msg);
-					$link = $message['link'];
-				
-					if ($list) echo '<li class="twitter-item">'; elseif ($num != 1) echo '<p class="twitter-message">';
-
-          if ($hyperlinks) { $msg = hyperlinks($msg); }
-          if ($twitter_users)  { $msg = twitter_users($msg); }
-          					
-					if ($linked != '' || $linked != false) {
-            if($linked == 'all')  { 
-              $msg = '<a href="'.$link.'" class="twitter-link">'.$msg.'</a>';  // Puts a link to the status of each tweet 
-            } else {
-              $msg = $msg . '<a href="'.$link.'" class="twitter-link">'.$linked.'</a>'; // Puts a link to the status of each tweet
-              
-            }
-          } 
-
-          echo $msg;
-          
-          
-        if($update) {				
-          $time = strtotime($message['pubdate']);
-          
-          if ( ( abs( time() - $time) ) < 86400 )
-            $h_time = sprintf( __('%s ago', 'default'), human_time_diff( $time ) );
-          else
-            $h_time = date(__('Y/m/d', 'default'), $time);
-
-          echo sprintf( __('%s', 'twitter-for-wordpress'),' <span class="twitter-timestamp"><abbr title="' . date(__('Y/m/d H:i:s', 'default'), $time) . '">' . $h_time . '</abbr></span>' );
-         }          
-                  
-					if ($list) echo '</li>'; elseif ($num != 1) echo '</p>';
-				
-					$i++;
-					if ( $i >= $num ) break;
-				}
-			}
-		}
-		if ($list) echo '</ul>';
-	}
-
-// Link discover stuff
-
-function hyperlinks($text) {
-    // Props to Allen Shaw & webmancers.com
-    // match protocol://address/path/file.extension?some=variable&another=asf%
-    //$text = preg_replace("/\b([a-zA-Z]+:\/\/[a-z][a-z0-9\_\.\-]*[a-z]{2,6}[a-zA-Z0-9\/\*\-\?\&\%]*)\b/i","<a href=\"$1\" class=\"twitter-link\">$1</a>", $text);
-    $text = preg_replace('/\b([a-zA-Z]+:\/\/[\w_.\-]+\.[a-zA-Z]{2,6}[\/\w\-~.?=&%#+$*!]*)\b/i',"<a href=\"$1\" class=\"twitter-link\">$1</a>", $text);
-    // match www.something.domain/path/file.extension?some=variable&another=asf%
-    //$text = preg_replace("/\b(www\.[a-z][a-z0-9\_\.\-]*[a-z]{2,6}[a-zA-Z0-9\/\*\-\?\&\%]*)\b/i","<a href=\"http://$1\" class=\"twitter-link\">$1</a>", $text);
-    $text = preg_replace('/\b(?<!:\/\/)(www\.[\w_.\-]+\.[a-zA-Z]{2,6}[\/\w\-~.?=&%#+$*!]*)\b/i',"<a href=\"http://$1\" class=\"twitter-link\">$1</a>", $text);    
-    
-    // match name@address
-    $text = preg_replace("/\b([a-zA-Z][a-zA-Z0-9\_\.\-]*[a-zA-Z]*\@[a-zA-Z][a-zA-Z0-9\_\.\-]*[a-zA-Z]{2,6})\b/i","<a href=\"mailto://$1\" class=\"twitter-link\">$1</a>", $text);
-        //mach #trendingtopics. Props to Michael Voigt
-    $text = preg_replace('/([\.|\,|\:|\¡|\¿|\>|\{|\(]?)#{1}(\w*)([\.|\,|\:|\!|\?|\>|\}|\)]?)\s/i', "$1<a href=\"http://twitter.com/#search?q=$2\" class=\"twitter-link\">#$2</a>$3 ", $text);
-    return $text;
-}
-
-function twitter_users($text) {
-       $text = preg_replace('/([\.|\,|\:|\¡|\¿|\>|\{|\(]?)@{1}(\w*)([\.|\,|\:|\!|\?|\>|\}|\)]?)\s/i', "$1<a href=\"http://twitter.com/$2\" class=\"twitter-user\">@$2</a>$3 ", $text);
-       return $text;
-}     
-
-// Twitter widget stuff
-function widget_twitter_init() {
-
-	if ( !function_exists('register_sidebar_widget') )
-		return;
-	
-	$check_options = get_option('widget_twitter');
-  if ($check_options['number']=='') {
-    $check_options['number'] = 1;
-    update_option('widget_twitter', $check_options);
-  }
-  
-	function widget_twitter($args, $number = 1) {
-
-		global $twitter_options;
-		
-		// $args is an array of strings that help widgets to conform to
-		// the active theme: before_widget, before_title, after_widget,
-		// and after_title are the array keys. Default tags: li and h2.
-		extract($args);
-
-		// Each widget can store its own options. We keep strings here.
-		include_once(ABSPATH . WPINC . '/rss.php');
-		$options = get_option('widget_twitter');
-		
-		// fill options with default values if value is not set
-		$item = $options[$number];
-		foreach($twitter_options['widget_fields'] as $key => $field) {
-			if (! isset($item[$key])) {
-				$item[$key] = $field['default'];
-			}
-		}
-		
-		$messages = fetch_rss('http://twitter.com/statuses/user_timeline/'.$item['username'].'.rss');
-
-
-		// These lines generate our output.
-    echo $before_widget . $before_title . '<a href="http://twitter.com/' . $item['username'] . '" class="twitter_title_link">'. $item['title'] . '</a>' . $after_title;
-		twitter_messages($item['username'], $item['num'], true, $item['update'], $item['linked'], $item['hyperlinks'], $item['twitter_users'], $item['encode_utf8']);
-		echo $after_widget;
-				
-	}
-
-	// This is the function that outputs the form to let the users edit
-	// the widget's title. It's an optional feature that users cry for.
-	function widget_twitter_control($number) {
-	
-		global $twitter_options;
-
-		// Get our options and see if we're handling a form submission.
-		$options = get_option('widget_twitter');
-		if ( isset($_POST['twitter-submit']) ) {
-
-			foreach($twitter_options['widget_fields'] as $key => $field) {
-				$options[$number][$key] = $field['default'];
-				$field_name = sprintf('%s_%s_%s', $twitter_options['prefix'], $key, $number);
-
-				if ($field['type'] == 'text') {
-					$options[$number][$key] = strip_tags(stripslashes($_POST[$field_name]));
-				} elseif ($field['type'] == 'checkbox') {
-					$options[$number][$key] = isset($_POST[$field_name]);
-				}
-			}
-
-			update_option('widget_twitter', $options);
-		}
-
-		foreach($twitter_options['widget_fields'] as $key => $field) {
-			
-			$field_name = sprintf('%s_%s_%s', $twitter_options['prefix'], $key, $number);
-			$field_checked = '';
-			if ($field['type'] == 'text') {
-				$field_value = htmlspecialchars($options[$number][$key], ENT_QUOTES);
-			} elseif ($field['type'] == 'checkbox') {
-				$field_value = 1;
-				if (! empty($options[$number][$key])) {
-					$field_checked = 'checked="checked"';
-				}
-			}
-			
-			printf('<p style="text-align:right;" class="twitter_field"><label for="%s">%s <input id="%s" name="%s" type="%s" value="%s" class="%s" %s /></label></p>',
-				$field_name, __($field['label']), $field_name, $field_name, $field['type'], $field_value, $field['type'], $field_checked);
-		}
-
-		echo '<input type="hidden" id="twitter-submit" name="twitter-submit" value="1" />';
-	}
-	
-	function widget_twitter_setup() {
-		$options = $newoptions = get_option('widget_twitter');
-		
-		if ( isset($_POST['twitter-number-submit']) ) {
-			$number = (int) $_POST['twitter-number'];
-			$newoptions['number'] = $number;
-		}
-		
-		if ( $options != $newoptions ) {
-			update_option('widget_twitter', $newoptions);
-			widget_twitter_register();
-		}
-	}
-	
-	
-function widget_twitter_page() {
-$options = $newoptions = get_option('widget_twitter');
-?>
-<div class="wrap">
-<form method="POST">
-<h2><?php _e('Twitter Widgets', 'default'); ?></h2>
-<p style="line-height: 30px;"><?php _e('How many Twitter widgets would you like?', 'default'); ?>
-<select id="twitter-number" name="twitter-number" value="<?php echo $options['number']; ?>">
-<?php for ( $i = 1; $i < 10; ++$i ) echo "<option value='$i' ".($options['number']==$i ? "selected='selected'" : '').">$i</option>"; ?>
-</select>
-<span class="submit"><input type="submit" name="twitter-number-submit" id="twitter-number-submit" value="<?php echo esc_attr(__('Save', 'default')); ?>" /></span></p>
-</form>
-</div>
-<?php }
-	
-	
-function widget_twitter_register() {
-
-        $options = get_option('widget_twitter');
-        $dims = array('width' => 300, 'height' => 300);
-        $class = array('classname' => 'widget_twitter');
-
-        for ($i = 1; $i <= 9; $i++) {
-                $name = sprintf(__('Twitter #%d', 'default'), $i);
-                $id = "twitter-$i"; // Never never never translate an id
-                wp_register_sidebar_widget($id, $name, $i <= $options['number'] ? 'widget_twitter' : /* unregister */ '', $class, $i);
-                wp_register_widget_control($id, $name, $i <= $options['number'] ? 'widget_twitter_control' : /* unregister */ '', $dims, $i);
-        }
-
-        add_action('sidebar_admin_setup', 'widget_twitter_setup');
-        add_action('sidebar_admin_page', 'widget_twitter_page');
-}
-
-    widget_twitter_register();
-}
-
-// Run our code later in case this loads prior to any required plugins.
-add_action('widgets_init', 'widget_twitter_init');
 
 
 ?>
