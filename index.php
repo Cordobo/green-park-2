@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 	<div id="container">
-		<div id="content">
+		<div id="content" <?php if (get_option('greenpark2_sidebar_disablesidebar') == 'yes') { echo 'class="no-sidebar"'; } ?> >
       
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

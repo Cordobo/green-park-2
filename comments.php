@@ -124,7 +124,7 @@
     <?php comment_id_fields(); ?>
     </p>
     <?php do_action('comment_form', $post->ID); ?>
-    <?php /* @TODO */ comment_form(); ?>
+    <?php /* @TODO */ // comment_form(); ?>
   </div>
   
   </form>

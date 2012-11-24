@@ -292,8 +292,8 @@ function greenpark2() {
 					Sidebar:
 				</th>
 				<td>
-					<input type="checkbox" name="sidebar_disablesidebar" <?php echo ($data['sidebar']['disablesidebar'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to disable the sidebar
+					<label><input type="checkbox" name="sidebar_disablesidebar" <?php echo ($data['sidebar']['disablesidebar'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to disable the sidebar</label>
 				</td>
 			</tr>
 			<tr>
@@ -301,8 +301,8 @@ function greenpark2() {
 					Comments:
 				</th>
 				<td>
-					<input type="checkbox" name="comments_page_disable" <?php echo ($data['comments']['page_disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the comments area on pages
+					<label><input type="checkbox" name="comments_page_disable" <?php echo ($data['comments']['page_disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the comments area on pages</label>
 				</td>
 			</tr>
 			<tr>
@@ -310,8 +310,8 @@ function greenpark2() {
 					Logo:
 				</th>
 				<td>
-					<input type="checkbox" name="logo_show" <?php echo ($data['logo']['show'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to show the logo in <strong>img/logo.png</strong> instead of the brand
+					<label><input type="checkbox" name="logo_show" <?php echo ($data['logo']['show'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to show the logo in <strong>img/logo.png</strong> instead of the brand</label>
 				</td>
 			</tr>
 			<tr>
@@ -319,20 +319,20 @@ function greenpark2() {
 					Accessibility:
 				</th>
 				<td>
-				    <input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide all accessibility links in the top right corner (this will override all the following function of this section)<br />
-					<input type="checkbox" name="accessibility_home" <?php echo ($data['accessibility']['home'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Home link<br />
-					<input type="checkbox" name="accessibility_content" <?php echo ($data['accessibility']['content'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Content link<br />
-					<input type="checkbox" name="accessibility_feed" <?php echo ($data['accessibility']['feed'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Feed link<br />
-					<input type="checkbox" name="accessibility_meta" <?php echo ($data['accessibility']['meta'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Meta link<br />
-					<input type="checkbox" name="accessibility_register" <?php echo ($data['accessibility']['register'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Register link<br />
-					<input type="checkbox" name="accessibility_loginout" <?php echo ($data['accessibility']['loginout'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-					Check to hide the Login/Logout link
+                                    <label><input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                        Check to hide all accessibility links in the top right corner (this will override all the following function of this section)</label>
+					<p><label><input type="checkbox" name="accessibility_home" <?php echo ($data['accessibility']['home'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Home link</label><br/>
+					<label><input type="checkbox" name="accessibility_content" <?php echo ($data['accessibility']['content'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                        Check to hide the Content link</label><br/>
+					<label><input type="checkbox" name="accessibility_feed" <?php echo ($data['accessibility']['feed'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Feed link</label><br />
+					<label><input type="checkbox" name="accessibility_meta" <?php echo ($data['accessibility']['meta'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Meta link</label><br />
+					<label><input type="checkbox" name="accessibility_register" <?php echo ($data['accessibility']['register'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Register link</label><br />
+					<label><input type="checkbox" name="accessibility_loginout" <?php echo ($data['accessibility']['loginout'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+					Check to hide the Login/Logout link</label></p>
 				</td>
 			</tr>
 		</table>
@@ -340,6 +340,7 @@ function greenpark2() {
 
 
     <h3 id="greenpark2_sidebar">Sidebar Box (About Box)</h3>
+    <p>The &quot;Sidebar Box&quot; can be used for pretty anything. Personally, I use it as an &quot;About section&quot; to tell my readers a little bit about myself, but generally it's completely up to you: put your google adsense code in it, describe your website, add your photo etc.</p>
 		<table class="form-table">
 			<tr>
 				<th>
@@ -355,7 +356,6 @@ function greenpark2() {
 				</th>
 				<td>
 					<textarea name="sidebar_about_content" rows="10" style="width: 95%;"><?php echo $data['sidebar']['about_content']; ?></textarea>
-					<br/>The &quot;Sidebar Box&quot; can be used for pretty anything. Personally, I use it as an &quot;About section&quot; to tell my readers a little bit about myself, but generally it's completely up to you: put your google adsense code in it, describe your website, add your photo etc.
 				</td>
 			</tr>
 		</table>
@@ -369,7 +369,8 @@ function greenpark2() {
 				</th>
 				<td>
 					http://twitter.com/<input type="text" name="twitter_uri" value="<?php echo $data['twitter']['uri']; ?>" size="30" />
-          <br /><input type="checkbox" name="twitter_enable" <?php echo ($data['twitter']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Enable Twitter
+                                        <br />
+                                        <label><input type="checkbox" name="twitter_enable" <?php echo ($data['twitter']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Enable Twitter</label>
 				</td>
 			</tr>
 		</table>	
@@ -384,7 +385,7 @@ function greenpark2() {
 				</th>
 				<td>
 					http://feeds.feedburner.com/<input type="text" name="feed_uri" value="<?php echo $data['feed']['uri']; ?>" size="30" />
-          <br /><input type="checkbox" name="feed_enable" <?php echo ($data['feed']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Enable Feedburner
+          <br /><label><input type="checkbox" name="feed_enable" <?php echo ($data['feed']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Enable Feedburner</label>
 				</td>
 			</tr>
 		</table>	
