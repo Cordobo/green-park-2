@@ -37,7 +37,7 @@ if (top.location != self.location) top.location = self.location;
 ?>
 </head>
 <?php // Flush the site. Provides extra speed on some servers ?>
-<?php flush(); ?>
+<?php // flush(); ?>
 
 <body id="home" <?php body_class(); ?>>
 
@@ -114,12 +114,12 @@ if (top.location != self.location) top.location = self.location;
 	</div><!-- #branding -->
 
 	<div id="access" role="navigation">
-		<div id="nav-search">
-			<?php get_search_form(); ?>
-		</div>
+            <div id="nav-search">
+                <?php get_search_form(); ?>
+            </div>
 
 <?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
+<?php wp_nav_menu( array( 'container_class' => 'menu menu-header', 'theme_location' => 'primary' ) ); ?>
 
 	    <div id="nav_l"></div>
 	    <div id="nav_r"></div>

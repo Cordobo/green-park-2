@@ -30,11 +30,8 @@
 
 
 	<div class="navigation">
-		<?php // previous_comments_link('<div class="alignleft">&laquo; Older Comments</div>'); ?>
-		<?php // next_comments_link('<div class="alignright">Newer Comments &raquo;</div>'); ?>
-		
-		<div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'default')); ?></div>
-		<div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'default')); ?></div>
+            <div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'default')); ?></div>
+            <div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'default')); ?></div>
 	</div>
 
   <ol class="commentlist">
@@ -43,8 +40,8 @@
 
 
 	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'default')); ?></div>
-		<div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'default')); ?></div>
+            <div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'default')); ?></div>
+            <div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'default')); ?></div>
 	</div>
 
 <?php endif; ?>
@@ -84,9 +81,7 @@
   <div id="respond">
     <h3><?php comment_form_title(__('Leave a Reply', 'default' ), __( 'Leave a Reply to %s', 'default')); ?></h3>
     <div class="cancel-comment-reply">
-    	<?php // cancel_comment_reply_link(); ?>
     	<?php cancel_comment_reply_link(__('Click here to cancel reply.', 'default')); ?>
-    	
     </div>
   
   <?php if ( get_option('comment_registration') && !$user_ID ) : ?>
@@ -116,7 +111,7 @@
   
   <?php endif; ?>
   
-  <!--<p><small><strong>XHTML:</strong> <?php _e('You can use these tags', 'default'); ?>: <code><?php echo allowed_tags(); ?></code></small></p>-->
+  <p class="form-allowed-tags"><small><strong>XHTML:</strong> <?php _e('You can use these tags', 'default'); ?>: <code><?php echo allowed_tags(); ?></code></small></p>
   
   <div class="respond-right">
     <textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea>
@@ -124,7 +119,7 @@
     <?php comment_id_fields(); ?>
     </p>
     <?php do_action('comment_form', $post->ID); ?>
-    <?php /* @TODO */ // comment_form(); ?>
+    <?php // comment_form('comment_notes_after='); ?>
   </div>
   
   </form>

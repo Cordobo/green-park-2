@@ -1,8 +1,9 @@
 <?php
 
+/*
 if ( ! isset( $content_width ) )
 	$content_width = 607;
-
+*/
 
 
 // Language files loading
@@ -17,6 +18,7 @@ function theme_init(){
         'sidebar_menu' => __( 'Sidebar Menu', 'default' ),
         'footer_menu' => __( 'Footer Menu', 'default' )
     ) );
+
 }
 add_action ('init', 'theme_init');
 
@@ -91,11 +93,11 @@ if ( function_exists('register_sidebar') ) {
 
 // http://sivel.net/2008/10/wp-27-comment-separation/
 function list_pings($comment, $args, $depth) {
-  $GLOBALS['comment'] = $comment;
-  echo "<li id=\"comment-";
-  echo comment_ID();
-  echo "\" class=\"pings\">";
-  echo comment_author_link();
+    $GLOBALS['comment'] = $comment;
+    echo "<li id=\"comment-";
+    echo comment_ID();
+    echo "\" class=\"pings\">";
+    echo comment_author_link();
 }
 
 
@@ -103,9 +105,7 @@ function list_pings($comment, $args, $depth) {
 add_action('admin_menu', 'greenpark2_options', 'wp_head', 'greenpark2_feed', 'greenpark2_twitter');
 
 
-/**
- * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
- */
+// Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
 function greenpark2_page_menu_args( $args ) {
     $args['show_home'] = true;
     return $args;
@@ -129,13 +129,16 @@ function greenpark2() {
     if(isset($_POST['submitted']) and $_POST['submitted'] == 'yes') :
         update_option("greenpark2_sidebar_about_title", stripslashes($_POST['sidebar_about_title']));
         update_option("greenpark2_sidebar_about_content", stripslashes($_POST['sidebar_about_content']));
-        update_option("greenpark2_sidebar_disablesidebar", stripslashes($_POST['sidebar_disablesidebar']));
+        // @TODO
+        // update_option("greenpark2_sidebar_disablesidebar", stripslashes($_POST['sidebar_disablesidebar']));
         update_option("greenpark2_feed_uri", stripslashes($_POST['feed_uri']));
         update_option("greenpark2_twitter_uri", stripslashes($_POST['twitter_uri']));
-        update_option("greenpark2_about_site", stripslashes($_POST['about_site']));
+        // @TODO
+        // update_option("greenpark2_about_site", stripslashes($_POST['about_site']));
         update_option("google_analytics", stripslashes($_POST['google_analytics']));
         update_option("google_adsense_bottom", stripslashes($_POST['google_adsense_bottom']));
-        update_option("google_adsense_sidebar", stripslashes($_POST['google_adsense_sidebar']));
+        // @TODO
+        // update_option("google_adsense_sidebar", stripslashes($_POST['google_adsense_sidebar']));
 
     if(isset($_POST['logo_show']) and $_POST['logo_show'] == 'yes') :
         update_option("greenpark2_logo_show", "yes");
@@ -151,16 +154,16 @@ function greenpark2() {
     endif;
 
 
-		if(isset($_POST['feed_enable']) and $_POST['feed_enable'] == 'yes') :
-			update_option("greenpark2_feed_enable", "yes");
-		else :
-			update_option("greenpark2_feed_enable", "no");
-		endif;
+    if(isset($_POST['feed_enable']) and $_POST['feed_enable'] == 'yes') :
+        update_option("greenpark2_feed_enable", "yes");
+    else :
+        update_option("greenpark2_feed_enable", "no");
+    endif;
 
 
-		if(isset($_POST['sidebar_about_title']) and $_POST['sidebar_about_title'] == '') {
-                    update_option("greenpark2_sidebar_about_title", "About");
-		}
+        if(isset($_POST['sidebar_about_title']) and $_POST['sidebar_about_title'] == '') {
+            update_option("greenpark2_sidebar_about_title", "About");
+        }
 
 
 		if(isset($_POST['sidebar_about_content']) and $_POST['sidebar_about_content'] == '') {
@@ -278,46 +281,38 @@ function greenpark2() {
 
 <!-- Cordobo Green Park 2 settings -->
 <div class="wrap">	
-	<h2>Cordobo Green Park 2 Settings</h2>
+    <h2>Cordobo Green Park 2 Settings</h2>
 
 <div class="settings_container" style="width: 100%; margin-right: -200px; float: left;">
-	<div style="margin-right: 200px;">
-	<form method="post" name="update_form" target="_self">
+    <div style="margin-right: 200px;">
+    <form method="post" name="update_form" target="_self">
 
     <h3 id="greenpark2_sidebar">General Settings</h3>
 
 		<table class="form-table">
 			<tr>
-				<th>
-					Sidebar:
-				</th>
+				<th>Sidebar:</th>
 				<td>
 					<label><input type="checkbox" name="sidebar_disablesidebar" <?php echo ($data['sidebar']['disablesidebar'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
 					Check to disable the sidebar</label>
 				</td>
 			</tr>
 			<tr>
-				<th>
-					Comments:
-				</th>
+				<th>Comments:</th>
 				<td>
 					<label><input type="checkbox" name="comments_page_disable" <?php echo ($data['comments']['page_disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
 					Check to hide the comments area on pages</label>
 				</td>
 			</tr>
 			<tr>
-				<th>
-					Logo:
-				</th>
+				<th>Logo:</th>
 				<td>
 					<label><input type="checkbox" name="logo_show" <?php echo ($data['logo']['show'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
 					Check to show the logo in <strong>img/logo.png</strong> instead of the brand</label>
 				</td>
 			</tr>
 			<tr>
-				<th>
-					Accessibility:
-				</th>
+				<th>Accessibility:</th>
 				<td>
                                     <label><input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
                                         Check to hide all accessibility links in the top right corner (this will override all the following function of this section)</label>
@@ -343,17 +338,13 @@ function greenpark2() {
     <p>The &quot;Sidebar Box&quot; can be used for pretty anything. Personally, I use it as an &quot;About section&quot; to tell my readers a little bit about myself, but generally it's completely up to you: put your google adsense code in it, describe your website, add your photo etc.</p>
 		<table class="form-table">
 			<tr>
-				<th>
-					Title:
-				</th>
+				<th>Title:</th>
 				<td>
 					<input type="text" name="sidebar_about_title" value="<?php echo $data['sidebar']['about_title']; ?>" size="35" />
 				</td>
 			</tr>
 			<tr>
-				<th>
-					Content:
-				</th>
+				<th>Content:</th>
 				<td>
 					<textarea name="sidebar_about_content" rows="10" style="width: 95%;"><?php echo $data['sidebar']['about_content']; ?></textarea>
 				</td>
@@ -364,9 +355,7 @@ function greenpark2() {
     <h3 id="greenpark2_twitter">Twitter</h3>
 		<table class="form-table">
 			<tr>
-				<th>
-					Twitter URI:
-				</th>
+				<th>Twitter URI:</th>
 				<td>
 					http://twitter.com/<input type="text" name="twitter_uri" value="<?php echo $data['twitter']['uri']; ?>" size="30" />
                                         <br />
@@ -380,9 +369,7 @@ function greenpark2() {
     <h3 id="greenpark2_feedburner">Feedburner</h3>
 		<table class="form-table">
 			<tr>
-				<th>
-					Feed URI:
-				</th>
+				<th>Feed URI:</th>
 				<td>
 					http://feeds.feedburner.com/<input type="text" name="feed_uri" value="<?php echo $data['feed']['uri']; ?>" size="30" />
           <br /><label><input type="checkbox" name="feed_enable" <?php echo ($data['feed']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Enable Feedburner</label>
@@ -395,10 +382,7 @@ function greenpark2() {
     <h3 id="greenpark2_admanager">Ad Manager</h3>
 		<table class="form-table">
 			<tr>
-				<th>
-					Google Adsense:
-          <br />(Bottom of Post)
-				</th>
+				<th>Google Adsense:<br />(Bottom of Post)</th>
 				<td>
 					<textarea name="google_adsense_bottom" style="width: 95%;" rows="10" /><?php echo get_option('google_adsense_bottom'); ?></textarea>
 					<br />Paste your Google Adsense Code for the bottom of each post.
@@ -412,9 +396,7 @@ function greenpark2() {
     <h3 id="greenpark2_analytics">Analytics</h3>
 		<table class="form-table">
 			<tr>
-				<th>
-					Google Analytics:
-				</th>
+				<th>Google Analytics:</th>
 				<td>
 					<textarea name="google_analytics" style="width: 95%;" rows="10" /><?php echo get_option('google_analytics'); ?></textarea>
 					<br />Paste your Google Analytics code here. It will appear at the end of each page.
@@ -472,19 +454,19 @@ function greenpark2() {
 			<div style="position: fixed; right: 15px; width: 175px; background:#F1F1F1; float: right; border: 1px solid #E3E3E3; -moz-border-radius: 6px; padding: 0 10px 10px;">
 		<h4 style="margin-bottom: 8px;">Settings</h4>
 		<ul style="list-style-type: none; padding-left: 10px; font-size: 11px; line-height: 13px;">
-			<li><a href="#greenpark2_sidebar">Sidebar (About Box)</a></li>
-			<li><a href="#greenpark2_twitter">Twitter</a></li>
-			<li><a href="#greenpark2_feedburner">FeedBurner</a></li>
-			<li><a href="#greenpark2_admanager">Ad Manager</a></li>
-			<li><a href="#greenpark2_analytics">Analytics</a></li>
+                    <li><a href="#greenpark2_sidebar">Sidebar (About Box)</a></li>
+                    <li><a href="#greenpark2_twitter">Twitter</a></li>
+                    <li><a href="#greenpark2_feedburner">FeedBurner</a></li>
+                    <li><a href="#greenpark2_admanager">Ad Manager</a></li>
+                    <li><a href="#greenpark2_analytics">Analytics</a></li>
 		</ul>
 		
 		<h4 style="margin-bottom: 8px;">Documentation</h4>
 		<ul style="list-style-type: none; padding-left: 10px; font-size: 11px; line-height: 13px;">
-			<li><a href="#greenpark2_about_doc">About this Theme</a></li>
-			<li><a href="#greenpark2_logo_doc">Logo setup</a></li>
-			<li><a href="#greenpark2_tutorials_doc">Tutorials</a></li>
-			<li><a href="#greenpark2_license_doc">License</a></li>
+                    <li><a href="#greenpark2_about_doc">About this Theme</a></li>
+                    <li><a href="#greenpark2_logo_doc">Logo setup</a></li>
+                    <li><a href="#greenpark2_tutorials_doc">Tutorials</a></li>
+                    <li><a href="#greenpark2_license_doc">License</a></li>
 		</ul>
 		
 		<br/>
@@ -506,12 +488,11 @@ function greenpark2() {
 </div>
 <?php }
 
-function greenpark2_options() { // Adds to menu
-	// add_menu_page('greenpark2 Settings', __('Green Park 2 Settings', 'default'), 'edit_themes', __FILE__, 'greenpark2');
-        // add_theme_page('greenpark2 Settings', __('Green Park 2 Settings', 'default'), 'edit_themes', __FILE__, 'greenpark2');
-        add_theme_page(__('Green Park 2 Settings', 'default'), __('Green Park 2 Settings', 'default'), 'edit_theme_options', 'theme_options', 'greenpark2');
-        // add_theme_page('My Plugin Theme', 'My Plugin', 'read', 'my-unique-identifier', 'my_plugin_function');
-        // add_theme_page( $page_title, $menu_title, $capability, $menu_slug, $function);
+
+
+// Adds Green Park to WordPress Menu
+function greenpark2_options() {
+    add_theme_page(__('Green Park 2 Settings', 'default'), __('Green Park 2 Settings', 'default'), 'edit_theme_options', 'theme_options', 'greenpark2');
 }
 
 
