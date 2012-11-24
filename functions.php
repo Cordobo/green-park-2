@@ -1,9 +1,8 @@
 <?php
 
-/*
+
 if ( ! isset( $content_width ) )
 	$content_width = 607;
-*/
 
 
 // Language files loading

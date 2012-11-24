@@ -107,11 +107,14 @@
     
     <p><input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3" />
     <label for="url"><?php _e('Website', 'default'); ?></label></p>
+    
+    <p class="form-allowed-tags"><small><strong>XHTML:</strong> <?php _e('You can use these tags', 'default'); ?>: <code><?php echo allowed_tags(); ?></code></small></p>
+    
   </div>
   
   <?php endif; ?>
   
-  <p class="form-allowed-tags"><small><strong>XHTML:</strong> <?php _e('You can use these tags', 'default'); ?>: <code><?php echo allowed_tags(); ?></code></small></p>
+  
   
   <div class="respond-right">
     <textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea>
