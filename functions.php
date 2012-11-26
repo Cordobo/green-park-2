@@ -378,7 +378,7 @@ ul.children li {
             <tr>
                 <th>Accessibility:</th>
                 <td>
-                    <ul>
+                    <ul style="margin-top:0;">
                         <li><label><input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
                         Check to hide all accessibility links in the top right corner (this will override all the following function of this section)</label>
                         <ul class="children">
@@ -545,17 +545,15 @@ ul.children li {
 	<h2>Cordobo Green Park 2 Documentation</h2>
 	
 	<h3 id="greenpark2_about_doc">About your new theme</h3>
-	<p>Thank you for using the Green Park 2 theme, a free premium wordpress theme by German webdesigner <a href="http://cordobo.com/about/">Andreas Jacob</a>.</p>
-    	<p>If you need any support or want some tips, please visit <a href="http://cordobo.com/">Cordobo Green Park 2 project page</a></p>
+        <p>Thank you for using the Green Park 2 theme, a free premium wordpress theme by German webdesigner <a href="http://cordobo.com/about/">Andreas Jacob</a></p>
+        <p>If you need any support or want some tips, please visit <a href="http://cordobo.com/">Cordobo Green Park 2 project page</a></p>
 	
 
 	<h3 id="greenpark2_logo_doc">Logo Setup</h3>
-	<p>
-  <ul>
- 	    <li>Check the checkbox on this page (Logo section)</li>
- 	    <li>Replace img/logo.png within the themes directory with your logo</li>
-  </ul>
-	</p>
+        <ul>
+            <li>Check the checkbox on this page (Logo section)</li>
+            <li>Replace the file "logo.png" within the sub-folder "img" in your themes directory with your own logo.</li>
+        </ul>
 	
 
 	<h3 id="greenpark2_tutorials_doc">Tutorials</h3>
