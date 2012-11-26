@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="viewport" content="width=device-width" />
 
 <title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
@@ -39,58 +40,59 @@ if (top.location != self.location) top.location = self.location;
 <?php // Flush the site. Provides extra speed on some servers ?>
 <?php // flush(); ?>
 
-<body id="home" <?php body_class(); ?>>
+<body id="home" <?php body_class(); ?> itemscope itemtype="http://schema.org/Blog">
 
-<div id="accessibility">
-	<?php if (get_option('greenpark2_accessibility_disable') != 'yes')
-	{
-		echo('<ul>');
-			if (get_option('greenpark2_accessibility_home') != 'yes')
-			{
-				echo '<li><a href="';
-				echo home_url();
-				echo '" title="';
-				echo _e('Go to homepage', 'default');
-				echo '">';
-				echo _e('Home', 'default');
-				echo '</a></li>';
-			}
-			if (get_option('greenpark2_accessibility_content') != 'yes')
-			{
-				echo '<li><a href="#content" title="Skip to content">';
-				echo _e('Content', 'default');
-				echo '</a></li>';
-			}
-			if (get_option('greenpark2_accessibility_feed') != 'yes')
-			{
-				echo '<li><a href="';
-				if (get_option('greenpark2_feed_enable') == 'yes')
-					echo 'http://feeds.feedburner.com/' . get_option('greenpark2_feed_uri');
-				else
-					echo get_bloginfo('rss2_url');
-				echo '">RSS</a></li>';
-			}
-			if (get_option('greenpark2_accessibility_meta') != 'yes')
-				wp_meta();
-			if (get_option('greenpark2_accessibility_register') != 'yes')
-				wp_register();
-			if (get_option('greenpark2_accessibility_loginout') != 'yes')
-			{
-				echo '<li class="last-item">';
-				echo wp_loginout();
-				echo '</li>';
-			}
-		echo '</ul>';
-	}?>
-</div>
+
 
 
 <div id="header">
-	
+
+    <div id="accessibility">
+        <?php if (get_option('greenpark2_accessibility_disable') != 'yes') {
+            echo('<ul>');
+                if (get_option('greenpark2_accessibility_home') != 'yes')
+                {
+                    echo '<li><a href="';
+                    echo esc_url( home_url( '/' ) );
+                    echo '" title="';
+                    echo _e('Go to homepage', 'default');
+                    echo '">';
+                    echo _e('Home', 'default');
+                    echo '</a></li>';
+                }
+                if (get_option('greenpark2_accessibility_content') != 'yes')
+                {
+                    echo '<li><a href="#content" title="Skip to content">';
+                    echo _e('Content', 'default');
+                    echo '</a></li>';
+                }
+                if (get_option('greenpark2_accessibility_feed') != 'yes')
+                {
+                    echo '<li><a href="';
+                    if (get_option('greenpark2_feed_enable') == 'yes')
+                        echo 'http://feeds.feedburner.com/' . get_option('greenpark2_feed_uri');
+                    else
+                        echo get_bloginfo('rss2_url');
+                    echo '">RSS</a></li>';
+                }
+                if (get_option('greenpark2_accessibility_meta') != 'yes')
+                    wp_meta();
+                if (get_option('greenpark2_accessibility_register') != 'yes')
+                    wp_register();
+                if (get_option('greenpark2_accessibility_loginout') != 'yes')
+                {
+                    echo '<li class="last-item">';
+                    echo wp_loginout();
+                    echo '</li>';
+                }
+            echo '</ul>';
+        } ?>
+    </div>
+    
     <div id="branding" role="banner">
         <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
         <<?php echo $heading_tag; ?> id="site-title" class="<?php if(get_option('greenpark2_logo_show')!= 'yes') { echo 'brand'; } else { echo 'logo'; } ?>">
-        <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
         <?php if(get_option('greenpark2_logo_show')== 'yes') { ?>
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" alt="Cordobo Green Park 2 logo" title="Cordobo Green Park 2" width="87" height="19" />
         <?php } else { ?>
@@ -100,33 +102,33 @@ if (top.location != self.location) top.location = self.location;
         </<?php echo $heading_tag; ?>>
         <div id="site-description"><?php bloginfo( 'description' ); ?></div>
 
-		<?php
-			// Check if this is a post or page, if it has a thumbnail, and if it's a big one
-			if ( is_singular() &&
-					has_post_thumbnail( $post->ID ) &&
-					( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
-					$image[1] >= HEADER_IMAGE_WIDTH ) :
-				// Houston, we have a new header image!
-				echo get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
-			else : ?>
-				<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
-			<?php endif; ?>
-	</div><!-- #branding -->
+        <?php
+        // Check if this is a post or page, if it has a thumbnail, and if it's a big one
+        if ( is_singular() &&
+                    has_post_thumbnail( $post->ID ) &&
+                    ( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
+                    $image[1] >= HEADER_IMAGE_WIDTH ) :
+            // Houston, we have a new header image!
+            echo get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
+        else : ?>
+            <img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
+        <?php endif; ?>
 
-	<div id="access" role="navigation">
-            <div id="nav-search">
-                <?php get_search_form(); ?>
-            </div>
+    </div><!-- #branding -->
 
-<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-<?php wp_nav_menu( array( 'container_class' => 'menu menu-header', 'theme_location' => 'primary' ) ); ?>
+    <div id="access" role="navigation">
+        <div id="nav-search">
+            <?php get_search_form(); ?>
+        </div>
 
-	    <div id="nav_l"></div>
-	    <div id="nav_r"></div>
+        <?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
+        <?php wp_nav_menu( array( 'container_class' => 'menu menu-header', 'theme_location' => 'primary' ) ); ?>
 
-	</div><!-- #access -->
+        <div id="nav_l"></div>
+        <div id="nav_r"></div>
+    </div><!-- #access -->
 
-
+    
 </div> <!-- #header -->
 
 
