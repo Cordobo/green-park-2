@@ -30,7 +30,7 @@
     </ul>
 </li>
 
-<?php endif; // end 1st sidebar widgets  ?>
+<?php endif; // end 1st sidebar widget  ?>
 
 
 <?php if ( is_single() ) { ?>
@@ -86,7 +86,7 @@
     </li>
     <?php }?>
 
-<?php endif; // end 2nd sidebar widgets  ?>
+<?php endif; // end 2nd sidebar widget  ?>
 </ul>
 
 
