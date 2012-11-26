@@ -7,7 +7,7 @@ Description: Lightweight fast-rendering theme with 2-3 column layout and right s
 Version: 0.9.8
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: green, white, silver, black, light, two-columns, right-sidebar, fixed-width
+Tags: green, white, silver, light, two-columns, right-sidebar, fixed-width
 Text Domain: default
 
 
@@ -267,6 +267,7 @@ td#next { text-align: right; }
     height: 146px;
     /* @TODO */
     height: 125px;
+    margin-top: 20px;
     position: relative;
 }
 
@@ -366,6 +367,7 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
 #accessibility a { display: block; float: left; }
 #accessibility a { background: transparent url(img/sprite.png) right -746px no-repeat; color: #fff; padding: 0 7px 0 4px; }
 #accessibility .last-item a { background: none; padding-right: 0; }
+
 
 #access {
     background: #89CB11 url(img/sprite.png) left -500px repeat-x;
@@ -490,6 +492,29 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
 
 /* Fixes Firefox 2 and 3 */
 #searchsubmit, x:-moz-any-link { padding: 0 5px 3px; *padding: 0 5px; }
+
+
+
+#breadcrumb
+{
+    border-bottom: 1px dotted #ddd;
+    color: #aaa;
+    font-size: .8em;
+    margin: 9px 40px;
+    padding: 0 0 9px;
+}
+
+#breadcrumb:hover
+{
+  border-bottom: 1px solid #E6F0F2;
+  color: #5d5d5d;
+}
+
+#breadcrumb a:hover
+{
+  text-decoration: underline;
+}
+
 
 
 /* POSTs and PAGEs
