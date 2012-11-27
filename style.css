@@ -49,17 +49,6 @@ html {
 }
 
 body {
-    color:					#4D4D4D;
-    font:					13px/1.5 Calibri,"Helvetica Neue", Arial, "Lucida Grande", "Lucida Sans Unicode", "Microsoft YaHei", sans-serif;
-    font-smooth:                                always;
-    height:					100%;
-    text-align:					center;
-    text-rendering:                             optimizeLegibility;
-    -webkit-font-smoothing:                     antialiased;
-}
-
-/* @TODO OVERWRITE */
-body {
     background-attachment: fixed;
     background-color: #D5DADD;
     /*
@@ -68,7 +57,14 @@ body {
     background-repeat: repeat, repeat-x;
     */
     background: #D5DADD url(img/bg-html-alt.jpg) fixed 0 -40px repeat-x;
-    color: #687178;
+    color:					#687178;
+    font:					13px/1.5 Calibri,"Helvetica Neue", Arial, "Lucida Grande", "Lucida Sans Unicode", "Microsoft YaHei", sans-serif;
+    font-smooth:                                always;
+    height:					100%;
+    padding:                                    0 10px;
+    text-align:					center;
+    text-rendering:                             optimizeLegibility;
+    -webkit-font-smoothing:                     antialiased;
 }
 
 
@@ -350,23 +346,17 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
 
 /* MENUES */
 #accessibility {
-    font-size: .8em;
-    height: 34px;
-    margin: 0 auto;
-    position: relative;
-    width: 960px;
+    display: block;
+    position: absolute;
+    right: 28px;
+    top: 47px;
 }
 
-#accessibility ul {
-    position: absolute;
-    right: 0;
-    top: 8px;
-}
 
 #accessibility li,
 #accessibility a { display: block; float: left; }
-#accessibility a { background: transparent url(img/sprite.png) right -746px no-repeat; color: #fff; padding: 0 7px 0 4px; }
-#accessibility .last-item a { background: none; padding-right: 0; }
+#accessibility a { border-right: 1px solid #ccc; line-height: 1; padding: 0 6px 1px; }
+#accessibility .last-item a { border-right: 0 none; padding-right: 0; }
 
 
 #access {
@@ -459,23 +449,28 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
     line-height: 16px;
     position: absolute;
     right: 28px;
-    top: 9px;
+    top: 6px;
 }
 
-#nav-search label { display: none; }
-
 #s,
-#searchsubmit { border-radius: 3px 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+#searchsubmit {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px 3px;
+}
 
 #s {
     background-color: #fff;
     border: 1px solid #777;
-    font-size: 11px;
-    height: 15px;
-    padding: 4px 5px 2px;
+    padding: 6px 5px;
     width: 130px;
 }
-#nav-search #s { border-color: #69ab01; border-bottom-color: #548301; border-right-color: #548301; }
+#nav-search #s {
+    border-color: #69ab01;
+    border-bottom-color: #548301;
+    border-right-color: #548301;
+}
+
 #searchsubmit {
     background: #669900 url(img/sprite.png) left -410px repeat-x;
     border: 1px solid #666;
@@ -483,15 +478,10 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
     -webkit-box-shadow: #fff 0 0 1px;
     box-shadow: #fff 0 0 1px;
     color: #fff;
-    font-size: 11px;
-    height: 23px;
     letter-spacing: 1px;
-    line-height: 20px;
-    padding: 0 5px;
+    padding: 4px 5px;
 }
 
-/* Fixes Firefox 2 and 3 */
-#searchsubmit, x:-moz-any-link { padding: 0 5px 3px; *padding: 0 5px; }
 
 
 
@@ -520,7 +510,7 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
 /* POSTs and PAGEs
 ------------------------------------------------------------------- */
 
-.page, .post, .pagetitle, .nocomments { padding: 0 40px; }
+.post, .pagetitle, .nocomments { padding: 0 40px; }
 .post, .nocomments { padding-bottom: 20px; }
 .post { margin-bottom: 30px; }
 .entry { margin: 25px 0 5px; }

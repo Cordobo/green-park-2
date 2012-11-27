@@ -47,9 +47,9 @@ if (top.location != self.location) top.location = self.location;
 
 <div id="header">
 
-    <div id="accessibility">
+    
         <?php if (get_option('greenpark2_accessibility_disable') != 'yes') {
-            echo('<ul>');
+            echo('<ul id="accessibility">');
                 if (get_option('greenpark2_accessibility_home') != 'yes')
                 {
                     echo '<li><a href="';
@@ -87,7 +87,6 @@ if (top.location != self.location) top.location = self.location;
                 }
             echo '</ul>';
         } ?>
-    </div>
     
     <div id="branding" role="banner">
         <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
