@@ -262,9 +262,7 @@ td#next { text-align: right; }
 #main,
 #footer {
     background-color: #fff;
-    -moz-box-shadow: 0 0 3px #888;
-    -webkit-box-shadow: 0 0 3px #888;
-    box-shadow: 0 0 3px #888;
+    box-shadow: 0 1px 2px rgba(0,0,0,.2), 0 0 1px rgba(0,0,0,.3), inset 0 0 1px 1px rgba(255,255,255,.2), inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 2px rgba(0,0,0,.05);
     text-align: left;
     margin: 0 auto 2px;
     width: 980px;
@@ -294,7 +292,6 @@ td#next { text-align: right; }
 }
 
 #sidebar {
-    background-color: #fff;
     border-left: 2px solid #bbb;
     float: right;
     font-size: 0.9em;
@@ -459,21 +456,21 @@ div.logo {
 }
 
 .menu ul.children:before {
-    border-color: transparent transparent rgba(0, 0, 0, 0.2);
+    border-color: transparent transparent #999 transparent;
     border-width: 6px;
     left: 15px;
     top: -12px;
 }
 
 .menu ul.children:after {
-    border-color: transparent transparent #FFFFFF;
+    border-color: transparent transparent #fff transparent;
     border-width: 5px;
     left: 16px;
     top: -10px;
 }
 
 .menu .children ul.children:before {
-    border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
+    border-color: transparent #999 transparent transparent;
     left: -12px;
     top: 11px;
 }
