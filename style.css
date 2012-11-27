@@ -266,6 +266,7 @@ td#next { text-align: right; }
     text-align: left;
     margin: 0 auto 2px;
     width: 980px;
+    max-width: 1000px;
 }
 
 #header {
