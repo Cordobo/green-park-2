@@ -37,56 +37,56 @@ if (top.location != self.location) top.location = self.location;
 	wp_head();
 ?>
 </head>
-<?php // Flush the site. Provides extra speed on some servers ?>
-<?php // flush(); ?>
+<?php
+    // Flush the site. Provides extra speed on some servers
+    flush();
+?>
 
 <body id="home" <?php body_class(); ?> itemscope itemtype="http://schema.org/Blog">
-
-
 
 
 <div id="header">
 
     
-        <?php if (get_option('greenpark2_accessibility_disable') != 'yes') {
-            echo('<ul id="accessibility">');
-                if (get_option('greenpark2_accessibility_home') != 'yes')
-                {
-                    echo '<li><a href="';
-                    echo esc_url( home_url( '/' ) );
-                    echo '" title="';
-                    echo _e('Go to homepage', 'default');
-                    echo '">';
-                    echo _e('Home', 'default');
-                    echo '</a></li>';
-                }
-                if (get_option('greenpark2_accessibility_content') != 'yes')
-                {
-                    echo '<li><a href="#content" title="Skip to content">';
-                    echo _e('Content', 'default');
-                    echo '</a></li>';
-                }
-                if (get_option('greenpark2_accessibility_feed') != 'yes')
-                {
-                    echo '<li><a href="';
-                    if (get_option('greenpark2_feed_enable') == 'yes')
-                        echo 'http://feeds.feedburner.com/' . get_option('greenpark2_feed_uri');
-                    else
-                        echo get_bloginfo('rss2_url');
-                    echo '">RSS</a></li>';
-                }
-                if (get_option('greenpark2_accessibility_meta') != 'yes')
-                    wp_meta();
-                if (get_option('greenpark2_accessibility_register') != 'yes')
-                    wp_register();
-                if (get_option('greenpark2_accessibility_loginout') != 'yes')
-                {
-                    echo '<li class="last-item">';
-                    echo wp_loginout();
-                    echo '</li>';
-                }
-            echo '</ul>';
-        } ?>
+    <?php if (get_option('greenpark2_accessibility_disable') != 'yes') {
+        echo('<ul id="accessibility">');
+            if (get_option('greenpark2_accessibility_home') != 'yes')
+            {
+                echo '<li><a href="';
+                echo esc_url( home_url( '/' ) );
+                echo '" title="';
+                echo _e('Go to homepage', 'default');
+                echo '">';
+                echo _e('Home', 'default');
+                echo '</a></li>';
+            }
+            if (get_option('greenpark2_accessibility_content') != 'yes')
+            {
+                echo '<li><a href="#content" title="Skip to content">';
+                echo _e('Content', 'default');
+                echo '</a></li>';
+            }
+            if (get_option('greenpark2_accessibility_feed') != 'yes')
+            {
+                echo '<li><a href="';
+                if (get_option('greenpark2_feed_enable') == 'yes')
+                    echo 'http://feeds.feedburner.com/' . get_option('greenpark2_feed_uri');
+                else
+                    echo get_bloginfo('rss2_url');
+                echo '">RSS</a></li>';
+            }
+            if (get_option('greenpark2_accessibility_meta') != 'yes')
+                wp_meta();
+            if (get_option('greenpark2_accessibility_register') != 'yes')
+                wp_register();
+            if (get_option('greenpark2_accessibility_loginout') != 'yes')
+            {
+                echo '<li class="last-item">';
+                echo wp_loginout();
+                echo '</li>';
+            }
+        echo '</ul>';
+    } ?>
     
     <div id="branding" role="banner">
         <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
