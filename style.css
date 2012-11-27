@@ -101,7 +101,10 @@ a:active {
 #sidebar .textwidget a:hover img { border: 0 none; }
 
 abbr,
-acronym { border-bottom: 1px dashed #999; cursor: help; }
+acronym {
+    border-bottom: 1px dashed #999;
+    cursor: help;
+}
 
 blockquote {
   background-color: #f8f8f8;
@@ -112,7 +115,9 @@ blockquote {
   padding: 7px;
 }
 
-cite { font-style: italic; }
+cite {
+    font-style: italic;
+}
 
 code {
   background: #eaeaea;
@@ -121,9 +126,14 @@ code {
   padding: 1px 3px;
 }
 
-del { color: #8b0000; text-decoration: line-through; }
+del {
+    color: #8b0000;
+    text-decoration: line-through;
+}
 
-em { font-style: italic; }
+em {
+    font-style: italic;
+}
 
 h1, h2, h3, h4, h5, h6, #site-title {
   display: block;
@@ -163,8 +173,8 @@ sub, sup { font-size: 0.7em; }
 /* Emphasize your name in the About-Box */
 .smaller-caps { font-size: 112%; font-variant: small-caps; }
 .hidden { display: none; }
-.top-link { background: transparent url(img/sprite.png) 0 -633px no-repeat; padding-left: 12px; } /* -TODO 637 + 5px */
-.top-link:hover { background-position: 0 -667px; }
+.top-link { background: transparent url(img/sprite.png) 6px -633px no-repeat; padding: 0 0 0 20px; }
+.top-link:hover { background-position: 6px -668px; }
 
 /* Text meant only for screen readers */
 .screen-reader-text {
@@ -261,8 +271,6 @@ td#next { text-align: right; }
 }
 
 #header {
-    height: 146px;
-    /* @TODO */
     height: 125px;
     margin-top: 20px;
     position: relative;
@@ -298,8 +306,16 @@ td#next { text-align: right; }
 #footer {
     font-size: 0.8em;
     margin-bottom: 20px;
-    padding: 16px 40px 14px;
-    width: 900px;
+    padding-top: 16px;
+    padding-bottom: 14px;
+}
+
+#footer p {
+    padding: 0 0 0 40px;
+}
+
+#footer p.alignright {
+    padding: 0 28px 0 0;
 }
 
 
@@ -308,40 +324,41 @@ td#next { text-align: right; }
 ------------------------------------------------------------------- */
 
 
-/* Start EXAMPLE CODE image logo */
-/*
-#site-title, #site-title a { display: block; height: 19px; width: 87px; }
-#site-title { position: absolute; top: 28px; left: 27px; }
-#site-title a { background: transparent url(img/logo.png) top left no-repeat; text-indent: -9999em; }
-#site-description { color: #868F98; display: block; left: 124px; position: absolute; top: 44px; }
-*/
-/* End EXAMPLE CODE image logo */
+/* Start Logo */
 
-
-
-/* Start Text Logo */
-
-#branding { position: absolute; top: 30px; left: 40px; }
-h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
-#site-title, #site-description { color: #868F98; float: left; margin: 0; }
-#site-description { margin: 12px 0 0 10px; }
-
-.logo, .logo a {
-    display: block;
-    height: auto;
-    width: auto;
+#branding { position: absolute; bottom: 63px; left: 40px; }
+h1.brand,
+div.brand {
+    font-size: 30px;
+    line-height: 1;
+    margin: 0;
 }
 
-.logo a {
-    background: url("img/logo.png") no-repeat scroll left center transparent;
-    text-indent: -9999em;
+.brand,
+#site-description {
+    color: #868F98;
 }
 
+#site-description {
+    bottom: 0;
+    left: 100%;
+    line-height: 1;
+    margin: 0 0 2px 10px;
+    position: absolute;
+    white-space: nowrap;
+}
+
+h1.logo,
+div.logo {
+    margin: 0 0 2px;
+}
+
+.logo a,
 .logo a img {
     display: block;
 }
 
-/* End Text Logo */
+/* End Logo */
 
 
 
@@ -400,8 +417,6 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
 .menu > ul > li > a:focus,
 .menu > ul > li > a:hover,
 .menu .current_page_item a {
-  /* IE6/7/8 Fallback hack - Adds more contrast to the navigation */
-  color: #000\9;
   /* FF3.5/Safari4/Chrome2/Opera10 - applies a darker text-shadow to the link for a seamless transition - http://cordobo.com/1119-provide-visual-feedback-css/ */
   text-shadow: 1px 1px 1px #000;
 }
@@ -460,13 +475,13 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
 .menu .children ul.children:before {
     border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
     left: -12px;
-    top: 8px;
+    top: 11px;
 }
 
 .menu .children ul.children:after {
     border-color: transparent #fff transparent transparent;
     left: -10px;
-    top: 9px
+    top: 12px
 }
 
 
