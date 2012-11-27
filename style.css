@@ -326,7 +326,7 @@ td#next { text-align: right; }
 
 /* Start Logo */
 
-#branding { position: absolute; bottom: 63px; left: 40px; }
+#branding { position: absolute; bottom: 62px; left: 40px; }
 h1.brand,
 div.brand {
     font-size: 30px;
@@ -350,7 +350,7 @@ div.brand {
 
 h1.logo,
 div.logo {
-    margin: 0 0 2px;
+    margin: 0 0 3px;
 }
 
 .logo a,
