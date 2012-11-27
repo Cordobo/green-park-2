@@ -49,16 +49,17 @@ html {
 }
 
 body {
+    /* @TODO */
+    /*
     background-attachment: fixed;
     background-color: #D5DADD;
-    /*
     background-image: radial-gradient(50% 50%, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.5)), url(img/bg-html-alt.jpg);
     background-position: 50% 50%, 0 -40px;
     background-repeat: repeat, repeat-x;
     */
     background: #D5DADD url(img/bg-html-alt.jpg) fixed 0 -40px repeat-x;
     color:					#687178;
-    font:					13px/1.5 Calibri,"Helvetica Neue", Arial, "Lucida Grande", "Lucida Sans Unicode", "Microsoft YaHei", sans-serif;
+    font:					13px/1.5 "HelveticaNeue-Light", "Helvetica Neue Light", "Lucida Grande", "Helvetica Neue", Arial, "Lucida Sans Unicode", sans-serif;
     font-smooth:                                always;
     height:					100%;
     padding:                                    0 10px;
@@ -201,7 +202,7 @@ img.nav-next { display: inline; margin: 0 0 2px 7px; padding: 4px; }
 
 /* Resizes the image to the maximum width of the content area */
 .entry img {
-    max-width: 551px;
+    max-width: 548px;
     /* smooth image resizement in IE7+ */
     -ms-interpolation-mode: bicubic;
 }
@@ -217,10 +218,10 @@ img.nav-next { display: inline; margin: 0 0 2px 7px; padding: 4px; }
 
 .wp-caption p.wp-caption-text,
 .gallery-caption {
-   font-size: 11px;
-   line-height: 17px;
-   padding: 0 4px 5px;
-   margin: 0;
+    font-size: 11px;
+    line-height: 17px;
+    padding: 0 4px 5px;
+    margin: 0;
 }
 
 .more-link {
@@ -347,6 +348,7 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
 /* MENUES */
 #accessibility {
     display: block;
+    font-size: 12px;
     position: absolute;
     right: 28px;
     top: 47px;
@@ -412,15 +414,104 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
 
 /* SUBMENUES */
 
-.menu ul.children { display: none; left: 0; position: absolute; top: 40px; }
 
-.menu ul.children li {  }
+.menu ul.children {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    list-style: none outside none;
+    margin: 0;
+    min-width: 180px;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+}
 
-.menu li ul.children a { white-space: nowrap; }
+.menu .children ul.children {
+    left: 90%;
+    top: 3px;
+}
 
-.menu li:hover ul.children { display: block; }
+.menu ul.children:after,
+.menu ul.children:before {
+    border-style: solid;
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+}
 
-.menu .children ul.children { position: relative; right: 100%; top: 0;}
+.menu ul.children:before {
+    border-color: transparent transparent rgba(0, 0, 0, 0.2);
+    border-width: 6px;
+    left: 15px;
+    top: -12px;
+}
+
+.menu ul.children:after {
+    border-color: transparent transparent #FFFFFF;
+    border-width: 5px;
+    left: 16px;
+    top: -10px;
+}
+
+.menu .children ul.children:before {
+    border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
+    left: -12px;
+    top: 8px;
+}
+
+.menu .children ul.children:after {
+    border-color: transparent #fff transparent transparent;
+    left: -10px;
+    top: 9px
+}
+
+
+
+
+
+.menu ul.children li,
+.menu ul.children li a {
+    float: none;
+}
+
+.menu ul.children li a {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: #555555;
+    font-size: 11px;
+    font-weight: 600;
+    height: 32px;
+    line-height: 32px;
+    margin: 1px;
+    padding: 0 10px;
+    text-shadow: none;
+    white-space: nowrap;
+}
+
+.menu ul.children li a:hover {
+    background-color:               #ECF6F9;
+    background-repeat:              repeat-x;
+    background-image:               -khtml-gradient(linear, left top, left bottom, from(#ffffff), to(#ECF6F9));
+    background-image:               -ms-linear-gradient(top , #FFFFFF, #ECF6F9);
+    background-image:               -moz-linear-gradient(center top , #FFFFFF 0%, #ECF6F9 100%);
+    background-image:               -o-linear-gradient(top , #FFFFFF, #ECF6F9);
+    background-image:               -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #ECF6F9));
+    background-image:               -webkit-linear-gradient(top , #FFFFFF, #ECF6F9);
+    background-image:               linear-gradient(top , #FFFFFF, #ECF6F9);
+    border-color: #CEDFE4;
+    color: #306F8F;
+}
+
+
+.menu li:hover > ul.children {
+    display: block;
+}
+
+
 
 
 /* Menu Backgrounds */
@@ -456,7 +547,8 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
 #searchsubmit {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    border-radius: 3px 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
 }
 
 #s {
@@ -529,7 +621,7 @@ h1#site-title, div#site-title { font-size: 30px; line-height: 1; margin: 0; }
   padding: 8px 40px;
   text-shadow: 0 1px 0 #fff;
 }
-
+    
 * html .meta { height: 1%; }
 .meta:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
 
@@ -691,8 +783,6 @@ li.pings {
   position: absolute;
   left: -60px;
 }
-
-ul.children { }
 
 .comment ul.children li { border-top: 15px solid #f9fbfc; }
 
