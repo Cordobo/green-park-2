@@ -78,56 +78,7 @@
 
 <?php if ('open' == $post->comment_status) : ?>
 
-  <div id="respond">
-    <h3><?php comment_form_title(__('Leave a Reply', 'default' ), __( 'Leave a Reply to %s', 'default')); ?></h3>
-    <div class="cancel-comment-reply">
-    	<?php cancel_comment_reply_link(__('Click here to cancel reply.', 'default')); ?>
-    </div>
-  
-  <?php if ( get_option('comment_registration') && !$user_ID ) : ?>
-  <div class="you-must-be-logged-in">
-    <?php _e('You must be', 'default'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>"><?php _e('logged in', 'default'); ?></a> <?php _e('to post a comment', 'default'); ?>.
-  </div>
-  <?php else : ?>
-  
-  <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-  
-  <?php if ( $user_ID ) : ?>
-  
-  <p><?php _e('Logged in as', 'default'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php _e('Log out of this account', 'default'); ?>"><?php _e('Log out', 'default'); ?> &raquo;</a></p>
-  
-  <?php else : ?>
-  
-  <div class="respond-left">
-    <p><input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
-    <label for="author"><?php _e('Name', 'default'); ?> <?php if ($req) echo "(required)"; ?></label></p>
-    
-    <p><input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-    <label for="email"><?php _e('Mail (will not be published)', 'default'); ?> <?php if ($req) echo "(required)"; ?></label></p>
-    
-    <p><input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3" />
-    <label for="url"><?php _e('Website', 'default'); ?></label></p>
-    
-    <p class="form-allowed-tags"><small><strong>XHTML:</strong> <?php _e('You can use these tags', 'default'); ?>: <code><?php echo allowed_tags(); ?></code></small></p>
-    
-  </div>
-  
-  <?php endif; ?>
-  
-  
-  
-  <div class="respond-right">
-    <textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea>
-    <p><input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Submit Comment', 'default'); ?>" />
-    <?php comment_id_fields(); ?>
-    </p>
-    <?php do_action('comment_form', $post->ID); ?>
-    <?php // comment_form('comment_notes_after='); ?>
-  </div>
-  
-  </form>
-  
-  <?php endif; // If registration required and not logged in ?>
-  </div>
-
+<?php comment_form(array('comment_notes_before' => '<div class=respond-left>', 'comment_notes_after' => '</div>', 'comment_field' => '</div><div class="respond-right"><p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>'   )); ?>
+                
+                
 <?php endif; // if you delete this the sky will fall on your head ?>

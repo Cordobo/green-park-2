@@ -59,7 +59,7 @@ body {
     */
     background: #D5DADD url(img/bg-html-alt.jpg) fixed 0 -40px repeat-x;
     color:					#687178;
-    font:					13px/1.5 "HelveticaNeue-Light", "Helvetica Neue Light", "Lucida Grande", "Helvetica Neue", Arial, "Lucida Sans Unicode", sans-serif;
+    font:					13px/1.5 Calibri, "HelveticaNeue-Light", "Helvetica Neue Light", "Lucida Grande", "Helvetica Neue", Arial, "Lucida Sans Unicode", sans-serif;
     font-smooth:                                always;
     height:					100%;
     padding:                                    0 10px;
@@ -863,7 +863,7 @@ a.comment-reply-link {
   text-shadow: 0 1px 0 #fff;
 }
 
-#commentform { padding: 20px 0 0; }
+#commentform { }
 
 .cancel-comment-reply,
 .you-must-be-logged-in { font-size: 13px; }
@@ -880,9 +880,31 @@ a.comment-reply-link {
 .comment .respond-right{ float: none; width: auto; }
 
 
-#respond label { display: block; font-size: 11px; height: 20px; margin: 3px 0 9px; width: 85%; }
+.comment-form-author,
+.comment-form-email,
+.comment-form-url { margin-bottom: 5px; }
 
-input#author, input#email, input#url {
+.comment-notes {
+    margin-bottom: 18px;
+}
+
+#respond label {
+    font-size: 11px;
+    height: 20px;
+    width: 85%;
+}
+
+#respond .required {
+    color: #aa0000;
+}
+
+.form-submit {
+    margin-left: 42%;
+}
+
+input#author,
+input#email,
+input#url {
   border: 1px solid #ddd;
   color: #999;
   display: block;
