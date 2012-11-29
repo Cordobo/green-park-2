@@ -57,7 +57,7 @@ body {
     background-position: 50% 50%, 0 -40px;
     background-repeat: repeat, repeat-x;
     */
-    background: #D5DADD url(img/bg-html-alt.jpg) fixed 0 -40px repeat-x;
+    background: #D5DADD url(img/bg-html.jpg) fixed 0 -40px repeat-x;
     color:					#687178;
     font:					13px/1.5 Calibri, "HelveticaNeue-Light", "Helvetica Neue Light", "Lucida Grande", "Helvetica Neue", Arial, "Lucida Sans Unicode", sans-serif;
     font-smooth:                                always;
