@@ -4,19 +4,19 @@ Theme URI: http://cordobo.com/green-park-2/
 Author: Andreas Jacob
 Author URI: http://cordobo.com/
 Description: Lightweight fast-rendering theme with 2-3 column layout and right sidebar, Widget-ready (4 slots), built-in support for plugins (e.g. twitter), support for threaded/nested comments, fully localized, easy to customize via settings-page. By <a href="http://cordobo.com">Andreas Jacob</a>.
-Version: 0.9.8
+Version: 0.9.803
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: green, white, silver, light, two-columns, right-sidebar, fixed-width
 Text Domain: default
 
 
-  This is a BETA. Please report any bug:
-  http://cordobo.com/1532-cordobo-green-park-2-beta-6/
+This is a BETA. Please report any bug:
+http://cordobo.com/1967-cordobo-green-park-2-beta-8/
 
-  The CSS, XHTML and design is released under the GPL:
-  http://www.gnu.org/licenses/gpl.html
-  Copy, remix and play around with my CSS - but leave the original author credentials.
+The CSS, XHTML and design is released under the GPL:
+http://www.gnu.org/licenses/gpl.html
+Copy, remix and play around with my CSS - but leave the original author credentials.
 
 
 */
@@ -428,7 +428,8 @@ div.logo {
 /* SUBMENUES */
 
 
-.menu ul.children {
+.menu ul.children,
+.menu ul.sub-menu {
     background-color: #fff;
     border-radius: 3px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
@@ -442,13 +443,16 @@ div.logo {
     z-index: 1000;
 }
 
-.menu .children ul.children {
+.menu .children ul.children,
+.menu .sub-menu ul.sub-menu {
     left: 90%;
     top: 3px;
 }
 
 .menu ul.children:after,
-.menu ul.children:before {
+.menu ul.children:before,
+.menu ul.sub-menu:after,
+.menu ul.sub-menu:before {
     border-style: solid;
     content: " ";
     height: 0;
@@ -456,27 +460,31 @@ div.logo {
     width: 0;
 }
 
-.menu ul.children:before {
+.menu ul.children:before,
+.menu ul.sub-menu:before {
     border-color: transparent transparent #999 transparent;
     border-width: 6px;
     left: 15px;
     top: -12px;
 }
 
-.menu ul.children:after {
+.menu ul.children:after,
+.menu ul.sub-menu:after {
     border-color: transparent transparent #fff transparent;
     border-width: 5px;
     left: 16px;
     top: -10px;
 }
 
-.menu .children ul.children:before {
+.menu .children ul.children:before,
+.menu .sub-menu ul.sub-menu:before {
     border-color: transparent #999 transparent transparent;
     left: -12px;
     top: 11px;
 }
 
-.menu .children ul.children:after {
+.menu .children ul.children:after
+.menu .sub-menu ul.sub-menu:after {
     border-color: transparent #fff transparent transparent;
     left: -10px;
     top: 12px
@@ -487,11 +495,14 @@ div.logo {
 
 
 .menu ul.children li,
-.menu ul.children li a {
+.menu ul.children li a,
+.menu ul.sub-menu li,
+.menu ul.sub-menu li a {
     float: none;
 }
 
-.menu ul.children li a {
+.menu ul.children li a,
+.menu ul.sub-menu li a {
     border: 1px solid transparent;
     border-radius: 3px;
     color: #555555;
@@ -505,7 +516,8 @@ div.logo {
     white-space: nowrap;
 }
 
-.menu ul.children li a:hover {
+.menu ul.children li a:hover,
+.menu ul.sub-menu li a:hover {
     background-color:               #ECF6F9;
     background-repeat:              repeat-x;
     background-image:               -khtml-gradient(linear, left top, left bottom, from(#ffffff), to(#ECF6F9));
@@ -520,7 +532,8 @@ div.logo {
 }
 
 
-.menu li:hover > ul.children {
+.menu li:hover > ul.children,
+.menu li:hover > ul.sub-menu {
     display: block;
 }
 
