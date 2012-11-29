@@ -76,7 +76,7 @@
 <?php if ( is_user_logged_in() ) : ?>
     <?php comment_form(); ?>
 <?php else : ?>
-    <?php comment_form(array('comment_notes_before' => '<div class=respond-left>', 'comment_notes_after' => '</div>', 'comment_field' => '</div><div class="respond-right"><p class="comment-form-comment"><label for="comment">' . _e( 'Comment', 'default' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>'   )); ?>
+    <?php comment_form(array('comment_notes_before' => '<div class=respond-left>', 'comment_notes_after' => '</div>', 'comment_field' => '</div><div class="respond-right"><p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'default' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>'   )); ?>
 <?php endif; ?>
 
 
