@@ -464,7 +464,7 @@ div.logo {
 
 .menu ul.children:before,
 .menu ul.sub-menu:before {
-    border-color: transparent transparent #999 transparent;
+    border-color: transparent transparent #aaa transparent;
     border-width: 6px;
     left: 15px;
     top: -12px;
@@ -480,12 +480,12 @@ div.logo {
 
 .menu .children ul.children:before,
 .menu .sub-menu ul.sub-menu:before {
-    border-color: transparent #999 transparent transparent;
+    border-color: transparent #aaa transparent transparent;
     left: -12px;
     top: 11px;
 }
 
-.menu .children ul.children:after
+.menu .children ul.children:after,
 .menu .sub-menu ul.sub-menu:after {
     border-color: transparent #fff transparent transparent;
     left: -10px;
