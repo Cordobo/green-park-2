@@ -4,7 +4,7 @@ Theme URI: http://cordobo.com/green-park-2/
 Author: Andreas Jacob
 Author URI: http://cordobo.com/
 Description: Lightweight fast-rendering theme with 2-3 column layout and right sidebar, Widget-ready (4 slots), built-in support for plugins (e.g. twitter), support for threaded/nested comments, fully localized, easy to customize via settings-page. By <a href="http://cordobo.com">Andreas Jacob</a>.
-Version: 0.9.803
+Version: 0.9.804
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: green, white, silver, light, two-columns, right-sidebar, fixed-width
@@ -380,7 +380,9 @@ div.logo {
     background: #89CB11 url(img/sprite.png) left -500px repeat-x;
     bottom: -1px;
     display: block;
+    height: 41px;
     left: 0;
+    padding-left: 26px;
     position: absolute;
     right: 0;
 }
@@ -388,7 +390,7 @@ div.logo {
 .menu > ul {
     display: block;
     height: 41px;
-    padding: 0 0 0 26px;
+    padding: 0;
 }
 
 .menu li,
