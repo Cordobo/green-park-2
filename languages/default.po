@@ -9,11 +9,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: English\n"
-"X-Poedit-Country: United States\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: C:\\xampp\\htdocs\\wordpress\\wp-content\\themes\n"
+"Language: en_US\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: greenpark_2_beta_2\n"
 
 #: greenpark_2_beta_2/ad_middle.php:2
@@ -32,16 +32,13 @@ msgstr ""
 msgid "Posts Tagged"
 msgstr ""
 
-#: greenpark_2_beta_2/archive.php:14
-#: greenpark_2_beta_2/archive.php:16
+#: greenpark_2_beta_2/archive.php:14 greenpark_2_beta_2/archive.php:16
 #: greenpark_2_beta_2/archive.php:18
 msgid "Archive for"
 msgstr ""
 
-#: greenpark_2_beta_2/archive.php:14
-#: greenpark_2_beta_2/archive.php:34
-#: greenpark_2_beta_2/index-ads.php:12
-#: greenpark_2_beta_2/index.php:12
+#: greenpark_2_beta_2/archive.php:14 greenpark_2_beta_2/archive.php:34
+#: greenpark_2_beta_2/index-ads.php:12 greenpark_2_beta_2/index.php:12
 msgid "F jS, Y"
 msgstr ""
 
@@ -61,64 +58,46 @@ msgstr ""
 msgid "Blog Archives"
 msgstr ""
 
-#: greenpark_2_beta_2/archive.php:27
-#: greenpark_2_beta_2/archive.php:55
-#: greenpark_2_beta_2/index-ads.php:41
-#: greenpark_2_beta_2/index.php:41
+#: greenpark_2_beta_2/archive.php:27 greenpark_2_beta_2/archive.php:55
+#: greenpark_2_beta_2/index-ads.php:41 greenpark_2_beta_2/index.php:41
 msgid "&laquo; Older Entries"
 msgstr ""
 
-#: greenpark_2_beta_2/archive.php:28
-#: greenpark_2_beta_2/archive.php:56
-#: greenpark_2_beta_2/index-ads.php:42
-#: greenpark_2_beta_2/index.php:42
+#: greenpark_2_beta_2/archive.php:28 greenpark_2_beta_2/archive.php:56
+#: greenpark_2_beta_2/index-ads.php:42 greenpark_2_beta_2/index.php:42
 msgid "Newer Entries &raquo;"
 msgstr ""
 
-#: greenpark_2_beta_2/archive.php:34
-#: greenpark_2_beta_2/attachment.php:13
+#: greenpark_2_beta_2/archive.php:34 greenpark_2_beta_2/attachment.php:13
 msgid "Edit"
 msgstr ""
 
-#: greenpark_2_beta_2/archive.php:37
-#: greenpark_2_beta_2/image.php:14
-#: greenpark_2_beta_2/index-ads.php:20
-#: greenpark_2_beta_2/index.php:20
+#: greenpark_2_beta_2/archive.php:37 greenpark_2_beta_2/image.php:14
+#: greenpark_2_beta_2/index-ads.php:20 greenpark_2_beta_2/index.php:20
 msgid "&raquo; Read more: "
 msgstr ""
 
-#: greenpark_2_beta_2/archive.php:42
-#: greenpark_2_beta_2/comments.php:20
-#: greenpark_2_beta_2/index-ads.php:15
-#: greenpark_2_beta_2/index-ads.php:25
-#: greenpark_2_beta_2/index.php:15
-#: greenpark_2_beta_2/index.php:25
+#: greenpark_2_beta_2/archive.php:42 greenpark_2_beta_2/comments.php:20
+#: greenpark_2_beta_2/index-ads.php:15 greenpark_2_beta_2/index-ads.php:25
+#: greenpark_2_beta_2/index.php:15 greenpark_2_beta_2/index.php:25
 msgid "No comments"
 msgstr ""
 
-#: greenpark_2_beta_2/archive.php:42
-#: greenpark_2_beta_2/comments.php:20
-#: greenpark_2_beta_2/index-ads.php:15
-#: greenpark_2_beta_2/index-ads.php:25
-#: greenpark_2_beta_2/index.php:15
-#: greenpark_2_beta_2/index.php:25
+#: greenpark_2_beta_2/archive.php:42 greenpark_2_beta_2/comments.php:20
+#: greenpark_2_beta_2/index-ads.php:15 greenpark_2_beta_2/index-ads.php:25
+#: greenpark_2_beta_2/index.php:15 greenpark_2_beta_2/index.php:25
 msgid "1 comment"
 msgstr ""
 
-#: greenpark_2_beta_2/archive.php:42
-#: greenpark_2_beta_2/comments.php:20
-#: greenpark_2_beta_2/index-ads.php:15
-#: greenpark_2_beta_2/index-ads.php:25
-#: greenpark_2_beta_2/index.php:15
-#: greenpark_2_beta_2/index.php:25
+#: greenpark_2_beta_2/archive.php:42 greenpark_2_beta_2/comments.php:20
+#: greenpark_2_beta_2/index-ads.php:15 greenpark_2_beta_2/index-ads.php:25
+#: greenpark_2_beta_2/index.php:15 greenpark_2_beta_2/index.php:25
 #, php-format
 msgid "% comments"
 msgstr ""
 
-#: greenpark_2_beta_2/archive.php:45
-#: greenpark_2_beta_2/attachment.php:30
-#: greenpark_2_beta_2/image.php:24
-#: greenpark_2_beta_2/index-ads.php:28
+#: greenpark_2_beta_2/archive.php:45 greenpark_2_beta_2/attachment.php:30
+#: greenpark_2_beta_2/image.php:24 greenpark_2_beta_2/index-ads.php:28
 #: greenpark_2_beta_2/index.php:28
 msgid "Posted in "
 msgstr ""
@@ -131,8 +110,7 @@ msgstr ""
 msgid "Archives by Subject"
 msgstr ""
 
-#: greenpark_2_beta_2/attachment.php:12
-#: greenpark_2_beta_2/functions.php:330
+#: greenpark_2_beta_2/attachment.php:12 greenpark_2_beta_2/functions.php:330
 msgid "by"
 msgstr ""
 
@@ -152,13 +130,11 @@ msgstr ""
 msgid "Add your comment"
 msgstr ""
 
-#: greenpark_2_beta_2/comments.php:36
-#: greenpark_2_beta_2/comments.php:46
+#: greenpark_2_beta_2/comments.php:36 greenpark_2_beta_2/comments.php:46
 msgid "&laquo; Older Comments"
 msgstr ""
 
-#: greenpark_2_beta_2/comments.php:37
-#: greenpark_2_beta_2/comments.php:47
+#: greenpark_2_beta_2/comments.php:37 greenpark_2_beta_2/comments.php:47
 msgid "Newer Comments &raquo;"
 msgstr ""
 
@@ -255,8 +231,7 @@ msgstr ""
 msgid "Go to homepage"
 msgstr ""
 
-#: greenpark_2_beta_2/header.php:36
-#: greenpark_2_beta_2/header.php:56
+#: greenpark_2_beta_2/header.php:36 greenpark_2_beta_2/header.php:56
 msgid "Home"
 msgstr ""
 
@@ -284,13 +259,11 @@ msgstr ""
 msgid ", or "
 msgstr ""
 
-#: greenpark_2_beta_2/image.php:32
-#: greenpark_2_beta_2/image.php:36
+#: greenpark_2_beta_2/image.php:32 greenpark_2_beta_2/image.php:36
 msgid "trackback"
 msgstr ""
 
-#: greenpark_2_beta_2/image.php:32
-#: greenpark_2_beta_2/image.php:36
+#: greenpark_2_beta_2/image.php:32 greenpark_2_beta_2/image.php:36
 msgid "from your own site"
 msgstr ""
 
@@ -299,22 +272,21 @@ msgid "Responses are currently closed, but you can"
 msgstr ""
 
 #: greenpark_2_beta_2/image.php:40
-msgid "You can skip to the end and leave a response. Pinging is currently not allowed."
+msgid ""
+"You can skip to the end and leave a response. Pinging is currently not "
+"allowed."
 msgstr ""
 
 #: greenpark_2_beta_2/image.php:44
 msgid "Both comments and pings are currently closed."
 msgstr ""
 
-#: greenpark_2_beta_2/image.php:46
-#: greenpark_2_beta_2/index-ads.php:12
-#: greenpark_2_beta_2/index.php:12
-#: greenpark_2_beta_2/page.php:9
+#: greenpark_2_beta_2/image.php:46 greenpark_2_beta_2/index-ads.php:12
+#: greenpark_2_beta_2/index.php:12 greenpark_2_beta_2/page.php:9
 msgid "Edit this entry"
 msgstr ""
 
-#: greenpark_2_beta_2/index-ads.php:9
-#: greenpark_2_beta_2/index.php:9
+#: greenpark_2_beta_2/index-ads.php:9 greenpark_2_beta_2/index.php:9
 msgid "Permanent Link to"
 msgstr ""
 
@@ -327,7 +299,9 @@ msgid "Not Found"
 msgstr ""
 
 #: greenpark_2_beta_2/missing.php:4
-msgid "Apologies, but we were unable to find what you were looking for. Perhaps  searching will help."
+msgid ""
+"Apologies, but we were unable to find what you were looking for. Perhaps  "
+"searching will help."
 msgstr ""
 
 #: greenpark_2_beta_2/missing.php:8
@@ -364,7 +338,7 @@ msgstr ""
 
 #: greenpark_2_beta_2/sidebar.php:25
 msgid "Subscribe to my blogs feed"
-msgstr ""
+msgstr "Subscribe to my blog's feed"
 
 #: greenpark_2_beta_2/sidebar.php:61
 msgid "You are currently browsing the archives for the"
@@ -387,7 +361,9 @@ msgid "You have searched for"
 msgstr ""
 
 #: greenpark_2_beta_2/sidebar.php:74
-msgid "If you are unable to find anything in these search results, you can try one of these links"
+msgid ""
+"If you are unable to find anything in these search results, you can try one "
+"of these links"
 msgstr ""
 
 #: greenpark_2_beta_2/sidebar.php:77
@@ -421,4 +397,3 @@ msgstr ""
 #: greenpark_2_beta_2/single.php:40
 msgid ", or"
 msgstr ""
-
