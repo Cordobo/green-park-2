@@ -102,10 +102,10 @@
 
     <?php if ( is_front_page() || is_day() || is_month() || is_year() ) { ?>
         <li class="archives">
-        <div class="sb-title"><?php _e('Archives', 'default'); ?></div>
-        <ul>
-        <?php wp_get_archives('type=monthly'); ?>
-        </ul>
+            <div class="sb-title"><?php _e('Archives', 'default'); ?></div>
+            <ul>
+                <?php wp_get_archives('type=monthly'); ?>
+            </ul>
         </li>
     <?php } ?>
 

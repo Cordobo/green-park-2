@@ -16,28 +16,28 @@
 <?php if ( have_comments() ) : ?>
 <?php if ( ! empty($comments_by_type['comment']) ) : ?>
 
-<div class="comments-header clearfix">
-    <h3 id="comments"><?php comments_number( __( 'No comments', 'default' ), __( '1 comment', 'default' ), __( '% comments', 'default' )); ?></h3>
-    <div class="comments-header-meta">
-        <a href="#respond"><?php _e('Add your comment', 'default'); ?></a>
+    <div class="comments-header clearfix">
+        <h3 id="comments"><?php comments_number( __( 'No comments', 'default' ), __( '1 comment', 'default' ), __( '% comments', 'default' )); ?></h3>
+        <div class="comments-header-meta">
+            <a href="#respond"><?php _e('Add your comment', 'default'); ?></a>
+        </div>
+    </div> <!-- comments-header -->
+
+
+    <div class="navigation">
+        <div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'default')); ?></div>
+        <div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'default')); ?></div>
     </div>
-</div> <!-- comments-header -->
+
+    <ol class="commentlist">
+        <?php wp_list_comments('type=comment'); ?>
+    </ol>
 
 
-<div class="navigation">
-    <div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'default')); ?></div>
-    <div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'default')); ?></div>
-</div>
-
-<ol class="commentlist">
-    <?php wp_list_comments('type=comment'); ?>
-</ol>
-
-
-<div class="navigation">
-    <div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'default')); ?></div>
-    <div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'default')); ?></div>
-</div>
+    <div class="navigation">
+        <div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'default')); ?></div>
+        <div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'default')); ?></div>
+    </div>
 
 <?php endif; ?>
 	

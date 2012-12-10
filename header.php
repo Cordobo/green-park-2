@@ -16,25 +16,25 @@
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() ?>/favicon.ico" type="image/x-icon" />
 <?php 
-if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'images.google.com'))
-echo '<script language="JavaScript" type="text/javascript">
-if (top.location != self.location) top.location = self.location;
-</script>';
+    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'images.google.com'))
+    echo '<script language="JavaScript" type="text/javascript">
+    if (top.location != self.location) top.location = self.location;
+    </script>';
 ?>
 
 <?php
-	/* We add some JavaScript to pages with the comment form
-	 * to support sites with threaded comments (when in use).
-	 */
-	if ( is_singular() && get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
+    /* We add some JavaScript to pages with the comment form
+     * to support sites with threaded comments (when in use).
+     */
+    if ( is_singular() && get_option( 'thread_comments' ) )
+    wp_enqueue_script( 'comment-reply' );
 
-	/* Always have wp_head() just before the closing </head>
-	 * tag of your theme, or you will break many plugins, which
-	 * generally use this hook to add elements to <head> such
-	 * as styles, scripts, and meta tags.
-	 */
-	wp_head();
+    /* Always have wp_head() just before the closing </head>
+     * tag of your theme, or you will break many plugins, which
+     * generally use this hook to add elements to <head> such
+     * as styles, scripts, and meta tags.
+     */
+    wp_head();
 ?>
 </head>
 <?php
