@@ -44,7 +44,7 @@
         
         </div>
 
-        <?php endwhile; ?>
+    <?php endwhile; ?>
 
         <div class="pagination clearfix">
             <?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
