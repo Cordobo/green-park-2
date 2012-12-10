@@ -12,7 +12,6 @@
                 <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'default'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
             <?php endif; ?>
 
-
             <small class="meta">
               <span class="alignleft">
                 <?php the_time(__('F jS, Y', 'default')) ?> <?php _e('by', 'default'); ?> <?php the_author() ?>
@@ -58,7 +57,6 @@
         <?php get_template_part( 'content', 'missing' ); ?>
 
     <?php endif; ?>
-
 
 
 </div> <!-- #content -->
