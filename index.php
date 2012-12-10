@@ -61,8 +61,8 @@
 
 
 
-</div><!-- #content -->
-</div><!-- #container -->
+</div> <!-- #content -->
+</div> <!-- #container -->
 
-<?php get_sidebar(); ?>
+<?php if(get_option('greenpark2_sidebar_disablesidebar') != 'yes') get_sidebar(); ?>
 <?php get_footer(); ?>
