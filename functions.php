@@ -136,6 +136,8 @@ function greenpark2() {
         // update_option("greenpark2_about_site", stripslashes($_POST['about_site']));
         update_option("google_analytics", stripslashes($_POST['google_analytics']));
         update_option("google_adsense_bottom", stripslashes($_POST['google_adsense_bottom']));
+        update_option("greenpark2_advertisement_single_bottom", stripslashes($_POST['greenpark2_advertisement_single_bottom']));
+        update_option("greenpark2_advertisement_sidebar", stripslashes($_POST['greenpark2_advertisement_sidebar']));
         // @TODO
         // update_option("google_adsense_sidebar", stripslashes($_POST['google_adsense_sidebar']));
 
@@ -165,9 +167,9 @@ function greenpark2() {
         }
 
 
-		if(isset($_POST['sidebar_about_content']) and $_POST['sidebar_about_content'] == '') {
-                    update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
-		}
+        if(isset($_POST['sidebar_about_content']) and $_POST['sidebar_about_content'] == '') {
+            update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
+        }
 
                 
 	if(get_option('greenpark2_sidebar_about_title') == '') {

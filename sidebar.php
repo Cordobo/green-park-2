@@ -1,6 +1,6 @@
 <div id="sidebar">
 <ul class="sb-list clearfix">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : ?>
+
 
 <?php if (get_option('greenpark2_twitter_enable') == 'yes') { ?>
 <li>
@@ -29,6 +29,8 @@
         </li>
     </ul>
 </li>
+
+<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : ?>
 
 <?php endif; // end 1st sidebar widget  ?>
 

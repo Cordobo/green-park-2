@@ -312,6 +312,10 @@ td#next { text-align: right; }
     padding: 0 0 0 40px;
 }
 
+#footer p.signet {
+    padding-top: 18px;
+}
+
 #footer p.alignright {
     padding: 0 28px 0 0;
 }
