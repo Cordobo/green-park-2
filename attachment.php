@@ -1,49 +1,50 @@
 <?php get_header(); ?>
 
-	<div id="container">
-		<div id="content">
+<div id="container">
+<div id="content">
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		<div class="post" id="post-<?php the_ID(); ?>">
-			<h1><?php the_title(); ?></h1>
-			<small class="meta">
-        <?php the_date('') ?> <?php _e('by', 'default'); ?> <?php the_author() ?>
-        <?php edit_post_link(__( 'Edit', 'default' ), ' | ', ''); ?>
-			</small>
+        <div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
-			<div class="entry">
-				<?php the_content(''); ?>
-				<?php wp_link_pages('before=<ol class="page-link clearfix"><li><strong>Pages:</strong></li>&after=</ol>&pagelink=<li><span>%</span></li>'); ?>
+            <h1><?php the_title(); ?></h1>
+            <small class="meta">
+                <?php the_time(__('F jS, Y', 'default')) ?> <?php _e('by', 'default'); ?> <?php the_author() ?>
+                <?php edit_post_link(__( 'Edit this entry', 'default' ), ' | ', ''); ?>
+            </small>
 
-    	<ul class="previousnext clearfix">
-    		<?php previous_post_link('<li class="previous_post">%link</li>', '<span>' . (__('Previous Entry', 'default')) . ':</span> %title'); ?>
-    		<?php next_post_link('<li class="next_post">%link</li>', '<span>' . (__('Next Entry', 'default')) . ':</span> %title'); ?>
-    	</ul>	
+            <div class="entry">
+                <?php the_content(''); ?>
+                <?php wp_link_pages('before=<ol class="page-link clearfix"><li><strong>Pages:</strong></li>&after=</ol>&pagelink=<li><span>%</span></li>'); ?>
 
-			</div>
-			
-			<div class="postmetadata">
-			  <p class="categories">
-			    <?php _e( 'Posted in ', 'default' ); the_category(', '); ?>
-        </p>
-  			<?php the_tags( '<p class="tags">Tags: ', ' ', '</p>'); ?>
-				</div>
+                <ul class="previousnext clearfix">
+                    <?php previous_post_link('<li class="previous_post">%link</li>', '<span>' . (__('Previous Entry', 'default')) . ':</span> %title'); ?>
+                    <?php next_post_link('<li class="next_post">%link</li>', '<span>' . (__('Next Entry', 'default')) . ':</span> %title'); ?>
+                </ul>
 
-      <?php get_template_part( 'ads', 'middle' ); ?>
+            </div>
 
-		</div>
+            <div class="postmetadata">
+                <p class="categories">
+                    <?php _e( 'Posted in ', 'default' ); the_category(', '); ?>
+                </p>
+                <?php the_tags( '<p class="tags">Tags: ', ' ', '</p>'); ?>
+            </div>
+
+            <?php get_template_part( 'ads', 'middle' ); ?>
+
+        </div>
 		
-		<?php comments_template('', true); ?>
+        <?php comments_template('', true); ?>
 
-	<?php endwhile; else: ?>
+    <?php endwhile; else: ?>
 
-    <?php get_template_part( 'content', 'missing' ); ?>
+        <?php get_template_part( 'content', 'missing' ); ?>
 
-<?php endif; ?>
+    <?php endif; ?>
 
-		</div><!-- #content -->
-	</div><!-- #container -->
+</div> <!-- #content -->
+</div> <!-- #container -->
 
-<?php get_sidebar(); ?>
+<?php if(get_option('greenpark2_sidebar_disablesidebar') != 'yes') get_sidebar(); ?>
 <?php get_footer(); ?>
