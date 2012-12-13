@@ -9,8 +9,8 @@
 
             <h1><?php the_title(); ?></h1>
             <small class="meta">
-                <?php the_time(__('F jS, Y', 'gp2languages')) ?> <?php _e('by', 'gp2languages'); ?> <?php the_author() ?>
-                <?php edit_post_link(__( 'Edit this entry', 'gp2languages' ), ' | ', ''); ?>
+                <?php the_time(__('F jS, Y', 'greenpark')) ?> <?php _e('by', 'greenpark'); ?> <?php the_author() ?>
+                <?php edit_post_link(__( 'Edit this entry', 'greenpark' ), ' | ', ''); ?>
             </small>
 
             <div class="entry">
@@ -18,15 +18,15 @@
                 <?php wp_link_pages('before=<ol class="page-link clearfix"><li><strong>Pages:</strong></li>&after=</ol>&pagelink=<li><span>%</span></li>'); ?>
 
                 <ul class="previousnext clearfix">
-                    <?php previous_post_link('<li class="previous_post">%link</li>', '<span>' . (__('Previous Entry', 'gp2languages')) . ':</span> %title'); ?>
-                    <?php next_post_link('<li class="next_post">%link</li>', '<span>' . (__('Next Entry', 'gp2languages')) . ':</span> %title'); ?>
+                    <?php previous_post_link('<li class="previous_post">%link</li>', '<span>' . (__('Previous Entry', 'greenpark')) . ':</span> %title'); ?>
+                    <?php next_post_link('<li class="next_post">%link</li>', '<span>' . (__('Next Entry', 'greenpark')) . ':</span> %title'); ?>
                 </ul>
 
             </div>
 
             <div class="postmetadata">
                 <p class="categories">
-                    <?php _e( 'Posted in ', 'gp2languages' ); the_category(', '); ?>
+                    <?php _e( 'Posted in ', 'greenpark' ); the_category(', '); ?>
                 </p>
                 <?php the_tags( '<p class="tags">Tags: ', ' ', '</p>'); ?>
             </div>

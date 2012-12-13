@@ -4,12 +4,12 @@
 
     <p class="alignright">
         <a href="http://cordobo.com/green-park-2/" title="Cordobo Green Park 2 WordPress Theme">Cordobo Green Park 2</a>
-        <?php _e('powered by', 'gp2languages'); ?>
-        <a href="http://wordpress.org/" title="<?php _e('Blogsoftware by Wordpress', 'gp2languages'); ?>">WordPress</a>
+        <?php _e('powered by', 'greenpark'); ?>
+        <a href="http://wordpress.org/" title="<?php _e('Blogsoftware by Wordpress', 'greenpark'); ?>">WordPress</a>
     </p>
 
     <p>
-        &copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?>  <a href="#home" class="top-link" title="<?php _e('Back to Top', 'gp2languages'); ?>"> &nbsp; </a>
+        &copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?>  <a href="#home" class="top-link" title="<?php _e('Back to Top', 'greenpark'); ?>"> &nbsp; </a>
     </p>
 
     <p class="signet">

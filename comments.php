@@ -5,7 +5,7 @@
         die ('Please do not load this page directly. Thanks!');
 
     if ( post_password_required() ) { ?>
-        <p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments', 'gp2languages'); ?>.</p>
+        <p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments', 'greenpark'); ?>.</p>
     <?php
         return;
     }
@@ -17,16 +17,16 @@
 <?php if ( ! empty($comments_by_type['comment']) ) : ?>
 
     <div class="comments-header clearfix">
-        <h3 id="comments"><?php comments_number( __( 'No comments', 'gp2languages' ), __( '1 comment', 'gp2languages' ), __( '% comments', 'gp2languages' )); ?></h3>
+        <h3 id="comments"><?php comments_number( __( 'No comments', 'greenpark' ), __( '1 comment', 'greenpark' ), __( '% comments', 'greenpark' )); ?></h3>
         <div class="comments-header-meta">
-            <a href="#respond"><?php _e('Add your comment', 'gp2languages'); ?></a>
+            <a href="#respond"><?php _e('Add your comment', 'greenpark'); ?></a>
         </div>
     </div> <!-- comments-header -->
 
 
     <div class="navigation">
-        <div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'gp2languages')); ?></div>
-        <div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'gp2languages')); ?></div>
+        <div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'greenpark')); ?></div>
+        <div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'greenpark')); ?></div>
     </div>
 
     <ol class="commentlist">
@@ -35,8 +35,8 @@
 
 
     <div class="navigation">
-        <div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'gp2languages')); ?></div>
-        <div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'gp2languages')); ?></div>
+        <div class="alignleft"><?php previous_comments_link(__('&laquo; Older Comments', 'greenpark')); ?></div>
+        <div class="alignright"><?php next_comments_link(__('Newer Comments &raquo;', 'greenpark')); ?></div>
     </div>
 
 <?php endif; ?>
@@ -46,9 +46,9 @@
 <?php if ( ! empty($comments_by_type['pings']) ) : ?>
     <div class="comments-header clearfix">
         <h4 id="pings">
-        <?php _e('Trackbacks', 'gp2languages'); ?>
+        <?php _e('Trackbacks', 'greenpark'); ?>
         /<br/>
-        <?php _e('Pingbacks', 'gp2languages'); ?>
+        <?php _e('Pingbacks', 'greenpark'); ?>
         </h4>
         <ol class="pinglist">
         <?php wp_list_comments('type=pings&callback=list_pings'); ?>
@@ -64,7 +64,7 @@
 
     <?php else : // comments are closed ?>
         <!-- If comments are closed. -->
-        <p class="nocomments"><?php _e('Comments are closed', 'gp2languages'); ?>.</p>
+        <p class="nocomments"><?php _e('Comments are closed', 'greenpark'); ?>.</p>
 
     <?php endif; ?>
 <?php endif; ?>
@@ -76,7 +76,7 @@
 <?php if ( is_user_logged_in() ) : ?>
     <?php comment_form(); ?>
 <?php else : ?>
-    <?php comment_form(array('comment_notes_before' => '<div class=respond-left>', 'comment_notes_after' => '</div>', 'comment_field' => '</div><div class="respond-right"><p class="comment-form-comment"><label for="comment">' . __( 'Comment', 'gp2languages' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>'   )); ?>
+    <?php comment_form(array('comment_notes_before' => '<div class=respond-left>', 'comment_notes_after' => '</div>', 'comment_field' => '</div><div class="respond-right"><p class="comment-form-comment"><label for="comment">' . __( 'Comment', 'greenpark' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>'   )); ?>
 <?php endif; ?>
 
 

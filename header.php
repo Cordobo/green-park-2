@@ -1,42 +1,22 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+
+
+<!-- link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>" / -->
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
-
-<title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
-
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>" />
-
+<title><?php wp_title( '&raquo;', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<meta name="robots" content="index,follow" />
-<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
-<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() ?>/favicon.ico" type="image/x-icon" />
-<?php 
-    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'images.google.com'))
-    echo '<script language="JavaScript" type="text/javascript">
-    if (top.location != self.location) top.location = self.location;
-    </script>';
-?>
-
-<?php
-    /* We add some JavaScript to pages with the comment form
-     * to support sites with threaded comments (when in use).
-     */
-    if ( is_singular() && get_option( 'thread_comments' ) )
-    wp_enqueue_script( 'comment-reply' );
-
-    /* Always have wp_head() just before the closing </head>
-     * tag of your theme, or you will break many plugins, which
-     * generally use this hook to add elements to <head> such
-     * as styles, scripts, and meta tags.
-     */
-    wp_head();
-?>
+<meta name="robots" content="index,follow" />
+<?php wp_head(); ?>
 </head>
+
+
 <?php
     // Flush the site. Provides extra speed on some servers
     flush();
@@ -55,15 +35,15 @@
                 echo '<li><a href="';
                 echo esc_url( home_url( '/' ) );
                 echo '" title="';
-                echo _e('Go to homepage', 'gp2languages');
+                echo _e('Go to homepage', 'greenpark');
                 echo '">';
-                echo _e('Home', 'gp2languages');
+                echo _e('Home', 'greenpark');
                 echo '</a></li>';
             }
             if (get_option('greenpark2_accessibility_content') != 'yes')
             {
                 echo '<li><a href="#content" title="Skip to content">';
-                echo _e('Content', 'gp2languages');
+                echo _e('Content', 'greenpark');
                 echo '</a></li>';
             }
             if (get_option('greenpark2_accessibility_feed') != 'yes')
