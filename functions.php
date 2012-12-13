@@ -39,10 +39,10 @@ function greenpark_setup() {
 
         // This theme uses wp_nav_menu() in four locations.
         register_nav_menus( array(
-            'primary' => __( 'Primary Navigation', 'greenpark' ),
-            'accessibility_menu' => __( 'Accessibility Menu', 'greenpark' ),
-            'sidebar_menu' => __( 'Sidebar Menu', 'greenpark' ),
-            'footer_menu' => __( 'Footer Menu', 'greenpark' )
+                'primary' => __( 'Primary Navigation', 'greenpark' ),
+                'accessibility_menu' => __( 'Accessibility Menu', 'greenpark' ),
+                'sidebar_menu' => __( 'Sidebar Menu', 'greenpark' ),
+                'footer_menu' => __( 'Footer Menu', 'greenpark' )
         ) );
 
 }
@@ -72,7 +72,7 @@ function greenpark_scripts_styles() {
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'greenpark-style', get_stylesheet_uri() );
 
-	// Loads the Internet Explorer specific stylesheet.
+	// Loads Internet Explorer specific stylesheet
 
 }
 add_action( 'wp_enqueue_scripts', 'greenpark_scripts_styles' );
@@ -99,7 +99,7 @@ function greenpark_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary.
 	if ( $paged >= 2 || $page >= 2 )
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'twentytwelve' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'greenpark' ), max( $paged, $page ) );
 
 	return $title;
 }
