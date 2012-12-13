@@ -1,4 +1,10 @@
 <?php
+
+/*
+ * Green Park 2 Functions
+ */
+
+
 if ( ! isset( $content_width ) )
 	$content_width = 607;
 
