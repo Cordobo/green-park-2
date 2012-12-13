@@ -8,14 +8,14 @@ if ( ! isset( $content_width ) )
 // Language files loading
 function theme_init(){
 
-    load_theme_textdomain( 'default', get_template_directory() . '/languages' );
+    load_theme_textdomain( 'gp2languages', get_template_directory() . '/languages' );
 
     // This theme uses wp_nav_menu() in four locations.
     register_nav_menus( array(
-        'primary' => __( 'Primary Navigation', 'default' ),
-        'accessibility_menu' => __( 'Accessibility Menu', 'default' ),
-        'sidebar_menu' => __( 'Sidebar Menu', 'default' ),
-        'footer_menu' => __( 'Footer Menu', 'default' )
+        'primary' => __( 'Primary Navigation', 'gp2languages' ),
+        'accessibility_menu' => __( 'Accessibility Menu', 'gp2languages' ),
+        'sidebar_menu' => __( 'Sidebar Menu', 'gp2languages' ),
+        'footer_menu' => __( 'Footer Menu', 'gp2languages' )
     ) );
 
 }
@@ -575,7 +575,7 @@ ul.children li {
 	Released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl.html">GPL License</a> (<a target="_blank" href="http://en.wikipedia.org/wiki/GNU_General_Public_License">What is the GPL</a>?)
   </p>
 	<p>
-  Free to download, free to use, free to customize. Basically you can do whatever you want as long as you credit me with a link.
+  Free to download, free to use, free to customize. Basically you can do whatever you want :)
 	</p>
         
         
@@ -587,7 +587,7 @@ ul.children li {
 
 // Adds Green Park to WordPress Menu
 function greenpark2_options() {
-    add_theme_page(__('Green Park 2 Settings', 'default'), __('Green Park 2 Settings', 'default'), 'edit_theme_options', 'theme_options', 'greenpark2');
+    add_theme_page(__('Green Park 2 Settings', 'gp2languages'), __('Green Park 2 Settings', 'gp2languages'), 'edit_theme_options', 'theme_options', 'greenpark2');
 }
 
 

@@ -10,14 +10,14 @@ Template Name: Archives
 <div id="content">
 
     <div class="hentry post">
-        <h1><?php _e('Archives by Month', 'default'); ?></h1>
+        <h1><?php _e('Archives by Month', 'gp2languages'); ?></h1>
         <div class="entry">
             <ul>
                 <?php wp_get_archives('type=monthly'); ?>
             </ul>
         </div>
 
-        <h1><?php _e('Archives by Subject', 'default'); ?></h1>
+        <h1><?php _e('Archives by Subject', 'gp2languages'); ?></h1>
         <div class="entry">
             <ul>
                 <?php wp_list_categories('title_li=&depth=-1'); ?>

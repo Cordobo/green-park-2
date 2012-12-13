@@ -10,7 +10,7 @@ Template Name: Links
 <div id="content">
     
     <div class="hentry post">
-        <h1><?php _e('Links', 'default'); ?></h1>
+        <h1><?php _e('Links', 'gp2languages'); ?></h1>
         <div class="entry">
             <?php wp_list_bookmarks('title_li=&category_before=&category_after'); ?>
         </div>

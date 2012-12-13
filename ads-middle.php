@@ -1,5 +1,5 @@
 <div class="something">
-    <?php _e('Advertisement', 'default'); ?>		
+    <?php _e('Advertisement', 'gp2languages'); ?>		
     <div class="somethingspecial">
         <?php echo get_option('google_adsense_bottom'); ?>
     </div>

@@ -55,15 +55,15 @@
                 echo '<li><a href="';
                 echo esc_url( home_url( '/' ) );
                 echo '" title="';
-                echo _e('Go to homepage', 'default');
+                echo _e('Go to homepage', 'gp2languages');
                 echo '">';
-                echo _e('Home', 'default');
+                echo _e('Home', 'gp2languages');
                 echo '</a></li>';
             }
             if (get_option('greenpark2_accessibility_content') != 'yes')
             {
                 echo '<li><a href="#content" title="Skip to content">';
-                echo _e('Content', 'default');
+                echo _e('Content', 'gp2languages');
                 echo '</a></li>';
             }
             if (get_option('greenpark2_accessibility_feed') != 'yes')
