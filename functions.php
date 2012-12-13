@@ -78,24 +78,43 @@ function greenpark_scripts_styles() {
 add_action( 'wp_enqueue_scripts', 'greenpark_scripts_styles' );
 
 
+/* nicely formatted and more specific title element
+ * @param string $title Default title text for current view.
+ * @param string $sep Optional separator.
+ * @return string Filtered title.
+ */
+function greenpark_wp_title( $title, $sep ) {
+	global $paged, $page;
+
+	if ( is_feed() )
+		return $title;
+
+	// Add the site name.
+	$title .= get_bloginfo( 'name' );
+
+	// Add the site description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) )
+		$title = "$title $sep $site_description";
+
+	// Add a page number if necessary.
+	if ( $paged >= 2 || $page >= 2 )
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'twentytwelve' ), max( $paged, $page ) );
+
+	return $title;
+}
+add_filter( 'wp_title', 'greenpark_wp_title', 10, 2 );
+
+
 
 // OLD
 
-// This theme styles the visual editor with editor-style.css to match the theme style.
-add_editor_style();
 
-// This theme uses post thumbnails
-add_theme_support( 'post-thumbnails' );
-
-// Add default posts and comments RSS feed links to head
-add_theme_support( 'automatic-feed-links' );
-
-
-function greenpark2_widgets_init() {
+function greenpark_widgets_init() {
     register_sidebar( array(
-        'name' => __( 'Sidebar', 'greenpark2' ),
+        'name' => __( 'Sidebar', 'greenpark' ),
         'id' => 'primary-widget-area',
-        'description' => __( 'The widget area in the right side', 'greenpark2' ),
+        'description' => __( 'The widget area in the right side', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<div class="sb-title widgettitle">',
@@ -104,14 +123,14 @@ function greenpark2_widgets_init() {
     register_sidebar( array(
         'name' => __( 'Blog', 'greenpark2' ),
         'id' => 'blog-widget-area',
-        'description' => __( 'The widget area in the right side of the blog', 'greenpark2' ),
+        'description' => __( 'The widget area in the right side of the blog', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<div class="sb-title widgettitle">',
         'after_title' => '</div>',
     ) );
 }
-add_action( 'widgets_init', 'greenpark2_widgets_init' );
+add_action( 'widgets_init', 'greenpark_widgets_init' );
 
 
 
