@@ -30,6 +30,8 @@
 
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
+        <!-- google_ad_section_start -->
+    
         <div <?php post_class() ?> id="post-<?php the_ID(); ?>">
             
             <h1><?php the_title(); ?></h1>
@@ -92,6 +94,8 @@
             <?php get_template_part( 'ads', 'middle' ); ?>
 
         </div>
+    
+        <!-- google_ad_section_end -->
 
         <?php comments_template('', true); ?>
 
