@@ -55,7 +55,7 @@ function greenpark_setup() {
 add_action( 'after_setup_theme', 'greenpark_setup' );
 
 
-// Loads custom CSS for the Themes Settings page in the WordPress' Backend
+// Loads custom CSS for the Themes Settings page in WP Backend
 function load_greenpark2_admin_styles(){
     wp_register_style( 'custom_wp_admin_css', get_bloginfo('stylesheet_directory') . '/admin-style.css', false, '1.0.0' );
     wp_enqueue_style( 'custom_wp_admin_css' );
