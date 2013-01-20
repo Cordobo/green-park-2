@@ -1,0 +1,63 @@
+/* 
+    Document   : admin-style
+    Created on : 20.01.2013, 20:03:29
+    Author     : cordobo.com
+    Description: Admin Backend Stylesheet for GreenPark 2
+
+Loaded into WordPress via functions.php
+*/
+
+#greenpark2_admin_styles {
+    background: red;
+}
+
+#greenpark2_admin_styles div.settings-liquid-left {
+    clear: left;
+    float: left;
+    margin-right: -325px;
+    width: 100%;
+}
+
+#greenpark2_admin_styles div.settings-liquid-right {
+    clear: right;
+    float: right;
+    width: 300px;
+}
+
+#greenpark2_admin_styles div.settings-left {
+    margin-left: 5px;
+    margin-right: 325px;
+}
+
+#greenpark2_admin_styles div.settings-right {
+    margin: 0 auto;
+    width: 285px;
+}
+
+
+#greenpark2_admin_styles p.description {
+    margin: 1em 10px 12px;
+}
+
+#greenpark2_admin_styles .widget-holder {
+    background-color: #FCFCFC;
+    border-color: #DFDFDF;
+    padding: 7px 5px 0;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+}
+
+#greenpark2_admin_styles .form-table th,
+#greenpark2_admin_styles .form-table td {
+    padding: 0 10px 10px;
+}
+
+#greenpark2_admin_styles ul.children {
+    margin: 0 0 0 18px;
+}
+
+#greenpark2_admin_styles ul.children li {
+    margin: 0 0 2px;
+}

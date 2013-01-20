@@ -55,6 +55,14 @@ function greenpark_setup() {
 add_action( 'after_setup_theme', 'greenpark_setup' );
 
 
+// Loads custom CSS for the Themes Settings page in the WordPress' Backend
+function load_greenpark2_admin_styles(){
+    wp_register_style( 'custom_wp_admin_css', get_bloginfo('stylesheet_directory') . '/admin-style.css', false, '1.0.0' );
+    wp_enqueue_style( 'custom_wp_admin_css' );
+}
+add_action('admin_enqueue_scripts', 'load_greenpark2_admin_styles');
+
+
 
 // Adds support for a custom header image.
 // require( get_template_directory() . '/inc/custom-header.php' );
@@ -366,64 +374,7 @@ function greenpark2() {
 <!-- Cordobo Green Park 2 settings -->
 
 
-<style>
-
-div.settings-liquid-left {
-    clear: left;
-    float: left;
-    margin-right: -325px;
-    width: 100%;
-}
-
-div.settings-liquid-right {
-    clear: right;
-    float: right;
-    width: 300px;
-}
-
-div.settings-left {
-    margin-left: 5px;
-    margin-right: 325px;
-}
-
-div.settings-right {
-    margin: 0 auto;
-    width: 285px;
-}
-
-
-p.description {
-    margin: 1em 10px 12px;
-}
-
-.widget-holder {
-    background-color: #FCFCFC;
-    border-color: #DFDFDF;
-    padding: 7px 5px 0;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-style: none solid solid;
-    border-width: 0 1px 1px;
-}
-
-.form-table th,
-.form-table td {
-    padding: 0 10px 10px;
-}
-
-ul.children {
-    margin: 0 0 0 18px;
-}
-
-ul.children li {
-    margin: 0 0 2px;
-}
-
-    
-</style>
-
-
-<div class="wrap">	
+<div class="wrap" id="greenpark2_admin_styles">	
     <h2>Cordobo Green Park 2 Settings</h2>
 
 <div class="settings-liquid-left" id="settings_container">
