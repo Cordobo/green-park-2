@@ -3,8 +3,8 @@
 RELEASE NOTES FOR Cordobo Green Park 2 (GP2)
 ----------------------------------------------------------------------
 
-Version: Beta 8 (0.9.807)
-Release date: December 24th, 2012
+Version: Beta 8 (0.9.808)
+Release date: February 24th, 2013
 
 
 Get the latest Version here:
