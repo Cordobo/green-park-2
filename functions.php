@@ -56,12 +56,11 @@ add_action( 'after_setup_theme', 'greenpark_setup' );
 
 
 // Loads custom CSS for the Themes Settings page in WP Backend
-function load_greenpark2_admin_styles(){
-    wp_register_style( 'custom_wp_admin_css', get_bloginfo('stylesheet_directory') . '/admin-style.css', false, '1.0.0' );
-    wp_enqueue_style( 'custom_wp_admin_css' );
+function greenpark_load_admin_styles(){
+    wp_register_style( 'greenpark_wp_admin_css', get_bloginfo('stylesheet_directory') . '/admin-style.css', false, '1.0.0' );
+    wp_enqueue_style( 'greenpark_wp_admin_css' );
 }
-add_action('admin_enqueue_scripts', 'load_greenpark2_admin_styles');
-
+add_action('admin_enqueue_scripts', 'greenpark_load_admin_styles');
 
 
 // Adds support for a custom header image.
@@ -86,7 +85,27 @@ function greenpark_scripts_styles() {
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'greenpark-style', get_stylesheet_uri() );
 
+        // LESS Implementation
+        
+        // Include the class (unless you are using the script as a plugin)
+        // if ( ! class_exists( 'wp_less' ) ) {
+        //    require_once( 'wp-less/wp-less.php' );
+        // }
+        
+        // enqueue a .less style sheet
+
+        // if ( ! is_admin() )
+        //    wp_enqueue_style( 'greenpark-style', get_stylesheet_directory_uri() . '/style.less' );
+
+        if ( ! is_admin() ) {
+            wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/screen.less' );
+            // wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/screen.less', null, '2.2', 'screen' );
+            // wp_enqueue_style( 'print', get_stylesheet_directory_uri() . '/print.less', null, '2.2', 'print' );
+        }
+        
+        
 	// Loads Internet Explorer specific stylesheet
+        // IE6 is no longer supported by this stylesheet
 
 }
 add_action( 'wp_enqueue_scripts', 'greenpark_scripts_styles' );
@@ -121,7 +140,21 @@ add_filter( 'wp_title', 'greenpark_wp_title', 10, 2 );
 
 
 
-// OLD
+
+function greenpark_wp_head() {
+    
+    // ADD OUR FAVICON
+    echo '<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" type="image/x-icon" />';
+
+
+}
+add_action('wp_head', 'greenpark_wp_head');
+
+
+
+// ------------------------------ @TODO: REFACTOR ------------------------------
+// ------------------------------ @TODO: REFACTOR ------------------------------
+// ------------------------------ @TODO: REFACTOR ------------------------------
 
 
 function greenpark_widgets_init() {
