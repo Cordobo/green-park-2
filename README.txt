@@ -3,7 +3,7 @@
 RELEASE NOTES FOR Cordobo Green Park 2 (GP2)
 ----------------------------------------------------------------------
 
-Version: Beta 8 (0.9.808)
+Version: Beta 8 (0.9.809)
 Release date: February 24th, 2013
 
 
@@ -15,7 +15,7 @@ Please report all bugs:
 http://cordobo.com/1967-cordobo-green-park-2-beta-8/
 
 If you report a bug please include your
-- Wordpress version
+- WordPress version
 - browser details
 - a screenshot if necessary
 
@@ -61,29 +61,29 @@ Cordobo Green Park 2 is even better in your own language :)
 If you want to translate GP2 into your language, you'll find a
 default.mo and default.po file in the folder "languages".
 
-Please send your translated files to i18n@cordobo.de
+Please send your translated files to:
+i18n-2013@cordobo.de
+
 
 More information & ressources can be found here:
 http://cordobo.com/1381-green-park-2-beta-5-pre/
 
 
-   1. Chinese by wxzbb (http://wxzbb.com/)
-   2. English (default) Andreas Jacob (http://cordobo.com/)
-   3. French by Julien
-   4. German by Andreas Jacob (http://cordobo.com/)
-   5. Icelandic by J�hannes Birgir Jensson (http://joi.betra.is/)
-   6. Italian by Saverio Tonno
-   7. Norwegian Bokm�l by Bj�rn-Arild Eriksen-Woll (http://imback.net/)
-   8. Polish by Tosiek (http://tosiek.pl/)
-   9. Romanian by Cristian Boba (http://www.ebacalaureat.net/)
-  10. Russian (formal) by Dr. Dmitry Tarasov (http://garden.t-i-m.me/)
-  11. Russian (informal) by Perllover (http://blog.perlover.com/)
-  12. Spanish (castellano) by Jos� Manuel Mao (http://www.cuarenton.com/)
-  13. Swedish by Jon Klarstr�m (http://www.jonvision.se/)
-  14. Bulgarian by Konstantin Yovev (http://bits.1gb.bg/)
-  15. Vietnamese by Du Nguyen (http://www.lamseo.com/)
-
-
+1. Chinese by wxzbb (http://wxzbb.com/)
+2. English (default) Andreas Jacob (http://cordobo.com/)
+3. French by Julien
+4. German by Andreas Jacob (http://cordobo.com/)
+5. Icelandic by Jóhannes Birgir Jensson (http://joi.betra.is/)
+6. Italian by Saverio Tonno
+7. Norwegian Bokmål by Bjørn-Arild Eriksen-Woll
+8. Polish by Tosiek (http://tosiek.pl/)
+9. Romanian by Cristian Boba
+10. Russian (formal) by Dr. Dmitry Tarasov
+11. Russian (informal) by Perllover (http://blog.perlover.com/)
+12. Spanish (castellano) by José Manuel Mao (http://www.cuarenton.com/)
+13. Swedish by Jon Klarström (http://www.jonvision.se/)
+14. Bulgarian by Konstantin Yovev
+15. Vietnamese by Du Nguyen
 
 
 
@@ -110,38 +110,15 @@ section of Wordpress.
 
 
 ----------------------------------------------------------------------
-LOGO as an image
+LOGO IMAGE
 ----------------------------------------------------------------------
 
-You can simply replace the "text logo" with an image.
-Open the file "styles.css" in the themes folder
+Log in to Wordpress and navigate to
+"Appearance" > "Green Park 2 Settings"
 
-1. Find the text
-   "Start EXAMPLE CODE for an image logo" (line 246)
+Select: "Show image logo instead of text logo" and save your changes.
 
-2. Delete "/*" before (without the "")
-   "#logo, ..." (line 247)
-
-3. Delete "*/" after (line 252)
-   ".description ..." (line 251)
-
-4. Find "logo.png" (line 250) and replace it with the name of your logo.
-
-5. Change the height and width to fit your logo (line 248)
-   "#logo, #logo a { display: block; height: 19px; width: 87px; }"
-
-6. Find the text
-   "Start EXAMPLE CODE for a text logo" (line 257)
-
-7. Add "/*" before (without the "")
-   "#branding ..." (line 259)
-
-8. Add "*/" (line 262) after
-   "#logo, .description { color: #868F98; float: left; margin: 17px 0 0 10px; }" (line 261)
-
-Save your changes and upload the file style.css and your logo to your themes folder.
-
-
+Green Park 2 will make use of the file "logo.png" in the themes folder.
 
 
 ----------------------------------------------------------------------
