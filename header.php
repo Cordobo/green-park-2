@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-
-
-<!-- link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>" / -->
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
+<?php /*
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1" />
+ */ ?>
 <title><?php wp_title( '&raquo;', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() ?>/favicon.ico" type="image/x-icon" />
 <meta name="robots" content="index,follow" />
 <?php wp_head(); ?>
 </head>
