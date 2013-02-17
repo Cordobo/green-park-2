@@ -2,6 +2,23 @@
 <ul class="sb-list clearfix">
 
 
+<?php if (get_option('greenpark2_twitter_enable') == 'yes') { ?>
+<li>
+    <ul class="sb-tools clearfix">
+        <li class="twitter-icon">
+            <a class="sb-icon" href="<?php echo 'http://twitter.com/' . get_option('greenpark2_twitter_uri'); ?>" rel="nofollow">
+                <span><?php _e('Latest Tweet', 'greenpark'); ?></span>	
+                <?php twitter_messages(" . get_option(greenpark2_twitter_uri) . ", 1, false, false, '', false, false, false); ?>
+            </a>
+            <p class="sb-icon-text">
+                <a href="<?php echo 'http://twitter.com/' . get_option('greenpark2_twitter_uri'); ?>" rel="nofollow"><?php _e('Follow me on twitter', 'greenpark'); ?></a>.
+            </p>
+        </li>
+    </ul>
+</li>
+<?php } ?>
+
+
 <li>
     <ul class="sb-tools clearfix">
         <li class="rss-icon">
