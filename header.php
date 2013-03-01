@@ -1,11 +1,19 @@
 <!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?>>
+<!--<![endif]-->
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
 <?php /*
-<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1" />
+    <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1" />
  */ ?>
 <title><?php wp_title( '&raquo;', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -13,7 +21,6 @@
 <meta name="robots" content="index,follow" />
 <?php wp_head(); ?>
 </head>
-
 
 <?php
     // Flush the site. Provides extra speed on some servers
