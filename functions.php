@@ -57,8 +57,8 @@ add_action( 'after_setup_theme', 'greenpark_setup' );
 
 // Loads custom CSS for the Themes Settings page in WP Backend
 function greenpark_load_admin_styles(){
-    wp_register_style( 'greenpark_wp_admin_css', get_bloginfo('stylesheet_directory') . '/admin-style.css', false, '1.0.0' );
-    wp_enqueue_style( 'greenpark_wp_admin_css' );
+        wp_register_style( 'greenpark_wp_admin_css', get_bloginfo('stylesheet_directory') . '/admin-style.css', false, '1.0.0' );
+        wp_enqueue_style( 'greenpark_wp_admin_css' );
 }
 add_action('admin_enqueue_scripts', 'greenpark_load_admin_styles');
 
@@ -68,6 +68,7 @@ add_action('admin_enqueue_scripts', 'greenpark_load_admin_styles');
 
 // Enqueues scripts and styles for front-end.
 function greenpark_scripts_styles() {
+
 	global $wp_styles;
 
 	/*
@@ -80,32 +81,22 @@ function greenpark_scripts_styles() {
 
 	// Adds JavaScript for handling the navigation menu hide-and-show behavior.
 
+
 	// Fonts
+
 
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'greenpark-style', get_stylesheet_uri() );
 
         // LESS Implementation
-        
-        // Include the class (unless you are using the script as a plugin)
-        // if ( ! class_exists( 'wp_less' ) ) {
-        //    require_once( 'wp-less/wp-less.php' );
-        // }
-        
-        // enqueue a .less style sheet
-
         // if ( ! is_admin() )
-        //    wp_enqueue_style( 'greenpark-style', get_stylesheet_directory_uri() . '/style.less' );
+        // wp_enqueue_style( 'greenpark-style', get_stylesheet_directory_uri() . '/style.less' );
 
         if ( ! is_admin() ) {
-            wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/screen.less' );
-            // wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/screen.less', null, '2.2', 'screen' );
-            // wp_enqueue_style( 'print', get_stylesheet_directory_uri() . '/print.less', null, '2.2', 'print' );
+                wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/screen.less' );
+                // wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/screen.less', null, '2.2', 'screen' );
+                // wp_enqueue_style( 'print', get_stylesheet_directory_uri() . '/print.less', null, '2.2', 'print' );
         }
-        
-        
-	// Loads Internet Explorer specific stylesheet
-        // IE6 is no longer supported by this stylesheet
 
 }
 add_action( 'wp_enqueue_scripts', 'greenpark_scripts_styles' );
@@ -117,6 +108,7 @@ add_action( 'wp_enqueue_scripts', 'greenpark_scripts_styles' );
  * @return string Filtered title.
  */
 function greenpark_wp_title( $title, $sep ) {
+
 	global $paged, $page;
 
 	if ( is_feed() )
@@ -135,6 +127,7 @@ function greenpark_wp_title( $title, $sep ) {
 		$title = "$title $sep " . sprintf( __( 'Page %s', 'greenpark' ), max( $paged, $page ) );
 
 	return $title;
+
 }
 add_filter( 'wp_title', 'greenpark_wp_title', 10, 2 );
 
@@ -145,7 +138,6 @@ function greenpark_wp_head() {
     
     // ADD OUR FAVICON
     echo '<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" type="image/x-icon" />';
-
 
 }
 add_action('wp_head', 'greenpark_wp_head');
