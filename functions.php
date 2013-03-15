@@ -85,18 +85,22 @@ function greenpark_scripts_styles() {
 	// Fonts
 
 
-	// Loads our main stylesheet.
+	// Loads our main stylesheets.
 	wp_enqueue_style( 'greenpark-style', get_stylesheet_uri() );
+        wp_enqueue_style( 'greenpark-screen', get_stylesheet_directory_uri() . '/screen.css' );
 
         // LESS Implementation
         // if ( ! is_admin() )
         // wp_enqueue_style( 'greenpark-style', get_stylesheet_directory_uri() . '/style.less' );
 
+        /* Deactivated, as we make no use of a less.css plugin
         if ( ! is_admin() ) {
                 wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/screen.less' );
                 // wp_enqueue_style( 'screen', get_stylesheet_directory_uri() . '/screen.less', null, '2.2', 'screen' );
                 // wp_enqueue_style( 'print', get_stylesheet_directory_uri() . '/print.less', null, '2.2', 'print' );
         }
+        */
+        
 
 }
 add_action( 'wp_enqueue_scripts', 'greenpark_scripts_styles' );
