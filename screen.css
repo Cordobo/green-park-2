@@ -421,10 +421,6 @@ td#next {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.3), inset 0 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 2px rgba(0, 0, 0, 0.05);
   text-align: left;
   margin: 0 auto 2px;
-  /* @TODO - NEW maximum width = 1000px
-    width: 980px;
-    */
-
   max-width: 1000px;
 }
 #header {
@@ -470,9 +466,9 @@ td#next {
 ------------------------------------------------------------------- */
 /* Start Logo */
 #branding {
-  position: absolute;
   bottom: 62px;
   left: 40px;
+  position: absolute;
 }
 h1.brand,
 div.brand {
@@ -554,14 +550,9 @@ div.logo {
   padding: 0 12px 0 14px;
   text-shadow: 0 1px 0 #555;
 }
-/* Removes the background separator in Opera 9+, Firefox 2+, Safari 3+ */
-.menu li:first-child a {
-  background-image: none;
-}
 .menu > ul > li > a:active,
 .menu > ul > li > a:focus,
-.menu > ul > li > a:hover,
-.menu .current_page_item a {
+.menu > ul > li > a:hover {
   /* FF3.5/Safari4/Chrome2/Opera10 - applies a darker text-shadow to the link for a seamless transition - http://cordobo.com/1119-provide-visual-feedback-css/ */
 
   text-shadow: 1px 1px 1px #000;
@@ -570,6 +561,15 @@ div.logo {
 .menu > ul > li > a:focus {
   position: relative;
   top: 1px;
+}
+.menu .current_page_item a {
+  /* FF3.5/Safari4/Chrome2/Opera10 - applies a darker text-shadow to the link for a seamless transition - http://cordobo.com/1119-provide-visual-feedback-css/ */
+
+  text-shadow: 1px 1px 1px #000;
+}
+/* Removes the background separator in Opera 9+, Firefox 2+, Safari 3+ */
+.menu li:first-child a {
+  background-image: none;
 }
 /* SUBMENUES */
 .menu ul.children,
@@ -586,14 +586,9 @@ div.logo {
   top: 100%;
   z-index: 1000;
 }
-.menu .children ul.children,
-.menu .sub-menu ul.sub-menu {
-  left: 90%;
-  top: 3px;
-}
 .menu ul.children:after,
-.menu ul.children:before,
 .menu ul.sub-menu:after,
+.menu ul.children:before,
 .menu ul.sub-menu:before {
   border-style: solid;
   content: " ";
@@ -615,21 +610,9 @@ div.logo {
   left: 16px;
   top: -10px;
 }
-.menu .children ul.children:before,
-.menu .sub-menu ul.sub-menu:before {
-  border-color: transparent #aaa transparent transparent;
-  left: -12px;
-  top: 11px;
-}
-.menu .children ul.children:after,
-.menu .sub-menu ul.sub-menu:after {
-  border-color: transparent #fff transparent transparent;
-  left: -10px;
-  top: 12px;
-}
 .menu ul.children li,
-.menu ul.children li a,
 .menu ul.sub-menu li,
+.menu ul.children li a,
 .menu ul.sub-menu li a {
   float: none;
 }
@@ -660,6 +643,23 @@ div.logo {
   background-image: linear-gradient(top, #ffffff, #ecf6f9);
   border-color: #CEDFE4;
   color: #306F8F;
+}
+.menu .children ul.children,
+.menu .sub-menu ul.sub-menu {
+  left: 90%;
+  top: 3px;
+}
+.menu .children ul.children:before,
+.menu .sub-menu ul.sub-menu:before {
+  border-color: transparent #aaa transparent transparent;
+  left: -12px;
+  top: 11px;
+}
+.menu .children ul.children:after,
+.menu .sub-menu ul.sub-menu:after {
+  border-color: transparent #fff transparent transparent;
+  left: -10px;
+  top: 12px;
 }
 .menu li:hover > ul.children,
 .menu li:hover > ul.sub-menu {
@@ -693,14 +693,13 @@ div.logo {
 #searchsubmit {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  -ms-border-radius: 3px;
   border-radius: 3px;
 }
 #s {
   background-color: #fff;
   border: 1px solid #777;
-  height: 16px;
-  line-height: 16px;
+  height: 18px;
+  line-height: 18px;
   padding: 4px 5px;
   width: 130px;
 }
@@ -708,14 +707,14 @@ div.logo {
   border-color: #69ab01 #548301 #548301 #777;
 }
 #searchsubmit {
-  background: #669900 url(img/sprite.png) left -410px repeat-x;
-  border: 1px solid #666;
+  background: #669900;
+  border: 1px solid #558800;
   -moz-box-shadow: #fff 0 0 1px;
   -webkit-box-shadow: #fff 0 0 1px;
   box-shadow: #fff 0 0 1px;
   color: #fff;
   letter-spacing: 1px;
-  padding: 4px 5px;
+  padding: 5px;
 }
 #breadcrumb {
   border-bottom: 1px dotted #ddd;
@@ -764,16 +763,16 @@ div.logo {
   padding: 8px 40px;
   text-shadow: 0 1px 0 #fff;
 }
-* html .meta {
-  height: 1%;
-}
 .meta:after {
+  clear: both;
   content: ".";
   display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
   height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+* html .meta {
+  height: 1%;
 }
 a.button-style {
   border: 1px solid transparent;
@@ -805,18 +804,18 @@ a.button-style:hover {
   margin-left: 0.75em;
   padding-left: 12px;
 }
+.entry ol li {
+  list-style-type: decimal;
+}
 .entry ul {
   margin-left: 0.5em;
   padding-left: 12px;
-}
-.entry ol li {
-  list-style-type: decimal;
 }
 .entry ul li {
   list-style-type: disc;
 }
 .entry dt {
-  font-weight: bold;
+  font-weight: 600;
 }
 .entry dd {
   background: transparent url(img/sprite.png) right -558px no-repeat;
@@ -1046,7 +1045,7 @@ a.comment-reply-link {
   float: right;
   padding: 2px 6px;
 }
-.comment-reply-link:hover {
+a.comment-reply-link:hover {
   background-color: #fff;
   color: #333;
 }
@@ -1124,9 +1123,9 @@ textarea#comment {
 textarea#comment:focus {
   color: #000;
   border-color: #aaa;
-  box-shadow: 3px 3px 0 #eeeeee;
   -moz-box-shadow: 3px 3px 0 #eeeeee;
   -webkit-box-shadow: 3px 3px #eee;
+  box-shadow: 3px 3px 0 #eeeeee;
 }
 input#submit {
   background: #5388b6 url(img/sprite.png) left -460px repeat-x;
@@ -1169,7 +1168,7 @@ ul.sb-list {
   font-weight: 600;
   padding-bottom: 1px;
 }
-ul.sb-tools {
+.sb-tools {
   border-bottom: 1px dotted #ddd;
   margin: 9px 0;
   padding: 0 8px 9px;
@@ -1215,16 +1214,16 @@ ul.sb-tools {
   background-position: 5px 5px;
   padding-right: 0;
 }
+.previous-post a:active,
+.previous-post a:focus,
+.previous-post a:hover {
+  background-position: 5px -95px;
+}
 .next-post a:active,
 .next-post a:focus,
 .next-post a:hover {
   background-position: right -295px;
   border: none;
-}
-.previous-post a:active,
-.previous-post a:focus,
-.previous-post a:hover {
-  background-position: 5px -95px;
 }
 ul.group {
   float: left;
