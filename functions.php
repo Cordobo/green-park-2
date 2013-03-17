@@ -148,9 +148,7 @@ add_action('wp_head', 'greenpark_wp_head');
 
 
 
-// ------------------------------ @TODO: REFACTOR ------------------------------
-// ------------------------------ @TODO: REFACTOR ------------------------------
-// ------------------------------ @TODO: REFACTOR ------------------------------
+
 
 
 function greenpark_widgets_init() {
@@ -160,54 +158,55 @@ function greenpark_widgets_init() {
         'description' => __( 'The widget area in the right side', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
-        'before_title' => '<h4 class="sb-title widgettitle">',
+        'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
-    ) );
+    ));
     register_sidebar( array(
-        'name' => __( 'Blog', 'greenpark2' ),
+        'name' => __( 'Blog', 'greenpark' ),
         'id' => 'blog-widget-area',
         'description' => __( 'The widget area in the right side of the blog', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
-        'before_title' => '<h4 class="sb-title widgettitle">',
+        'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
-    ) );
+    ));
+    register_sidebar(array(
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget' => '</li>',
+        'before_title' => '<h4 class="widget-title">',
+        'after_title' => '</h4>',
+        'name' => '1'
+    ));
+      register_sidebar(array(
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget' => '</li>',
+        'before_title' => '<h4 class="widget-title">',
+        'after_title' => '</h4>',
+        'name' => '2'
+    ));
+      register_sidebar(array(
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget' => '</li>',
+        'before_title' => '<h4 class="widget-title">',
+        'after_title' => '</h4>',
+        'name' => '3'
+    ));
+      register_sidebar(array(
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget' => '</li>',
+        'before_title' => '<h4 class="widget-title">',
+        'after_title' => '</h4>',
+        'name' => '4'
+    ));
 }
 add_action( 'widgets_init', 'greenpark_widgets_init' );
 
 
 
 
-if ( function_exists('register_sidebar') ) {
-  register_sidebar(array(
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget' => '</li>',
-    'before_title' => '<h4 class="sb-title widgettitle">',
-    'after_title' => '</h4>',
-    'name' => '1'
-  ));
-    register_sidebar(array(
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget' => '</li>',
-    'before_title' => '<h4 class="sb-title widgettitle">',
-    'after_title' => '</h4>',
-    'name' => '2'
-  ));
-    register_sidebar(array(
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget' => '</li>',
-    'before_title' => '<h4 class="sb-title widgettitle">',
-    'after_title' => '</h4>',
-    'name' => '3'
-  ));
-    register_sidebar(array(
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget' => '</li>',
-    'before_title' => '<h4 class="sb-title widgettitle">',
-    'after_title' => '</h4>',
-    'name' => '4'
-  ));
-}
+// ------------------------------ @TODO: REFACTOR ------------------------------
+// ------------------------------ @TODO: REFACTOR ------------------------------
+// ------------------------------ @TODO: REFACTOR ------------------------------
 
 
 // http://sivel.net/2008/10/wp-27-comment-separation/
