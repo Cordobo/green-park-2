@@ -155,7 +155,7 @@ function greenpark_widgets_init() {
     register_sidebar( array(
         'name' => __( 'Sidebar', 'greenpark' ),
         'id' => 'primary-widget-area',
-        'description' => __( 'The widget area in the right side', 'greenpark' ),
+        'description' => __( 'Not in use yet', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -164,13 +164,16 @@ function greenpark_widgets_init() {
     register_sidebar( array(
         'name' => __( 'Blog', 'greenpark' ),
         'id' => 'blog-widget-area',
-        'description' => __( 'The widget area in the right side of the blog', 'greenpark' ),
+        'description' => __( 'Not in use yet', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ));
     register_sidebar(array(
+        'name' => __( 'One', 'greenpark' ),
+        'id' => 'one-widget-area',
+        'description' => __( 'Sidebar Widget 1', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -178,6 +181,9 @@ function greenpark_widgets_init() {
         'name' => '1'
     ));
       register_sidebar(array(
+        'name' => __( 'Two', 'greenpark' ),
+        'id' => 'two-widget-area',
+          'description' => __( 'Sidebar Widget 2', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -185,6 +191,9 @@ function greenpark_widgets_init() {
         'name' => '2'
     ));
       register_sidebar(array(
+        'name' => __( 'Three', 'greenpark' ),
+        'id' => 'three-widget-area',
+          'description' => __( 'Sidebar Widget 3', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -192,6 +201,9 @@ function greenpark_widgets_init() {
         'name' => '3'
     ));
       register_sidebar(array(
+        'name' => __( 'Four', 'greenpark' ),
+        'id' => 'four-widget-area',
+          'description' => __( 'Sidebar Widget 4', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
