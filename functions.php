@@ -159,7 +159,7 @@ function greenpark_widgets_init() {
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
-        'after_title' => '</h4>',
+        'after_title' => '</h4>'
     ));
     register_sidebar( array(
         'name' => __( 'Blog', 'greenpark' ),
@@ -168,7 +168,7 @@ function greenpark_widgets_init() {
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
-        'after_title' => '</h4>',
+        'after_title' => '</h4>'
     ));
     register_sidebar(array(
         'name' => __( 'One', 'greenpark' ),
@@ -177,8 +177,7 @@ function greenpark_widgets_init() {
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
-        'after_title' => '</h4>',
-        'name' => '1'
+        'after_title' => '</h4>'
     ));
       register_sidebar(array(
         'name' => __( 'Two', 'greenpark' ),
@@ -187,8 +186,7 @@ function greenpark_widgets_init() {
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
-        'after_title' => '</h4>',
-        'name' => '2'
+        'after_title' => '</h4>'
     ));
       register_sidebar(array(
         'name' => __( 'Three', 'greenpark' ),
@@ -197,8 +195,7 @@ function greenpark_widgets_init() {
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
-        'after_title' => '</h4>',
-        'name' => '3'
+        'after_title' => '</h4>'
     ));
       register_sidebar(array(
         'name' => __( 'Four', 'greenpark' ),
@@ -207,8 +204,7 @@ function greenpark_widgets_init() {
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
-        'after_title' => '</h4>',
-        'name' => '4'
+        'after_title' => '</h4>'
     ));
 }
 add_action( 'widgets_init', 'greenpark_widgets_init' );
