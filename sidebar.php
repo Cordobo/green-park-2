@@ -30,7 +30,7 @@
     </ul>
 </li>
 
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : ?>
+<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(one) ) : ?>
 
 <?php endif; // end 1st sidebar widget  ?>
 
@@ -58,7 +58,7 @@
 
 
 
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : ?>
+<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(two) ) : ?>
 
     <?php if ( is_404() || is_category() || is_day() || is_month() || is_year() || is_search() || is_paged() ) { ?>
     <li class="currently-viewing">
@@ -94,7 +94,7 @@
 
 
 <ul class="group">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(3) ) : ?>
+<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(three) ) : ?>
 
     <?php if ( is_front_page() || is_page() ) { ?>
         <?php wp_list_pages('title_li=<div class="sb-title">' . __('Pages','greenpark') . '</div>' ); ?>
@@ -119,7 +119,7 @@
 
 
 <ul class="group">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(4) ) : ?>
+<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar(four) ) : ?>
 
     <?php if ( is_front_page() ) { ?>
         <?php wp_list_bookmarks('title_before=<div class="sb-title">&title_after=</div>'); ?>
