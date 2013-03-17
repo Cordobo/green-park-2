@@ -51,7 +51,7 @@
         <?php _e('Pingbacks', 'greenpark'); ?>
         </h4>
         <ol class="pinglist">
-        <?php wp_list_comments('type=pings&callback=list_pings'); ?>
+        <?php wp_list_comments('type=pings&callback=greenpark_list_pings'); ?>
         </ol>
     </div>
 <?php endif; ?>

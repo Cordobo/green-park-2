@@ -56,7 +56,7 @@ add_action( 'after_setup_theme', 'greenpark_setup' );
 
 
 // Loads custom CSS for the Themes Settings page in WP Backend
-function greenpark_load_admin_styles(){
+function greenpark_load_admin_styles() {
         wp_register_style( 'greenpark_wp_admin_css', get_bloginfo('stylesheet_directory') . '/admin-style.css', false, '1.0.0' );
         wp_enqueue_style( 'greenpark_wp_admin_css' );
 }
@@ -172,7 +172,7 @@ function greenpark_widgets_init() {
     ));
     register_sidebar(array(
         'name' => __( 'One', 'greenpark' ),
-        'id' => 'one-widget-area',
+        'id' => 'sidebar-1',
         'description' => __( 'Sidebar Widget 1', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
@@ -181,8 +181,8 @@ function greenpark_widgets_init() {
     ));
       register_sidebar(array(
         'name' => __( 'Two', 'greenpark' ),
-        'id' => 'two-widget-area',
-          'description' => __( 'Sidebar Widget 2', 'greenpark' ),
+        'id' => 'sidebar-2',
+        'description' => __( 'Sidebar Widget 2', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -190,8 +190,8 @@ function greenpark_widgets_init() {
     ));
       register_sidebar(array(
         'name' => __( 'Three', 'greenpark' ),
-        'id' => 'three-widget-area',
-          'description' => __( 'Sidebar Widget 3', 'greenpark' ),
+        'id' => 'sidebar-3',
+        'description' => __( 'Sidebar Widget 3', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -199,8 +199,8 @@ function greenpark_widgets_init() {
     ));
       register_sidebar(array(
         'name' => __( 'Four', 'greenpark' ),
-        'id' => 'four-widget-area',
-          'description' => __( 'Sidebar Widget 4', 'greenpark' ),
+        'id' => 'sidebar-4',
+        'description' => __( 'Sidebar Widget 4', 'greenpark' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -218,7 +218,7 @@ add_action( 'widgets_init', 'greenpark_widgets_init' );
 
 
 // http://sivel.net/2008/10/wp-27-comment-separation/
-function list_pings($comment, $args, $depth) {
+function greenpark_list_pings($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
     echo "<li id=\"comment-";
     echo comment_ID();
