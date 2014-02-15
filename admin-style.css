@@ -1,10 +1,9 @@
 /* 
     Document   : admin-style
-    Created on : 20.01.2013, 20:03:29
+    Created    : 20.01.2013, 20:03
+    Edited     : 15.02.2014, 19:26
     Author     : cordobo.com
-    Description: Admin Backend Stylesheet for GreenPark 2
-
-Loaded into WordPress via functions.php
+    Description: Admin Backend Stylesheet for GreenPark 2, loaded via functions.php
 */
 
 #greenpark2_admin_styles {
@@ -34,32 +33,9 @@ Loaded into WordPress via functions.php
     width: 285px;
 }
 
-
 #greenpark2_admin_styles p.description {
     margin: 1em 10px 12px;
 }
-
-/*
-#greenpark2_admin_styles .widget-holder {
-    background-color: #FCFCFC;
-    border-color: #DFDFDF;
-    padding: 7px 5px 0;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-style: none solid solid;
-    border-width: 0 1px 1px;
-}
-*/
-
-/*
-#greenpark2_admin_styles .form-table th {
-    padding: 0 10px 10px 0;
-}
-
-#greenpark2_admin_styles .form-table td {
-    padding: 0 10px 10px;
-}
-*/
 
 #greenpark2_admin_styles ul.children {
     margin: 0 0 0 18px;
