@@ -39,6 +39,7 @@ Loaded into WordPress via functions.php
     margin: 1em 10px 12px;
 }
 
+/*
 #greenpark2_admin_styles .widget-holder {
     background-color: #FCFCFC;
     border-color: #DFDFDF;
@@ -48,11 +49,17 @@ Loaded into WordPress via functions.php
     border-style: none solid solid;
     border-width: 0 1px 1px;
 }
+*/
 
-#greenpark2_admin_styles .form-table th,
+/*
+#greenpark2_admin_styles .form-table th {
+    padding: 0 10px 10px 0;
+}
+
 #greenpark2_admin_styles .form-table td {
     padding: 0 10px 10px;
 }
+*/
 
 #greenpark2_admin_styles ul.children {
     margin: 0 0 0 18px;
