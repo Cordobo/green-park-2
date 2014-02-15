@@ -16,7 +16,7 @@
 
 <?php
     // Flush the site. Provides extra speed on some servers
-    flush();
+    // flush();
 ?>
 
 <body id="home" <?php body_class(); ?> itemscope itemtype="http://schema.org/Blog">
