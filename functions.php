@@ -280,25 +280,27 @@ function greenpark2_options() {
         }
 
 
-        if (isset($_POST['sidebar_disablesidebar']) and $_POST['sidebar_disablesidebar'] == 'yes') :
-            update_option("greenpark2_sidebar_disablesidebar", "yes");
+        if (isset($_POST['sidebar_disablesidebar']) and $_POST['sidebar_disablesidebar'] == true) :
+            update_option("greenpark2_sidebar_disablesidebar", true);
         else :
-            update_option("greenpark2_sidebar_disablesidebar", "no");
+            update_option("greenpark2_sidebar_disablesidebar", false);
         endif;
 
 
-        if (isset($_POST['accessibility_disable']) and $_POST['accessibility_disable'] == 'yes') :
-            update_option("greenpark2_accessibility_disable", "yes");
+        // Changed to BOOL
+        if (isset($_POST['accessibility_disable']) and $_POST['accessibility_disable'] == true) :
+            update_option("greenpark2_accessibility_disable", true);
         else :
-            update_option("greenpark2_accessibility_disable", "no");
+            update_option("greenpark2_accessibility_disable", false);
+        endif;
+
+        if (isset($_POST['accessibility_home']) and $_POST['accessibility_home'] == true) :
+            update_option("greenpark2_accessibility_home", true);
+        else :
+            update_option("greenpark2_accessibility_home", false);
         endif;
 
 
-        if (isset($_POST['accessibility_home']) and $_POST['accessibility_home'] == 'yes') :
-            update_option("greenpark2_accessibility_home", "yes");
-        else :
-            update_option("greenpark2_accessibility_home", "no");
-        endif;
 
         if (isset($_POST['accessibility_content']) and $_POST['accessibility_content'] == 'yes') :
             update_option("greenpark2_accessibility_content", "yes");

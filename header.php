@@ -24,9 +24,9 @@
 
 <div id="header">
 
-    <?php if (get_option('greenpark2_accessibility_disable') != 'yes') {
+    <?php if (get_option('greenpark2_accessibility_disable') != true) {
         echo('<ul id="accessibility">');
-            if (get_option('greenpark2_accessibility_home') != 'yes')
+            if (get_option('greenpark2_accessibility_home') != true)
             {
                 echo '<li><a href="';
                 echo esc_url( home_url( '/' ) );
@@ -95,4 +95,4 @@
 </div> <!-- #header -->
 
 
-<div id="main" class="clearfix">
+<div id="main" class="clearfix <?php if (get_option('greenpark2_sidebar_disablesidebar') == true) { echo 'no-sidebar'; } ?>">

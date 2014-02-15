@@ -46,5 +46,5 @@
 </div> <!-- #content -->
 </div> <!-- #container -->
 
-<?php if(get_option('greenpark2_sidebar_disablesidebar') != 'yes') get_sidebar(); ?>
+<?php if(get_option('greenpark2_sidebar_disablesidebar') != true) get_sidebar(); ?>
 <?php get_footer(); ?>

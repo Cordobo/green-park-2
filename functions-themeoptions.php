@@ -6,81 +6,73 @@
             <form method="post" name="update_form" target="_self">
 
                 <h3 id="greenpark2_sidebar">General Settings</h3>
-
-                <div class="widget-holder">
-                    <p class="description">General settings for Green Park 2</p>
-
-                    <table class="form-table">
-                        <tr>
-                            <th>Sidebar:</th>
-                            <td>
-                                <label><input type="checkbox" name="sidebar_disablesidebar" <?php echo ($data['sidebar']['disablesidebar'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                    Disable the sidebar on pages</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Comments:</th>
-                            <td>
-                                <label><input type="checkbox" name="comments_page_disable" <?php echo ($data['comments']['page_disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                    Disable comments on pages</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Logo:</th>
-                            <td>
-                                <label><input type="checkbox" name="logo_show" <?php echo ($data['logo']['show'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                    Show image instead of text logo (<strong>img/logo.png</strong> in your themes folder will be used)</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Accessibility:</th>
-                            <td>
-                                <ul style="margin-top:0;">
-                                    <li><label><input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                            Check to hide all accessibility links in the top right corner (this will override all the following function of this section)</label>
-                                        <ul class="children">
-                                            <li><label><input type="checkbox" name="accessibility_home" <?php echo ($data['accessibility']['home'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                    Check to hide the Home link</label></li>
-                                            <li><label><input type="checkbox" name="accessibility_content" <?php echo ($data['accessibility']['content'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                    Check to hide the Content link</label></li>
-                                            <li><label><input type="checkbox" name="accessibility_feed" <?php echo ($data['accessibility']['feed'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                    Check to hide the Feed link</label></li>
-                                            <li><label><input type="checkbox" name="accessibility_meta" <?php echo ($data['accessibility']['meta'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                    Check to hide the Meta link</label></li>
-                                            <li><label><input type="checkbox" name="accessibility_register" <?php echo ($data['accessibility']['register'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                    Check to hide the Register link</label></li>
-                                            <li><label><input type="checkbox" name="accessibility_loginout" <?php echo ($data['accessibility']['loginout'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                    Check to hide the Login/Logout link</label></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                <table class="form-table">
+                    <tr>
+                        <th>Sidebar:</th>
+                        <td>
+                            <label><input type="checkbox" name="sidebar_disablesidebar" <?php echo ($data['sidebar']['disablesidebar'] == true ? 'checked="checked"' : ''); ?> value="true" />
+                                Disable the sidebar on pages</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Comments:</th>
+                        <td>
+                            <label><input type="checkbox" name="comments_page_disable" <?php echo ($data['comments']['page_disable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                Disable comments on pages</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Logo:</th>
+                        <td>
+                            <label><input type="checkbox" name="logo_show" <?php echo ($data['logo']['show'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                Show image logo instead of text (<strong>img/logo.png</strong> in your themes folder will be used)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Accessibility:</th>
+                        <td>
+                            <ul style="margin-top:0;">
+                                <li><label><input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == true ? 'checked="checked"' : ''); ?> value="true" />
+                                        Check to hide all accessibility links in the top right corner (this will override all the following functions of this section)</label>
+                                    <ul class="children">
+                                        <li><label><input type="checkbox" name="accessibility_home" <?php echo ($data['accessibility']['home'] == true ? 'checked="checked"' : ''); ?> value="true" />
+                                                Check to hide the Home link</label></li>
+                                        <li><label><input type="checkbox" name="accessibility_content" <?php echo ($data['accessibility']['content'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                                Check to hide the Content link</label></li>
+                                        <li><label><input type="checkbox" name="accessibility_feed" <?php echo ($data['accessibility']['feed'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                                Check to hide the Feed link</label></li>
+                                        <li><label><input type="checkbox" name="accessibility_meta" <?php echo ($data['accessibility']['meta'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                                Check to hide the Meta link</label></li>
+                                        <li><label><input type="checkbox" name="accessibility_register" <?php echo ($data['accessibility']['register'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                                Check to hide the Register link</label></li>
+                                        <li><label><input type="checkbox" name="accessibility_loginout" <?php echo ($data['accessibility']['loginout'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                                Check to hide the Login/Logout link</label></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
                 <br class="clear">
 
                 <h3 id="greenpark2_sidebar">Sidebar Box (About Box)</h3>
 
+                <p>The &quot;Sidebar Box&quot; can be used for pretty anything. Personally, I use it as an &quot;About section&quot; to tell my readers a little bit about myself, but generally it's completely up to you: put your google adsense code in it, describe your website, add your photo etc.</p>
 
-                <div class="widget-holder">
-                    <p class="description">The &quot;Sidebar Box&quot; can be used for pretty anything. Personally, I use it as an &quot;About section&quot; to tell my readers a little bit about myself, but generally it's completely up to you: put your google adsense code in it, describe your website, add your photo etc.</p>
-
-                    <table class="form-table">
-                        <tr>
-                            <th>Title:</th>
-                            <td>
-                                <input type="text" name="sidebar_about_title" value="<?php echo $data['sidebar']['about_title']; ?>" size="35" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Content:</th>
-                            <td>
-                                <textarea name="sidebar_about_content" rows="10" style="width: 95%;"><?php echo $data['sidebar']['about_content']; ?></textarea>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                <table class="form-table">
+                    <tr>
+                        <th>Title:</th>
+                        <td>
+                            <input type="text" name="sidebar_about_title" value="<?php echo $data['sidebar']['about_title']; ?>" size="35" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Content:</th>
+                        <td>
+                            <textarea name="sidebar_about_content" rows="10" style="width: 95%;"><?php echo $data['sidebar']['about_content']; ?></textarea>
+                        </td>
+                    </tr>
+                </table>
                 <br class="clear">
 
 
