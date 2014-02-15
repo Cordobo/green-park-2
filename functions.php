@@ -210,19 +210,6 @@ function greenpark2_page_menu_args($args) {
 
 add_filter('wp_page_menu_args', 'greenpark2_page_menu_args');
 
-/*
-function greenpark2_feed() {
-    $enable = get_option('greenpark2_feed_enable');
-}
-*/
-
-/*
-function greenpark2_twitter() {
-    $enable = get_option('greenpark2_twitter_enable');
-}
-*/
-
-
 
 // Adds Green Park to WordPress Menu
 function greenpark2_menu() {
@@ -231,6 +218,11 @@ function greenpark2_menu() {
 
 
 function greenpark2_options() {
+    
+    // Disable if user is not allowed to change options
+    if ( !current_user_can( 'manage_options' ) )  {
+        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+    }
 
     if (isset($_POST['submitted']) and $_POST['submitted'] == 'yes') :
         update_option("greenpark2_sidebar_about_title", stripslashes($_POST['sidebar_about_title']));
