@@ -36,7 +36,7 @@ function greenpark_setup() {
 	 * we also set up the default background color.
 	 */
 	add_theme_support( 'custom-background', array(
-		'default-color' => 'e6e6e6',
+		'default-color' => 'D5DADD',
 	) );
 
 	// This theme uses a custom image size for featured images, displayed on "standard" posts.
