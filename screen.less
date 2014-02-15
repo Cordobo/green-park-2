@@ -1,21 +1,27 @@
-/*
+/*!
 Theme Name: Cordobo Green Park 2
 Theme URI: http://cordobo.com/green-park-2/
 Author: Andreas Jacob
 Author URI: http://cordobo.com/
 */
 
+// CSS Variables
+@import "styles/base";
+// Import normalize.css
+@import "styles/normalize";
 
 
 
 /* MINIMUM RESET - based on work by Eric Meyer
 ------------------------------------------------------------------ */
 
+/*
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { border: 0; font-size: 100%; margin: 0; outline: 0; padding: 0; }
 body { line-height: 1; }
 ol, ul { list-style: none; }
 blockquote, q { quotes: none; }
 blockquote:before, blockquote:after, q:before, q:after { content: ''; }
+*/
 
 
 
@@ -23,14 +29,14 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; }
 ----------------------------------------------------------------------------- */
 
 *::-moz-selection {
-    background:					#51a201 none repeat scroll 0 0;
-    color:              #fff;
+    background: #51a201 none repeat scroll 0 0;
+    color: #fff;
 }
 
 html {
-    height:           100%;
-    margin:           0 0 1px;
-    overflow-y:				scroll;
+    height: 100%;
+    margin: 0 0 1px;
+    overflow-y: scroll;
 }
 
 body {
@@ -42,30 +48,30 @@ body {
     background-position: 50% 50%, 0 -40px;
     background-repeat: repeat, repeat-x;
     */
-    background:             #D5DADD url(img/bg-html.jpg) fixed 0 -40px repeat-x;
-    color:					        #687178;
-    font:					          13px/1.5 Calibri, "HelveticaNeue-Light", "Helvetica Neue Light", "Lucida Grande", "Helvetica Neue", Arial, "Lucida Sans Unicode", sans-serif;
-    font-smooth:            always;
-    height:					        100%;
-    padding:                0 20px;
-    text-align:			        center;
-    text-rendering:         optimizeLegibility;
+    background: #D5DADD url(img/bg-html.jpg) fixed 0 -40px repeat-x;
+    color: #687178;
+    font: 13px/1.5 Calibri, "HelveticaNeue-Light", "Helvetica Neue Light", "Lucida Grande", "Helvetica Neue", Arial, "Lucida Sans Unicode", sans-serif;
+    font-smooth: always;
+    height: 100%;
+    padding: 0 20px;
+    text-align: center;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
 
 
 a {
-  text-decoration:          none;
+  text-decoration: none;
 
     &:link,
     &:visited {
-        color:              #004D99;
+        color: #004D99;
     }
 
+    &:active,
     &:focus,
-    &:hover,
-    &:active {
-        color:					    #86180A;
+    &:hover {
+        color: #86180A;
     }
 
 }
@@ -74,11 +80,16 @@ a {
 #sidebar {
     a,
     a:link,
-    a:visited { border-bottom: 1px solid #fff; color: #C54E0B; }
+    a:visited {
+        border-bottom: 1px solid #fff;
+        color: #C54E0B;
+    }
 
+    a:active,
     a:focus,
-    a:hover,
-    a:active { border-bottom-color: #C54E0B; color: #111; }
+    a:hover {
+        border-bottom-color: #C54E0B;
+        color: #111; }
 
     .sb-tools {
 
