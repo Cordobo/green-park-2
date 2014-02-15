@@ -53,7 +53,7 @@ body {
     font: 13px/1.5 Calibri, "HelveticaNeue-Light", "Helvetica Neue Light", "Lucida Grande", "Helvetica Neue", Arial, "Lucida Sans Unicode", sans-serif;
     font-smooth: always;
     height: 100%;
-    padding: 0 20px;
+    padding: 20px;
     text-align: center;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -178,6 +178,11 @@ strong { color: #2E2E2E; font-weight: 600; }
 sub, sup { font-size: 0.7em; }
 
 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* Generic classes
 ------------------------------------------------------------------- */
@@ -297,7 +302,6 @@ td#next { text-align: right; }
 
 #header {
     height: 125px;
-    margin-top: 20px;
     position: relative;
 }
 
@@ -427,6 +431,7 @@ div.logo {
 .menu > ul {
     display: block;
     height: 41px;
+    margin: 0;
     padding: 0;
 }
 
@@ -1119,9 +1124,18 @@ input#submit {
 }
 
 .categories li li,
-.pagenav li li { margin-left: 6px; }
+.pagenav li li {
+    margin-left: 6px;
+}
 
-ul.sb-list { margin-left: 10px; }
+ul.sb-list {
+    list-style-type: none;
+    margin-left: 10px;
+    
+    ul {
+        list-style-type: none;
+    }
+}
 
 /* h4 -> .widget-title - less semantic, better for search engine positioning */
 .widget-title {
