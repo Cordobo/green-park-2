@@ -14,7 +14,7 @@
 
     <p class="signet">
         <?php // If you remove the image, please remember the version for support issues ?>
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-cgp2.png" alt="Cordobo Green Park 2 Beta 0.9.8" title="Version: Cordobo Green Park 2 Beta 0.9.8" width="75" height="12" />
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-cgp2.png" alt="Cordobo Green Park 2 Beta 0.9.9" title="Version: Cordobo Green Park 2 Beta 0.9.9" width="75" height="12" />
     </p>
 
 </div>
