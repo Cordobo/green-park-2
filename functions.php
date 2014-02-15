@@ -10,7 +10,6 @@ if (!isset($content_width))
 
 /*
  * Sets up theme defaults and registers the various WordPress features
- *
  */
 
 function greenpark_setup() {
@@ -56,8 +55,6 @@ function greenpark_load_admin_styles() {
 
 add_action('admin_enqueue_scripts', 'greenpark_load_admin_styles');
 
-// Adds support for a custom header image.
-// require( get_template_directory() . '/inc/custom-header.php' );
 // Enqueues scripts and styles for front-end.
 function greenpark_scripts_styles() {
 
@@ -69,7 +66,6 @@ function greenpark_scripts_styles() {
      */
     if (is_singular() && comments_open() && get_option('thread_comments'))
         wp_enqueue_script('comment-reply');
-
 
     // Adds JavaScript for handling the navigation menu hide-and-show behavior.
     // Fonts
@@ -93,7 +89,8 @@ function greenpark_scripts_styles() {
 add_action('wp_enqueue_scripts', 'greenpark_scripts_styles');
 
 
-/* nicely formatted and more specific title element
+/*
+ * nicely formatted and more specific title element
  * @param string $title Default title text for current view.
  * @param string $sep Optional separator.
  * @return string Filtered title.
@@ -124,7 +121,6 @@ function greenpark_wp_title($title, $sep) {
 add_filter('wp_title', 'greenpark_wp_title', 10, 2);
 
 function greenpark_wp_head() {
-
     // ADD OUR FAVICON
     echo '<link rel="shortcut icon" href="' . get_stylesheet_directory_uri() . '/favicon.ico" type="image/x-icon" />';
 }
@@ -385,7 +381,7 @@ function greenpark2() {
     ?>
 
 
-<?php
+    <?php
 
 }
 
