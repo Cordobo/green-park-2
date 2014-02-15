@@ -11,7 +11,7 @@
                         <th>Sidebar:</th>
                         <td>
                             <label><input type="checkbox" name="sidebar_disablesidebar" <?php echo ($data['sidebar']['disablesidebar'] == true ? 'checked="checked"' : ''); ?> value="true" />
-                                Disable the sidebar on pages</label>
+                                Disable sidebar on all posts and pages</label>
                         </td>
                     </tr>
                     <tr>
