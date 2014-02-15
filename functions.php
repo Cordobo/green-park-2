@@ -186,9 +186,7 @@ function greenpark_widgets_init() {
 
 add_action('widgets_init', 'greenpark_widgets_init');
 
-// ------------------------------ @TODO: REFACTOR ------------------------------
-// ------------------------------ @TODO: REFACTOR ------------------------------
-// ------------------------------ @TODO: REFACTOR ------------------------------
+
 // http://sivel.net/2008/10/wp-27-comment-separation/
 function greenpark_list_pings($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
@@ -198,9 +196,6 @@ function greenpark_list_pings($comment, $args, $depth) {
     echo comment_author_link();
 }
 
-// Note: Custom Admin Panel Functions
-// add_action('admin_menu', 'greenpark2_menu', 'wp_head', 'greenpark2_feed', 'greenpark2_twitter');
-add_action('admin_menu', 'greenpark2_menu', 'wp_head');
 
 // Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
 function greenpark2_page_menu_args($args) {
@@ -211,6 +206,21 @@ function greenpark2_page_menu_args($args) {
 add_filter('wp_page_menu_args', 'greenpark2_page_menu_args');
 
 
+// ------------------------------ @TODO: REFACTOR ------------------------------
+// ------------------------------ @TODO: REFACTOR ------------------------------
+// ------------------------------ @TODO: REFACTOR ------------------------------
+
+
+
+
+
+
+
+// Note: Custom Admin Panel Functions
+// add_action('admin_menu', 'greenpark2_menu', 'wp_head', 'greenpark2_feed', 'greenpark2_twitter');
+add_action('admin_menu', 'greenpark2_menu', 'wp_head');
+
+
 // Adds Green Park to WordPress Menu
 function greenpark2_menu() {
     add_theme_page(__('Green Park 2 Settings', 'greenpark'), __('Green Park 2 Settings', 'greenpark'), 'edit_theme_options', 'theme_options', 'greenpark2_options');
@@ -219,7 +229,7 @@ function greenpark2_menu() {
 
 function greenpark2_options() {
     
-    // Disable if user is not allowed to change options
+    // DIE if user is not allowed to change options
     if ( !current_user_can( 'manage_options' ) )  {
         wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
     }
@@ -279,15 +289,14 @@ function greenpark2_options() {
             update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
         }
 
-
+        
+        // Changed to BOOL
         if (isset($_POST['sidebar_disablesidebar']) and $_POST['sidebar_disablesidebar'] == true) :
             update_option("greenpark2_sidebar_disablesidebar", true);
         else :
             update_option("greenpark2_sidebar_disablesidebar", false);
         endif;
 
-
-        // Changed to BOOL
         if (isset($_POST['accessibility_disable']) and $_POST['accessibility_disable'] == true) :
             update_option("greenpark2_accessibility_disable", true);
         else :

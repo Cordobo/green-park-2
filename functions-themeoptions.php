@@ -31,25 +31,23 @@
                     <tr>
                         <th>Accessibility:</th>
                         <td>
-                            <ul style="margin-top:0;">
-                                <li><label><input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == true ? 'checked="checked"' : ''); ?> value="true" />
-                                        Check to hide all accessibility links in the top right corner (this will override all the following functions of this section)</label>
-                                    <ul class="children">
-                                        <li><label><input type="checkbox" name="accessibility_home" <?php echo ($data['accessibility']['home'] == true ? 'checked="checked"' : ''); ?> value="true" />
-                                                Check to hide the Home link</label></li>
-                                        <li><label><input type="checkbox" name="accessibility_content" <?php echo ($data['accessibility']['content'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                Check to hide the Content link</label></li>
-                                        <li><label><input type="checkbox" name="accessibility_feed" <?php echo ($data['accessibility']['feed'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                Check to hide the Feed link</label></li>
-                                        <li><label><input type="checkbox" name="accessibility_meta" <?php echo ($data['accessibility']['meta'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                Check to hide the Meta link</label></li>
-                                        <li><label><input type="checkbox" name="accessibility_register" <?php echo ($data['accessibility']['register'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                Check to hide the Register link</label></li>
-                                        <li><label><input type="checkbox" name="accessibility_loginout" <?php echo ($data['accessibility']['loginout'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
-                                                Check to hide the Login/Logout link</label></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <fieldset>
+                                <legend>Check to hide&hellip;</legend>
+                                <label><input type="checkbox" name="accessibility_disable" <?php echo ($data['accessibility']['disable'] == true ? 'checked="checked"' : ''); ?> value="true" />
+                                    all accessibility links in the top right corner (this will override all the following functions of this section)</label><br/>
+                                <label><input type="checkbox" name="accessibility_home" <?php echo ($data['accessibility']['home'] == true ? 'checked="checked"' : ''); ?> value="true" />
+                                    the Home link</label><br/>
+                                <label><input type="checkbox" name="accessibility_content" <?php echo ($data['accessibility']['content'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                    the Content link</label><br/>
+                                <label><input type="checkbox" name="accessibility_feed" <?php echo ($data['accessibility']['feed'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                    the Feed link</label><br/>
+                                <label><input type="checkbox" name="accessibility_meta" <?php echo ($data['accessibility']['meta'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                    the Meta link</label><br/>
+                                <label><input type="checkbox" name="accessibility_register" <?php echo ($data['accessibility']['register'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                    the Register link</label><br/>
+                                <label><input type="checkbox" name="accessibility_loginout" <?php echo ($data['accessibility']['loginout'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" />
+                                    the Login/Logout link</label>
+                            </fieldset>
                         </td>
                     </tr>
                 </table>
