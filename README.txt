@@ -3,8 +3,8 @@
 RELEASE NOTES FOR Cordobo Green Park 2 (GP2)
 ----------------------------------------------------------------------
 
-Version: Beta 8 (0.9.809)
-Release date: February 24th, 2013
+Version: Beta 9 (0.9.810)
+Release date: February 15th, 2014
 
 
 Get the latest Version here:
@@ -62,26 +62,26 @@ If you want to translate GP2 into your language, you'll find a
 default.mo and default.po file in the folder "languages".
 
 Please send your translated files to:
-i18n-2013@cordobo.de
+i18n-2014@cordobo.com
 
 
 More information & ressources can be found here:
 http://cordobo.com/1381-green-park-2-beta-5-pre/
 
 
-1. Chinese by wxzbb (http://wxzbb.com/)
+1. Chinese by wxzbb
 2. English (default) Andreas Jacob (http://cordobo.com/)
 3. French by Julien
-4. German by Andreas Jacob (http://cordobo.com/)
-5. Icelandic by Jóhannes Birgir Jensson (http://joi.betra.is/)
+4. German by Andreas Jacob
+5. Icelandic by Jóhannes Birgir Jensson
 6. Italian by Saverio Tonno
 7. Norwegian Bokmål by Bjørn-Arild Eriksen-Woll
-8. Polish by Tosiek (http://tosiek.pl/)
+8. Polish by Tosiek
 9. Romanian by Cristian Boba
 10. Russian (formal) by Dr. Dmitry Tarasov
-11. Russian (informal) by Perllover (http://blog.perlover.com/)
-12. Spanish (castellano) by José Manuel Mao (http://www.cuarenton.com/)
-13. Swedish by Jon Klarström (http://www.jonvision.se/)
+11. Russian (informal) by Perllover
+12. Spanish (castellano) by José Manuel Mao
+13. Swedish by Jon Klarström
 14. Bulgarian by Konstantin Yovev
 15. Vietnamese by Du Nguyen
 
@@ -169,7 +169,7 @@ Just activate the plugin, that's it.
 
 
 ----------------------------------------------------------------------
-CHANGELOG for Cordobo Greenpark 2 Beta 8
+CHANGELOG for Cordobo Greenpark 2 Beta 9
 ----------------------------------------------------------------------
 
 For a full changelog visit:
