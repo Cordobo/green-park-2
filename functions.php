@@ -199,7 +199,8 @@ function greenpark_list_pings($comment, $args, $depth) {
 }
 
 // Note: Custom Admin Panel Functions
-add_action('admin_menu', 'greenpark2_options', 'wp_head', 'greenpark2_feed', 'greenpark2_twitter');
+// add_action('admin_menu', 'greenpark2_menu', 'wp_head', 'greenpark2_feed', 'greenpark2_twitter');
+add_action('admin_menu', 'greenpark2_menu', 'wp_head');
 
 // Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
 function greenpark2_page_menu_args($args) {
@@ -209,15 +210,27 @@ function greenpark2_page_menu_args($args) {
 
 add_filter('wp_page_menu_args', 'greenpark2_page_menu_args');
 
+/*
 function greenpark2_feed() {
     $enable = get_option('greenpark2_feed_enable');
 }
+*/
 
+/*
 function greenpark2_twitter() {
     $enable = get_option('greenpark2_twitter_enable');
 }
+*/
 
-function greenpark2() {
+
+
+// Adds Green Park to WordPress Menu
+function greenpark2_menu() {
+    add_theme_page(__('Green Park 2 Settings', 'greenpark'), __('Green Park 2 Settings', 'greenpark'), 'edit_theme_options', 'theme_options', 'greenpark2_options');
+}
+
+
+function greenpark2_options() {
 
     if (isset($_POST['submitted']) and $_POST['submitted'] == 'yes') :
         update_option("greenpark2_sidebar_about_title", stripslashes($_POST['sidebar_about_title']));
@@ -373,20 +386,8 @@ function greenpark2() {
     );
 
 
-
     // Cordobo Green Park 2 settings
-
     require_once('functions-themeoptions.php');
-    // get_template_part( 'functions-themeoptions' );
-    ?>
 
-
-    <?php
-
-}
-
-// Adds Green Park to WordPress Menu
-function greenpark2_options() {
-    add_theme_page(__('Green Park 2 Settings', 'greenpark'), __('Green Park 2 Settings', 'greenpark'), 'edit_theme_options', 'theme_options', 'greenpark2');
 }
 ?>
