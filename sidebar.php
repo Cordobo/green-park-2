@@ -1,6 +1,11 @@
 <div id="sidebar">
 <ul class="sb-list clearfix">
 
+    
+    <?php
+$options = get_option( 'cgp2_theme_options' );
+echo $options['cgp2_textbox'];
+?>
 
 <?php if (get_option('greenpark2_twitter_enable') == 'yes') { ?>
 <li>

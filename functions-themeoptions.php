@@ -129,7 +129,7 @@
 
                 <p class="submit" id="jump_submit">
                     <input name="submitted" type="hidden" value="yes" />
-                    <input type="submit" name="Submit" value="Save Changes" class="button button-primary" />
+                    <input type="submit" name="Submit" value="<?php _e('Save Changes', 'greenpark') ?>" class="button button-primary" />
                 </p>
             </form>
 
@@ -189,9 +189,8 @@
     <h2>Cordobo Green Park 2 Documentation</h2>
 
     <h3 id="greenpark2_about_doc">About your new theme</h3>
-    <p>Thank you for using the Green Park 2 theme, a free premium wordpress theme by German webdesigner <a href="http://cordobo.com/about/">Andreas Jacob</a></p>
-    <p>If you need any support or want some tips, please visit <a href="http://cordobo.com/">Cordobo Green Park 2 project page</a></p>
-
+    <p>Thank you for using the Green Park 2 theme, a free premium wordpress theme by <a href="<?php echo esc_url( __('http://cordobo.com/about/', 'greenpark'));?>">Andreas Jacob</a></p>
+    <p>If you need any support or want some tips, please visit <a href="<?php echo esc_url( __('http://cordobo.com/', 'greenpark'));?>">Cordobo Green Park 2 project page</a></p>
 
     <h3 id="greenpark2_logo_doc">Logo Setup</h3>
     <ul>
@@ -206,8 +205,8 @@
     </p>
     <p>
     <ul>
-        <li><a href="http://cordobo.com/1119-provide-visual-feedback-css/">Provide visual feedback using CSS</a> &mdash; An introduction to the themes usage of CSS3</li>
-        <li><a href="http://cordobo.com/1381-green-park-2-beta-5-pre/">Green Park 2 for translators</a> &mdash; Help translating Green Park 2 into your language</li>
+        <li><a href="<?php echo esc_url( __('http://cordobo.com/1119-provide-visual-feedback-css/', 'greenpark'));?>">Provide visual feedback using CSS</a> &mdash; An introduction to the themes usage of CSS3</li>
+        <li><a href="<?php echo esc_url( __('http://cordobo.com/1381-green-park-2-beta-5-pre/', 'greenpark'));?>">Green Park 2 for translators</a> &mdash; Help translating Green Park 2 into your language</li>
     </ul>
 </p>
 

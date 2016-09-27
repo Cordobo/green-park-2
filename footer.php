@@ -3,7 +3,7 @@
 <div id="footer" class="clearfix">
 
     <p class="alignright">
-        <a href="http://cordobo.com/green-park-2/" title="Cordobo Green Park 2 WordPress Theme">Cordobo Green Park 2</a>
+        <a href="<?php echo esc_url( __('http://cordobo.com/green-park-2/', 'greenpark'));?>" title="<?php _e('Cordobo Green Park 2 WordPress Theme', 'greenpark'); ?>">Cordobo Green Park 2</a>
         <?php _e('powered by', 'greenpark'); ?>
         <a href="http://wordpress.org/" title="<?php _e('Blogsoftware by Wordpress', 'greenpark'); ?>">WordPress</a>
     </p>

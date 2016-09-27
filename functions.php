@@ -4,7 +4,6 @@
  * Green Park 2 Functions
  */
 
-
 if (!isset($content_width))
     $content_width = 607;
 
@@ -18,6 +17,8 @@ function greenpark_setup() {
 
     // This theme styles the visual editor with editor-style.css to match the theme style.
     add_editor_style();
+
+    add_theme_support('title-tag');
 
     // Adds RSS feed links to <head> for posts and comments.
     add_theme_support('automatic-feed-links');
@@ -47,9 +48,10 @@ function greenpark_setup() {
 
 add_action('after_setup_theme', 'greenpark_setup');
 
+
 // Loads custom CSS for the Themes Settings page in WP Backend
 function greenpark_load_admin_styles() {
-    wp_register_style('greenpark_wp_admin_css', get_bloginfo('stylesheet_directory') . '/admin-style.css', false, '1.1.0');
+    wp_register_style('greenpark_wp_admin_css', get_stylesheet_directory_uri() . '/admin-style.css', false, '1.1.0');
     wp_enqueue_style('greenpark_wp_admin_css');
 }
 
@@ -87,38 +89,6 @@ function greenpark_scripts_styles() {
 }
 
 add_action('wp_enqueue_scripts', 'greenpark_scripts_styles');
-
-
-/*
- * nicely formatted and more specific title element
- * @param string $title Default title text for current view.
- * @param string $sep Optional separator.
- * @return string Filtered title.
- */
-
-function greenpark_wp_title($title, $sep) {
-
-    global $paged, $page;
-
-    if (is_feed())
-        return $title;
-
-    // Add the site name.
-    $title .= get_bloginfo('name');
-
-    // Add the site description for the home/front page.
-    $site_description = get_bloginfo('description', 'display');
-    if ($site_description && ( is_home() || is_front_page() ))
-        $title = "$title $sep $site_description";
-
-    // Add a page number if necessary.
-    if ($paged >= 2 || $page >= 2)
-        $title = "$title $sep " . sprintf(__('Page %s', 'greenpark'), max($paged, $page));
-
-    return $title;
-}
-
-add_filter('wp_title', 'greenpark_wp_title', 10, 2);
 
 function greenpark_wp_head() {
     // ADD OUR FAVICON
@@ -220,18 +190,18 @@ add_filter('wp_page_menu_args', 'greenpark2_page_menu_args');
 // add_action('admin_menu', 'greenpark2_menu', 'wp_head', 'greenpark2_feed', 'greenpark2_twitter');
 add_action('admin_menu', 'greenpark2_menu', 'wp_head');
 
-
 // Adds Green Park to WordPress Menu
 function greenpark2_menu() {
-    add_theme_page(__('Green Park 2 Settings', 'greenpark'), __('Green Park 2 Settings', 'greenpark'), 'edit_theme_options', 'theme_options', 'greenpark2_options');
+    add_theme_page(__('Green Park 2 Settings', 'greenpark'), __('Green Park 2 Settings', 'greenpark'), 'manage_options', 'theme_options', 'greenpark2_options');
 }
 
 
+
 function greenpark2_options() {
-    
+
     // DIE if user is not allowed to change options
     if ( !current_user_can( 'manage_options' ) )  {
-        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+        wp_die( _e('You do not have sufficient permissions to access this page.', 'greenpark') );
     }
 
     if (isset($_POST['submitted']) and $_POST['submitted'] == 'yes') :
@@ -289,7 +259,7 @@ function greenpark2_options() {
             update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
         }
 
-        
+
         // Changed to BOOL
         if (isset($_POST['sidebar_disablesidebar']) and $_POST['sidebar_disablesidebar'] == true) :
             update_option("greenpark2_sidebar_disablesidebar", true);
@@ -389,8 +359,15 @@ function greenpark2_options() {
     );
 
 
-    // Cordobo Green Park 2 settings
-    require_once('functions-themeoptions.php');
+    // Settings HTML
+    require_once('functions-themeoptions-display.php');
 
 }
+
+
+    // Settings HTML
+    // require_once('functions-themeoptions-display2.php');
+    require_once('functions-themeoptions-display3.php');
+
+
 ?>

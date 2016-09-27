@@ -7,7 +7,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php wp_title( '&raquo;', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <meta name="robots" content="index,follow" />
@@ -63,7 +62,7 @@
             }
         echo '</ul>';
     } ?>
-    
+
     <div id="branding" role="banner">
         <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
         <<?php echo $heading_tag; ?> id="site-title" class="<?php if(get_option('greenpark2_logo_show')!= 'yes') { echo 'brand'; } else { echo 'logo'; } ?>">
@@ -91,7 +90,7 @@
         <div id="nav_r"></div>
     </div><!-- #access -->
 
-    
+
 </div> <!-- #header -->
 
 
