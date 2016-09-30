@@ -1,8 +1,8 @@
 <div id="sidebar">
 <ul class="sb-list clearfix">
 
-    
-    <?php
+
+<?php
 $options = get_option( 'cgp2_theme_options' );
 echo $options['cgp2_textbox'];
 ?>
@@ -12,7 +12,7 @@ echo $options['cgp2_textbox'];
     <ul class="sb-tools clearfix">
         <li class="twitter-icon">
             <a class="sb-icon" href="<?php echo 'http://twitter.com/' . get_option('greenpark2_twitter_uri'); ?>" rel="nofollow">
-                <span><?php _e('Latest Tweet', 'greenpark'); ?></span>	
+                <span><?php _e('Latest Tweet', 'greenpark'); ?></span>
                 <?php twitter_messages(" . get_option(greenpark2_twitter_uri) . ", 1, false, false, '', false, false, false); ?>
             </a>
             <p class="sb-icon-text">
