@@ -39,7 +39,7 @@
     <?php while (have_posts()) : the_post(); ?>
 
         <div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-            <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to', 'greenpark'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <h2><a href="<?php the_permalink() ?>" title="<?php _e('Permanent Link to', 'greenpark'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
             <small class="meta"><?php the_time(__('F jS, Y','greenpark')); ?> <?php edit_post_link(__( 'Edit', 'greenpark' ), ' | ', ''); ?></small>
 
             <div class="entry">
