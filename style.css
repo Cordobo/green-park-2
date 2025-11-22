@@ -1,24 +1,24 @@
 /*
-Theme Name: Cordobo Green Park 2 Release 1.0.0-beta.10
-Theme URI: http://cordobo.com/green-park-2/
+Theme Name: Cordobo Green Park 2
+Theme URI: https://cordobo.com/green-park-2/
 Author: Andreas Jacob
-Author URI: http://cordobo.com/
-Description: Lightweight fast-rendering theme with 2-3 column layout and right sidebar, Widget-ready (4 slots), built-in support for plugins (e.g. twitter), support for threaded/nested comments, fully localized, easy to customize via settings-page. By <a href="http://cordobo.com">Andreas Jacob</a>.
-Version: 1.0.0-beta.10
+Author URI: https://cordobo.com/
+Description: Lightweight fast-rendering theme with 2-3 column layout and right sidebar. Modernized for WordPress 6.x with block editor support, fully responsive, widget-ready (4 slots), support for threaded/nested comments, fully localized, and easy to customize via settings page. By <a href="https://cordobo.com">Andreas Jacob</a>.
+Version: 2.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
 License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: two-columns, right-sidebar
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Tags: two-columns, right-sidebar, custom-background, custom-menu, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready, responsive-layout
 Text Domain: greenpark
 
-
-This is a BETA. Please report any bug:
-http://cordobo.com/1967-cordobo-green-park-2-beta-8/
+Cordobo Green Park 2 - Modernized for WordPress 6.x
+This theme has been updated to support the latest WordPress features including
+the block editor, accessibility standards, and modern web practices.
 
 The CSS, XHTML and design is released under the GPL:
-http://www.gnu.org/licenses/gpl.html
-Copy, remix and play around with my CSS - but leave the original author credentials.
-
-
+https://www.gnu.org/licenses/gpl.html
 */
 
 /* --------------------------------------------------------------
