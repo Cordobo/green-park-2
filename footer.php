@@ -23,7 +23,22 @@
 
 <?php // Sully Denons « Organical Code » - No animals were harmed during the testing of this theme. ?>
 
-<?php echo get_option('google_analytics'); ?>
+<?php
+// Output Google Analytics code with proper escaping
+$google_analytics = get_option('google_analytics');
+if (!empty($google_analytics)) {
+    // Use wp_kses to allow only safe script tags
+    echo wp_kses($google_analytics, array(
+        'script' => array(
+            'src' => array(),
+            'type' => array(),
+            'async' => array(),
+            'defer' => array(),
+        ),
+        'noscript' => array(),
+    ));
+}
+?>
 
 </body>
 </html>

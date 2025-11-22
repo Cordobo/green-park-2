@@ -1,8 +1,8 @@
 {
   "name": "green-park-2",
-  "version": "1.0.0-beta.10",
-  "author": "Andreas Jacob <andreas@cordobo.de> (http://cordobo.com/)",
-  "description": "Cordobo Green Park 2 is a simple & elegant light-weight theme for WordPress, built on top of the fastest known page-rendering optimizations and seo in mind.",
+  "version": "2.0.0",
+  "author": "Andreas Jacob <andreas@cordobo.de> (https://cordobo.com/)",
+  "description": "Cordobo Green Park 2 is a simple & elegant light-weight theme for WordPress, modernized for WordPress 6.x with block editor support, built with performance and SEO in mind.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Cordobo/green-park-2.git"
@@ -17,11 +17,19 @@
     "theme",
     "themes",
     "fast",
-    "seo"
+    "seo",
+    "block-editor",
+    "gutenberg",
+    "modern",
+    "responsive"
   ],
-  "license": "GPL",
+  "license": "GPL-2.0-or-later",
   "bugs": {
     "url": "https://github.com/Cordobo/green-park-2/issues"
   },
-  "homepage": "http://cordobo.com/green-park-2/"
+  "homepage": "https://cordobo.com/green-park-2/",
+  "engines": {
+    "wordpress": ">=6.0",
+    "php": ">=7.4"
+  }
 }

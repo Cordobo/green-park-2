@@ -61,13 +61,13 @@
                     <tr>
                         <th>Title:</th>
                         <td>
-                            <input type="text" name="sidebar_about_title" value="<?php echo $data['sidebar']['about_title']; ?>" size="35" />
+                            <input type="text" name="sidebar_about_title" value="<?php echo esc_attr($data['sidebar']['about_title']); ?>" size="35" />
                         </td>
                     </tr>
                     <tr>
                         <th>Content:</th>
                         <td>
-                            <textarea name="sidebar_about_content" rows="10" style="width: 95%;"><?php echo $data['sidebar']['about_content']; ?></textarea>
+                            <textarea name="sidebar_about_content" rows="10" style="width: 95%;"><?php echo esc_textarea($data['sidebar']['about_content']); ?></textarea>
                         </td>
                     </tr>
                 </table>
@@ -79,9 +79,9 @@
                     <tr>
                         <th>Twitter URI:</th>
                         <td>
-                            http://twitter.com/<input type="text" name="twitter_uri" value="<?php echo $data['twitter']['uri']; ?>" size="24" placeholder="username" />
+                            http://twitter.com/<input type="text" name="twitter_uri" value="<?php echo esc_attr($data['twitter']['uri']); ?>" size="24" placeholder="username" />
                             <br />
-                            <label><input type="checkbox" name="twitter_enable" <?php echo ($data['twitter']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Show Twitter</label>
+                            <label><input type="checkbox" name="twitter_enable" <?php checked($data['twitter']['enable'], 'yes'); ?> value="yes" /> Show Twitter</label>
                         </td>
                     </tr>
                 </table>
@@ -93,8 +93,8 @@
                     <tr>
                         <th>Feed URI:</th>
                         <td>
-                            http://feeds.feedburner.com/<input type="text" name="feed_uri" value="<?php echo $data['feed']['uri']; ?>" size="24" placeholder="username" />
-                            <br /><label><input type="checkbox" name="feed_enable" <?php echo ($data['feed']['enable'] == 'yes' ? 'checked="checked"' : ''); ?> value="yes" /> Use Feedburner</label>
+                            http://feeds.feedburner.com/<input type="text" name="feed_uri" value="<?php echo esc_attr($data['feed']['uri']); ?>" size="24" placeholder="username" />
+                            <br /><label><input type="checkbox" name="feed_enable" <?php checked($data['feed']['enable'], 'yes'); ?> value="yes" /> Use Feedburner</label>
                             <br/>If the checkbox is unchecked, regular WordPress feeds are used.
                         </td>
                     </tr>
@@ -107,7 +107,7 @@
                     <tr>
                         <th>Google Adsense:<br />(Bottom of Post)</th>
                         <td>
-                            <textarea name="google_adsense_bottom" style="width: 95%;" rows="10" /><?php echo get_option('google_adsense_bottom'); ?></textarea>
+                            <textarea name="google_adsense_bottom" style="width: 95%;" rows="10"><?php echo esc_textarea(get_option('google_adsense_bottom')); ?></textarea>
                             <br />Paste your Google Adsense Code for the bottom of each post.
                             <br /><strong>Size of 468x60 Recommended.</strong>
                         </td>
@@ -121,7 +121,7 @@
                     <tr>
                         <th>Google Analytics:</th>
                         <td>
-                            <textarea name="google_analytics" style="width: 95%;" rows="10" /><?php echo get_option('google_analytics'); ?></textarea>
+                            <textarea name="google_analytics" style="width: 95%;" rows="10"><?php echo esc_textarea(get_option('google_analytics')); ?></textarea>
                             <br />Paste your Google Analytics code here. It will appear at the end of each page.
                         </td>
                     </tr>
@@ -129,7 +129,8 @@
 
                 <p class="submit" id="jump_submit">
                     <input name="submitted" type="hidden" value="yes" />
-                    <input type="submit" name="Submit" value="<?php _e('Save Changes', 'greenpark') ?>" class="button button-primary" />
+                    <?php wp_nonce_field('greenpark2_options_update', 'greenpark2_nonce'); ?>
+                    <input type="submit" name="Submit" value="<?php esc_attr_e('Save Changes', 'greenpark') ?>" class="button button-primary" />
                 </p>
             </form>
 

@@ -37,6 +37,7 @@ function greenpark_setup() {
     // This theme uses a custom image size for featured images, displayed on "standard" posts.
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size(624, 9999); // Unlimited height, soft crop
+
     // This theme uses wp_nav_menu() in four locations.
     register_nav_menus(array(
         'primary' => __('Primary Navigation', 'greenpark'),
@@ -44,6 +45,46 @@ function greenpark_setup() {
         'sidebar_menu' => __('Sidebar Menu', 'greenpark'),
         'footer_menu' => __('Footer Menu', 'greenpark')
     ));
+
+    // Add HTML5 support for improved semantics
+    add_theme_support('html5', array(
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+        'script',
+        'style',
+        'navigation-widgets'
+    ));
+
+    // Add support for responsive embedded content
+    add_theme_support('responsive-embeds');
+
+    // Add support for editor styles
+    add_theme_support('editor-styles');
+
+    // Add support for Block Editor features
+    add_theme_support('align-wide');
+    add_theme_support('wp-block-styles');
+
+    // Add support for custom line height
+    add_theme_support('custom-line-height');
+
+    // Add support for custom spacing
+    add_theme_support('custom-spacing');
+
+    // Add support for custom units
+    add_theme_support('custom-units');
+
+    // Add support for link colors
+    add_theme_support('link-color');
+
+    // Add support for appearance tools
+    add_theme_support('appearance-tools');
+
+    // Add support for border controls
+    add_theme_support('border');
 }
 
 add_action('after_setup_theme', 'greenpark_setup');
@@ -201,44 +242,39 @@ function greenpark2_options() {
 
     // DIE if user is not allowed to change options
     if ( !current_user_can( 'manage_options' ) )  {
-        wp_die( _e('You do not have sufficient permissions to access this page.', 'greenpark') );
+        wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'greenpark') );
     }
 
-    if (isset($_POST['submitted']) and $_POST['submitted'] == 'yes') :
-        update_option("greenpark2_sidebar_about_title", stripslashes($_POST['sidebar_about_title']));
-        update_option("greenpark2_sidebar_about_content", stripslashes($_POST['sidebar_about_content']));
-        // @TODO
-        // update_option("greenpark2_sidebar_disablesidebar", stripslashes($_POST['sidebar_disablesidebar']));
-        update_option("greenpark2_feed_uri", stripslashes($_POST['feed_uri']));
-        update_option("greenpark2_twitter_uri", stripslashes($_POST['twitter_uri']));
-        // @TODO
-        // update_option("greenpark2_about_site", stripslashes($_POST['about_site']));
-        update_option("google_analytics", stripslashes($_POST['google_analytics']));
-        update_option("google_adsense_bottom", stripslashes($_POST['google_adsense_bottom']));
-        update_option("greenpark2_advertisement_single_bottom", stripslashes($_POST['greenpark2_advertisement_single_bottom']));
-        update_option("greenpark2_advertisement_sidebar", stripslashes($_POST['greenpark2_advertisement_sidebar']));
+    if (isset($_POST['submitted']) && $_POST['submitted'] === 'yes') :
+        // Verify nonce for security
+        check_admin_referer('greenpark2_options_update', 'greenpark2_nonce');
+
+        // Sanitize and update text options
+        update_option("greenpark2_sidebar_about_title", sanitize_text_field(wp_unslash($_POST['sidebar_about_title'] ?? '')));
+        update_option("greenpark2_sidebar_about_content", wp_kses_post(wp_unslash($_POST['sidebar_about_content'] ?? '')));
+        update_option("greenpark2_feed_uri", sanitize_text_field(wp_unslash($_POST['feed_uri'] ?? '')));
+        update_option("greenpark2_twitter_uri", esc_url_raw(wp_unslash($_POST['twitter_uri'] ?? '')));
+
+        // Sanitize code snippets (Google Analytics, AdSense) - allow only safe script tags
+        update_option("google_analytics", wp_kses(wp_unslash($_POST['google_analytics'] ?? ''), array(
+            'script' => array(
+                'src' => array(),
+                'type' => array(),
+                'async' => array(),
+                'defer' => array(),
+            ),
+            'noscript' => array(),
+        )));
+        update_option("google_adsense_bottom", wp_kses_post(wp_unslash($_POST['google_adsense_bottom'] ?? '')));
+        update_option("greenpark2_advertisement_single_bottom", wp_kses_post(wp_unslash($_POST['greenpark2_advertisement_single_bottom'] ?? '')));
+        update_option("greenpark2_advertisement_sidebar", wp_kses_post(wp_unslash($_POST['greenpark2_advertisement_sidebar'] ?? '')));
         // @TODO
         // update_option("google_adsense_sidebar", stripslashes($_POST['google_adsense_sidebar']));
 
-        if (isset($_POST['logo_show']) and $_POST['logo_show'] == 'yes') :
-            update_option("greenpark2_logo_show", "yes");
-        else :
-            update_option("greenpark2_logo_show", "no");
-        endif;
-
-
-        if (isset($_POST['twitter_enable']) and $_POST['twitter_enable'] == 'yes') :
-            update_option("greenpark2_twitter_enable", "yes");
-        else :
-            update_option("greenpark2_twitter_enable", "no");
-        endif;
-
-
-        if (isset($_POST['feed_enable']) and $_POST['feed_enable'] == 'yes') :
-            update_option("greenpark2_feed_enable", "yes");
-        else :
-            update_option("greenpark2_feed_enable", "no");
-        endif;
+        // Boolean/yes-no options with proper sanitization
+        update_option("greenpark2_logo_show", (isset($_POST['logo_show']) && $_POST['logo_show'] === 'yes') ? 'yes' : 'no');
+        update_option("greenpark2_twitter_enable", (isset($_POST['twitter_enable']) && $_POST['twitter_enable'] === 'yes') ? 'yes' : 'no');
+        update_option("greenpark2_feed_enable", (isset($_POST['feed_enable']) && $_POST['feed_enable'] === 'yes') ? 'yes' : 'no');
 
 
         if (isset($_POST['sidebar_about_title']) and $_POST['sidebar_about_title'] == '') {
@@ -260,64 +296,20 @@ function greenpark2_options() {
         }
 
 
-        // Changed to BOOL
-        if (isset($_POST['sidebar_disablesidebar']) and $_POST['sidebar_disablesidebar'] == true) :
-            update_option("greenpark2_sidebar_disablesidebar", true);
-        else :
-            update_option("greenpark2_sidebar_disablesidebar", false);
-        endif;
+        // Boolean options with proper sanitization
+        update_option("greenpark2_sidebar_disablesidebar", !empty($_POST['sidebar_disablesidebar']));
+        update_option("greenpark2_accessibility_disable", !empty($_POST['accessibility_disable']));
+        update_option("greenpark2_accessibility_home", !empty($_POST['accessibility_home']));
 
-        if (isset($_POST['accessibility_disable']) and $_POST['accessibility_disable'] == true) :
-            update_option("greenpark2_accessibility_disable", true);
-        else :
-            update_option("greenpark2_accessibility_disable", false);
-        endif;
+        // Yes/no accessibility options
+        update_option("greenpark2_accessibility_content", (isset($_POST['accessibility_content']) && $_POST['accessibility_content'] === 'yes') ? 'yes' : 'no');
+        update_option("greenpark2_accessibility_feed", (isset($_POST['accessibility_feed']) && $_POST['accessibility_feed'] === 'yes') ? 'yes' : 'no');
+        update_option("greenpark2_accessibility_meta", (isset($_POST['accessibility_meta']) && $_POST['accessibility_meta'] === 'yes') ? 'yes' : 'no');
+        update_option("greenpark2_accessibility_register", (isset($_POST['accessibility_register']) && $_POST['accessibility_register'] === 'yes') ? 'yes' : 'no');
+        update_option("greenpark2_accessibility_loginout", (isset($_POST['accessibility_loginout']) && $_POST['accessibility_loginout'] === 'yes') ? 'yes' : 'no');
 
-        if (isset($_POST['accessibility_home']) and $_POST['accessibility_home'] == true) :
-            update_option("greenpark2_accessibility_home", true);
-        else :
-            update_option("greenpark2_accessibility_home", false);
-        endif;
-
-
-
-        if (isset($_POST['accessibility_content']) and $_POST['accessibility_content'] == 'yes') :
-            update_option("greenpark2_accessibility_content", "yes");
-        else :
-            update_option("greenpark2_accessibility_content", "no");
-        endif;
-
-        if (isset($_POST['accessibility_feed']) and $_POST['accessibility_feed'] == 'yes') :
-            update_option("greenpark2_accessibility_feed", "yes");
-        else :
-            update_option("greenpark2_accessibility_feed", "no");
-        endif;
-
-        if (isset($_POST['accessibility_meta']) and $_POST['accessibility_meta'] == 'yes') :
-            update_option("greenpark2_accessibility_meta", "yes");
-        else :
-            update_option("greenpark2_accessibility_meta", "no");
-        endif;
-
-        if (isset($_POST['accessibility_register']) and $_POST['accessibility_register'] == 'yes') :
-            update_option("greenpark2_accessibility_register", "yes");
-        else :
-            update_option("greenpark2_accessibility_register", "no");
-        endif;
-
-        if (isset($_POST['accessibility_loginout']) and $_POST['accessibility_loginout'] == 'yes') :
-            update_option("greenpark2_accessibility_loginout", "yes");
-        else :
-            update_option("greenpark2_accessibility_loginout", "no");
-        endif;
-
-
-
-        if (isset($_POST['comments_page_disable']) and $_POST['comments_page_disable'] == 'yes') :
-            update_option("greenpark2_comments_page_disable", "yes");
-        else :
-            update_option("greenpark2_comments_page_disable", "no");
-        endif;
+        // Comments page disable option
+        update_option("greenpark2_comments_page_disable", (isset($_POST['comments_page_disable']) && $_POST['comments_page_disable'] === 'yes') ? 'yes' : 'no');
 
 
         echo "<div id=\"message\" class=\"updated fade\"><p><strong>Your settings have been saved.</strong></p></div>";

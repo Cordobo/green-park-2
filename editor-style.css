@@ -1,0 +1,133 @@
+/**
+ * Editor Styles for Cordobo Green Park 2
+ *
+ * Styles for the block editor to match the front-end appearance
+ */
+
+/* Base editor styles */
+.editor-styles-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Headings */
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+    font-weight: bold;
+    line-height: 1.3;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.editor-styles-wrapper h1 {
+    font-size: 2.5rem;
+}
+
+.editor-styles-wrapper h2 {
+    font-size: 2rem;
+}
+
+.editor-styles-wrapper h3 {
+    font-size: 1.75rem;
+}
+
+.editor-styles-wrapper h4 {
+    font-size: 1.5rem;
+}
+
+.editor-styles-wrapper h5 {
+    font-size: 1.25rem;
+}
+
+.editor-styles-wrapper h6 {
+    font-size: 1rem;
+}
+
+/* Paragraphs and text */
+.editor-styles-wrapper p {
+    margin-bottom: 1.5em;
+}
+
+/* Links */
+.editor-styles-wrapper a {
+    color: #4a7c59;
+    text-decoration: none;
+}
+
+.editor-styles-wrapper a:hover {
+    color: #6b9279;
+    text-decoration: underline;
+}
+
+/* Blockquotes */
+.editor-styles-wrapper blockquote {
+    border-left: 4px solid #4a7c59;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+}
+
+/* Code blocks */
+.editor-styles-wrapper code {
+    background: #f5f5f5;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+.editor-styles-wrapper pre {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 3px;
+    overflow-x: auto;
+}
+
+/* Lists */
+.editor-styles-wrapper ul,
+.editor-styles-wrapper ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+/* Images */
+.editor-styles-wrapper img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Buttons */
+.editor-styles-wrapper .wp-block-button__link {
+    background-color: #4a7c59;
+    color: #fff;
+    border-radius: 3px;
+    padding: 0.75rem 1.5rem;
+}
+
+.editor-styles-wrapper .wp-block-button__link:hover {
+    background-color: #6b9279;
+}
+
+/* Tables */
+.editor-styles-wrapper table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.editor-styles-wrapper th,
+.editor-styles-wrapper td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.editor-styles-wrapper th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
