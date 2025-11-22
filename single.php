@@ -3,29 +3,32 @@
 <div id="container">
 <div id="content">
 
-    <div id="breadcrumb" itemprop="breadcrumb">
-        <?php _e('You are here:', 'greenpark'); ?>
-        <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url">
-                <span itemprop="title">Home</span>
+    <nav id="breadcrumb" aria-label="<?php _e('Breadcrumb', 'greenpark'); ?>" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <span class="breadcrumb-label"><?php _e('You are here:', 'greenpark'); ?></span>
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="item">
+                <span itemprop="name">Home</span>
             </a>
+            <meta itemprop="position" content="1" />
             &rsaquo;
         </span>
-        <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-            <?php 
-            $category = get_the_category(); 
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <?php
+            $category = get_the_category();
             if($category[0]){
-                echo '<a href="'.get_category_link($category[0]->term_id ).'" itemprop="url"><span itemprop="title">'.$category[0]->cat_name.'</span></a>';
+                echo '<a href="'.esc_url(get_category_link($category[0]->term_id)).'" itemprop="item"><span itemprop="name">'.esc_html($category[0]->cat_name).'</span></a>';
+                echo '<meta itemprop="position" content="2" />';
             }
-            ?>          
+            ?>
             &rsaquo;
         </span>
-        <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-            <a href="<?php the_permalink() ?>" itemprop="url">
-                <span itemprop="title"><?php the_title_attribute(); ?></span>
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="<?php the_permalink() ?>" itemprop="item" aria-current="page">
+                <span itemprop="name"><?php the_title_attribute(); ?></span>
             </a>
+            <meta itemprop="position" content="3" />
         </span>
-    </div>
+    </nav>
     
 
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
