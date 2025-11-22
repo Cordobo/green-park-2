@@ -229,7 +229,7 @@ add_filter('wp_page_menu_args', 'greenpark2_page_menu_args');
 
 // Note: Custom Admin Panel Functions
 // add_action('admin_menu', 'greenpark2_menu', 'wp_head', 'greenpark2_feed', 'greenpark2_twitter');
-add_action('admin_menu', 'greenpark2_menu', 'wp_head');
+add_action('admin_menu', 'greenpark2_menu');
 
 // Adds Green Park to WordPress Menu
 function greenpark2_menu() {
@@ -362,4 +362,3 @@ function greenpark2_options() {
     require_once('functions-themeoptions-display3.php');
 
 
-?>
