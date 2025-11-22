@@ -356,10 +356,4 @@ function greenpark2_options() {
 
 }
 
-
-    // Settings HTML
-    // require_once('functions-themeoptions-display2.php');
-    require_once('functions-themeoptions-display3.php');
-
-
 ?>
