@@ -14,27 +14,27 @@ $options = array (
 	array(
 		"name" => "Logo URL",
 		"desc" => "Enter the URL to your logo",
-		"id" => $shortname."_logo",
+		"id" => "logo",
 		"type" => "text",
 		"std" => ""
 	),
 	array(
 		"name" => "Custom Favicon",
 		"desc" => "Paste the URL to a .ico image that you want to use as the image",
-		"id" => $shortname."_favicon",
+		"id" => "favicon",
 		"type" => "text",
 		"std" => home_url() ."/favicon.ico"
 	),
 	array( "name" => "Colour Scheme",
 		"desc" => "Select the colour scheme for the theme",
-		"id" => $shortname."_color_scheme",
+		"id" => "color_scheme",
 		"type" => "select",
 		"options" => array("Light", "Dark", "Red", "Blue"),
 		"std" => "dark"
 	),
 	array( "name" => "Sidebar Position",
 		"desc" => "Select the position of the sidebar",
-		"id" => $shortname."_sidebar_position",
+		"id" => "sidebar_position",
 		"type" => "select",
 		"options" => array("Left", "Right"),
 		"std" => "right"
@@ -42,21 +42,21 @@ $options = array (
 	array(
 		"name" => "Custom CSS",
 		"desc" => "Want to add any custom CSS code? Put in here, and the rest is taken care of. This overrides any other stylesheets. eg: a.button{color:green}",
-		"id" => $shortname."_custom_css",
+		"id" => "custom_css",
 		"type" => "textarea",
 		"std" => ""
 	),
 	array(
 		"name" => "Twitter Username",
 		"desc" => "Enter your Twitter username (excluding the @ symbol)",
-		"id" => $shortname."_twitter",
+		"id" => "twitter",
 		"type" => "text",
 		"std" => ""
 	),
 	array(
 		"name" => "Facebook URL",
 		"desc" => "Enter the URL of your Facebook page",
-		"id" => $shortname."_facebook",
+		"id" => "facebook",
 		"type" => "text",
 		"std" => ""
 	)
@@ -86,7 +86,6 @@ function cgp_theme_page() {
       <form method="post" enctype="multipart/form-data" action="options.php">
         <?php
           settings_fields('cgp_theme_options');
-
           do_settings_sections('cgp_theme_options.php');
         ?>
             <p class="submit">
@@ -109,29 +108,27 @@ add_action( 'admin_init', 'cgp_register_settings' );
  * Function to register the settings
  */
 function cgp_register_settings() {
+    global $options;
 
     // Register the settings with Validation callback
     register_setting( 'cgp_theme_options', 'cgp_theme_options', 'cgp_validate_settings' );
 
     // Add settings section
-    add_settings_section( 'cgp_text_section', 'Text box Title', 'cgp_display_section', 'cgp_theme_options.php' );
+    add_settings_section( 'cgp_main_section', 'General Settings', 'cgp_display_section', 'cgp_theme_options.php' );
 
-    // Create textbox field
-    $field_args = array(
+    // Create fields dynamically from the $options array
+    foreach ( $options as $option ) {
+        if ( $option['type'] == 'title' ) continue;
 
-        array(
-            'type'      => 'text',
-            'id'        => 'cgp_textbox',
-            'name'      => 'cgp_textbox',
-            'desc'      => 'Example of textbox description',
-            'std'       => '',
-            'label_for' => 'cgp_textbox',
-            'class'     => 'css_class'
-        )
-
-    );
-
-    add_settings_field( 'example_textbox', 'Example Textbox', 'cgp_display_setting', 'cgp_theme_options.php', 'cgp_text_section', $field_args );
+        add_settings_field(
+            $option['id'],
+            $option['name'],
+            'cgp_display_setting',
+            'cgp_theme_options.php',
+            'cgp_main_section',
+            $option // Pass the entire option array as arguments
+        );
+    }
 }
 
 
@@ -140,77 +137,54 @@ function cgp_register_settings() {
  * Function to add extra text to display on each section
  */
 function cgp_display_section($section) {
-
+    echo '<p>Configure the theme settings below.</p>';
 }
 
 
 
 /**
  * Function to display the settings on the page
- * This is setup to be expandable by using a switch on the type variable.
- * In future you can add multiple types to be display from this function,
- * Such as checkboxes, select boxes, file upload boxes etc.
  */
 function cgp_display_setting($args) {
+    // Get all theme options
+    $options = get_option('cgp_theme_options');
 
-    global $options;
+    $id = $args['id'];
+    $type = $args['type'];
+    $desc = isset($args['desc']) ? $args['desc'] : '';
+    $std = isset($args['std']) ? $args['std'] : '';
 
-    extract( $args );
+    // Get current value or default
+    $value = isset($options[$id]) ? $options[$id] : $std;
 
-    // $option_name = 'cgp_theme_options';
-
-    // $options = get_option( $option_name );
-
-
-    foreach ($options as $value) {
-    switch ( $value['type'] ) {
-          case 'text':
-              //$options[$id] = stripslashes($options[$id]);
-              //$options[$id] = esc_attr( $options[$id]);
-              //echo "<input class='regular-text$class' type='text' id='$id' name='" . $option_name . "[$id]' value='$options[$id]' />";
-              //echo ($desc != '') ? "<br /><span class='description'>$desc</span>" : "";
+    switch ( $type ) {
+        case 'text':
             ?>
-            <div class="rm_input rm_text">
-            <label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label>
-            <div class="rm_option_block">
-            <?php if ($value['id'] == 'moov_secondary_color') { ?>
-            <span class="colour_block" style="background:<?php if (get_option($value['id']) != "") {
-            echo stripslashes(get_option($value['id']));
-            } else {
-            echo $value['std'];
-            } ?>;"></span>
-            <?php } ?>
-            <input name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php if (get_option($value['id']) != "") {
-            echo stripslashes(get_option($value['id']));
-            } else {
-            echo $value['std'];
-            } ?>" />
-            <span class="description"><?php echo $value['desc']; ?></span>
-            </div>
-            </div>
+            <input type="text" name="cgp_theme_options[<?php echo esc_attr($id); ?>]" value="<?php echo esc_attr($value); ?>" class="regular-text" />
+            <p class="description"><?php echo esc_html($desc); ?></p>
             <?php
+            break;
 
-          break;
-
-            case 'textarea':
+        case 'textarea':
             ?>
-            <div class="rm_input rm_textarea">
-            <label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label>
-            <div class="rm_option_block">
-            <textarea name="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" style="width: 95%;" cols="" rows="10"><?php if ( get_option( $value['id'] ) != "") { echo stripslashes(get_option( $value['id']) ); } else { echo $value['std']; } ?></textarea>
-            <span class="description"><?php echo $value['desc']; ?></span>
-            </div>
-            </div>
+            <textarea name="cgp_theme_options[<?php echo esc_attr($id); ?>]" rows="10" cols="50" class="large-text"><?php echo esc_textarea($value); ?></textarea>
+            <p class="description"><?php echo esc_html($desc); ?></p>
             <?php
+            break;
 
-          break;
-
-
-
-
-    } /* end switch */
-
-    } /* end foreach */
+        case 'select':
+            ?>
+            <select name="cgp_theme_options[<?php echo esc_attr($id); ?>]">
+                <?php foreach ($args['options'] as $option_val) : ?>
+                    <option value="<?php echo esc_attr(strtolower($option_val)); ?>" <?php selected(strtolower($value), strtolower($option_val)); ?>>
+                        <?php echo esc_html($option_val); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <p class="description"><?php echo esc_html($desc); ?></p>
+            <?php
+            break;
+    }
 }
 
 
@@ -220,17 +194,23 @@ function cgp_display_setting($args) {
  * You can then validate the values and the return variable will be the values stored in the database.
  */
 function cgp_validate_settings($input) {
-  foreach($input as $k => $v)
-  {
-    $newinput[$k] = trim($v);
+    $valid_input = array();
 
-    // Check the input is a letter or a number
-    if(!preg_match('/^[A-Z0-9 _]*$/i', $v)) {
-      $newinput[$k] = '';
+    // Simple sanitization loop
+    foreach($input as $key => $value) {
+        // Allow HTML in custom css, but maybe sanitize others more strictly if needed
+        if ( $key == 'custom_css' ) {
+            if ( function_exists( 'wp_strip_all_tags' ) ) {
+                $valid_input[$key] = wp_strip_all_tags($value);
+            } else {
+                $valid_input[$key] = strip_tags($value);
+            }
+        } else {
+            $valid_input[$key] = sanitize_text_field($value);
+        }
     }
-  }
 
-  return $newinput;
+    return $valid_input;
 }
 
 ?>
