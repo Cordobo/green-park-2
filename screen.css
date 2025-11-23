@@ -210,3 +210,48 @@ select:focus {
         display: block;
     }
 }
+
+/* Sidebar Position: Left */
+.sidebar-left #container {
+    float: right;
+    margin: 0 0 0 -350px;
+}
+
+.sidebar-left #content {
+    border-right: 0;
+    border-left: 2px solid #bbb;
+    margin: 0 0 0 350px;
+}
+
+.sidebar-left #sidebar {
+    float: left;
+    border-left: 0;
+    border-right: 2px solid #bbb;
+    margin-left: 0;
+    margin-right: -2px;
+}
+
+/* Grid Layout Adjustments for Left Sidebar */
+@supports (display: grid) {
+    .sidebar-left #main {
+        grid-template-columns: var(--sidebar-width) 1fr;
+    }
+
+    .sidebar-left #main #container {
+        grid-column: 2;
+    }
+
+    .sidebar-left #main #sidebar {
+        grid-column: 1;
+        border-right: 2px solid #bbb;
+        border-left: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .sidebar-left #content,
+    .sidebar-left #sidebar {
+        border-left: 0;
+        border-right: 0;
+    }
+}

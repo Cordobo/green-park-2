@@ -103,4 +103,4 @@ if ( function_exists( 'wp_body_open' ) ) {
 </div> <!-- #header -->
 
 
-<div id="main" class="clearfix <?php if (get_theme_mod('greenpark_sidebar_disable')) { echo 'no-sidebar'; } ?>">
+<div id="main" class="clearfix <?php if (greenpark_is_sidebar_disabled()) { echo 'no-sidebar'; } ?> <?php echo 'sidebar-' . greenpark_get_sidebar_position(); ?>">
