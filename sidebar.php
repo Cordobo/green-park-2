@@ -4,7 +4,9 @@
 
 <?php
 $options = get_option( 'cgp2_theme_options' );
-echo esc_html($options['cgp2_textbox']);
+if ( $options && isset($options['cgp2_textbox']) ) {
+    echo esc_html($options['cgp2_textbox']);
+}
 ?>
 
 <?php if (get_option('greenpark2_twitter_enable') == 'yes') { ?>
