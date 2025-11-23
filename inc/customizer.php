@@ -44,6 +44,84 @@ function greenpark_customize_register( $wp_customize ) {
 
 
 	// -------------------------------------------------------------------------
+	// Accessibility Section
+	// -------------------------------------------------------------------------
+	$wp_customize->add_section( 'greenpark_accessibility_section', array(
+		'title'       => __( 'Accessibility Links', 'greenpark' ),
+		'priority'    => 35,
+		'description' => __( 'Configure the accessibility navigation strip at the top of the page.', 'greenpark' ),
+	) );
+
+	$wp_customize->add_setting( 'greenpark_accessibility_disable', array(
+		'default'           => false,
+		'sanitize_callback' => 'greenpark_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'greenpark_accessibility_disable', array(
+		'label'       => __( 'Disable All Accessibility Links', 'greenpark' ),
+		'description' => __( 'Hide the entire accessibility navigation strip.', 'greenpark' ),
+		'section'     => 'greenpark_accessibility_section',
+		'type'        => 'checkbox',
+	) );
+
+	$wp_customize->add_setting( 'greenpark_accessibility_home', array(
+		'default'           => false,
+		'sanitize_callback' => 'greenpark_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'greenpark_accessibility_home', array(
+		'label'    => __( 'Hide Home Link', 'greenpark' ),
+		'section'  => 'greenpark_accessibility_section',
+		'type'     => 'checkbox',
+	) );
+
+	$wp_customize->add_setting( 'greenpark_accessibility_content', array(
+		'default'           => false,
+		'sanitize_callback' => 'greenpark_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'greenpark_accessibility_content', array(
+		'label'    => __( 'Hide Content Link', 'greenpark' ),
+		'section'  => 'greenpark_accessibility_section',
+		'type'     => 'checkbox',
+	) );
+
+	$wp_customize->add_setting( 'greenpark_accessibility_feed', array(
+		'default'           => false,
+		'sanitize_callback' => 'greenpark_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'greenpark_accessibility_feed', array(
+		'label'    => __( 'Hide RSS Link', 'greenpark' ),
+		'section'  => 'greenpark_accessibility_section',
+		'type'     => 'checkbox',
+	) );
+
+	$wp_customize->add_setting( 'greenpark_accessibility_edit', array(
+		'default'           => false,
+		'sanitize_callback' => 'greenpark_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'greenpark_accessibility_edit', array(
+		'label'       => __( 'Hide Edit Link', 'greenpark' ),
+		'description' => __( 'The Edit link only appears for logged-in users with edit permissions.', 'greenpark' ),
+		'section'     => 'greenpark_accessibility_section',
+		'type'        => 'checkbox',
+	) );
+
+	$wp_customize->add_setting( 'greenpark_accessibility_loginout', array(
+		'default'           => false,
+		'sanitize_callback' => 'greenpark_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'greenpark_accessibility_loginout', array(
+		'label'    => __( 'Hide Login/Logout Link', 'greenpark' ),
+		'section'  => 'greenpark_accessibility_section',
+		'type'     => 'checkbox',
+	) );
+
+
+	// -------------------------------------------------------------------------
 	// Layout Section
 	// -------------------------------------------------------------------------
 	$wp_customize->add_section( 'greenpark_layout_section', array(
