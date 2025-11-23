@@ -1,6 +1,20 @@
 <div id="sidebar">
 <ul class="sb-list clearfix">
 
+<?php
+// Display custom sidebar menu if assigned
+if (has_nav_menu('sidebar_menu')) {
+    echo '<li class="sidebar-menu">';
+    wp_nav_menu(array(
+        'theme_location' => 'sidebar_menu',
+        'container' => 'div',
+        'container_class' => 'sidebar-nav-menu',
+        'menu_class' => 'sidebar-nav',
+        'fallback_cb' => false
+    ));
+    echo '</li>';
+}
+?>
 
 <?php
 $options = get_option( 'cgp2_theme_options' );
