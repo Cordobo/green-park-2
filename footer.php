@@ -17,6 +17,19 @@
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-cgp2.png" alt="Cordobo Green Park 2 Beta 0.9.9" title="Version: Cordobo Green Park 2 Beta 0.9.9" width="75" height="12" />
     </p>
 
+    <?php
+    // Display custom footer menu if assigned
+    if (has_nav_menu('footer_menu')) {
+        wp_nav_menu(array(
+            'theme_location' => 'footer_menu',
+            'container' => 'nav',
+            'container_class' => 'footer-navigation',
+            'menu_class' => 'footer-menu',
+            'fallback_cb' => false
+        ));
+    }
+    ?>
+
 </div>
 
 <?php wp_footer(); ?>

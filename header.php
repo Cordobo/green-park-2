@@ -14,43 +14,57 @@
 <div id="header">
 
     <?php if (greenpark2_get_option('accessibility_disable') != true) : ?>
-        <ul id="accessibility">
-            <?php if (greenpark2_get_option('accessibility_home') != true) : ?>
-                <li>
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e('Go to homepage', 'greenpark'); ?>">
-                        <?php esc_html_e('Home', 'greenpark'); ?>
-                    </a>
-                </li>
-            <?php endif; ?>
+        <?php
+        // Check if a custom accessibility menu has been assigned
+        if (has_nav_menu('accessibility_menu')) {
+            wp_nav_menu(array(
+                'theme_location' => 'accessibility_menu',
+                'container' => false,
+                'menu_id' => 'accessibility',
+                'menu_class' => '',
+                'fallback_cb' => false
+            ));
+        } else {
+            // Fallback to hardcoded accessibility links if no menu is assigned
+            ?>
+            <ul id="accessibility">
+                <?php if (greenpark2_get_option('accessibility_home') != true) : ?>
+                    <li>
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e('Go to homepage', 'greenpark'); ?>">
+                            <?php esc_html_e('Home', 'greenpark'); ?>
+                        </a>
+                    </li>
+                <?php endif; ?>
 
-            <?php if (greenpark2_get_option('accessibility_content') != 'yes') : ?>
-                <li>
-                    <a href="#content" title="<?php esc_attr_e('Skip to content', 'greenpark'); ?>">
-                        <?php esc_html_e('Content', 'greenpark'); ?>
-                    </a>
-                </li>
-            <?php endif; ?>
+                <?php if (greenpark2_get_option('accessibility_content') != 'yes') : ?>
+                    <li>
+                        <a href="#content" title="<?php esc_attr_e('Skip to content', 'greenpark'); ?>">
+                            <?php esc_html_e('Content', 'greenpark'); ?>
+                        </a>
+                    </li>
+                <?php endif; ?>
 
-            <?php if (greenpark2_get_option('accessibility_feed') != 'yes') : ?>
-                <li>
-                    <a href="<?php
-                        if (greenpark2_get_option('feed_enable') == 'yes') {
-                            echo esc_url('https://feeds.feedburner.com/' . greenpark2_get_option('feed_uri'));
-                        } else {
-                            echo esc_url(get_bloginfo('rss2_url'));
-                        }
-                    ?>">
-                        <?php esc_html_e('RSS', 'greenpark'); ?>
-                    </a>
-                </li>
-            <?php endif; ?>
+                <?php if (greenpark2_get_option('accessibility_feed') != 'yes') : ?>
+                    <li>
+                        <a href="<?php
+                            if (greenpark2_get_option('feed_enable') == 'yes') {
+                                echo esc_url('https://feeds.feedburner.com/' . greenpark2_get_option('feed_uri'));
+                            } else {
+                                echo esc_url(get_bloginfo('rss2_url'));
+                            }
+                        ?>">
+                            <?php esc_html_e('RSS', 'greenpark'); ?>
+                        </a>
+                    </li>
+                <?php endif; ?>
 
-            <?php if (greenpark2_get_option('accessibility_loginout') != 'yes') : ?>
-                <li class="last-item">
-                    <?php wp_loginout(); ?>
-                </li>
-            <?php endif; ?>
-        </ul>
+                <?php if (greenpark2_get_option('accessibility_loginout') != 'yes') : ?>
+                    <li class="last-item">
+                        <?php wp_loginout(); ?>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        <?php } ?>
     <?php endif; ?>
 
     <div id="branding" role="banner">
