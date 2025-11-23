@@ -9,16 +9,16 @@ if ( $options && isset($options['cgp2_textbox']) ) {
 }
 ?>
 
-<?php if (get_option('greenpark2_twitter_enable') == 'yes') { ?>
+<?php if (greenpark2_get_option('twitter_enable') == 'yes') { ?>
 <li>
     <ul class="sb-tools clearfix">
         <li class="twitter-icon">
-            <a class="sb-icon" href="<?php echo 'http://twitter.com/' . esc_attr(get_option('greenpark2_twitter_uri')); ?>" rel="nofollow">
+            <a class="sb-icon" href="<?php echo 'http://twitter.com/' . esc_attr(greenpark2_get_option('twitter_uri')); ?>" rel="nofollow">
                 <span><?php _e('Latest Tweet', 'greenpark'); ?></span>
-                <?php twitter_messages(" . esc_attr(get_option(greenpark2_twitter_uri)) . ", 1, false, false, '', false, false, false); ?>
+                <?php twitter_messages(" . esc_attr(greenpark2_get_option('twitter_uri')) . ", 1, false, false, '', false, false, false); ?>
             </a>
             <p class="sb-icon-text">
-                <a href="<?php echo 'http://twitter.com/' . esc_attr(get_option('greenpark2_twitter_uri')); ?>" rel="nofollow"><?php _e('Follow me on twitter', 'greenpark'); ?></a>.
+                <a href="<?php echo 'http://twitter.com/' . esc_attr(greenpark2_get_option('twitter_uri')); ?>" rel="nofollow"><?php _e('Follow me on twitter', 'greenpark'); ?></a>.
             </p>
         </li>
     </ul>
@@ -29,7 +29,7 @@ if ( $options && isset($options['cgp2_textbox']) ) {
 <li>
     <ul class="sb-tools clearfix">
         <li class="rss-icon">
-            <a class="sb-icon" href="<?php if (get_option('greenpark2_feed_enable') == 'yes') { echo 'http://feeds.feedburner.com/' . esc_attr(get_option('greenpark2_feed_uri')); } else { echo get_bloginfo('rss2_url'); }?>" title="<?php _e('Subscribe to my feed - You\'ll be happy!', 'greenpark'); ?>">
+            <a class="sb-icon" href="<?php if (greenpark2_get_option('feed_enable') == 'yes') { echo 'http://feeds.feedburner.com/' . esc_attr(greenpark2_get_option('feed_uri')); } else { echo get_bloginfo('rss2_url'); }?>" title="<?php _e('Subscribe to my feed - You\'ll be happy!', 'greenpark'); ?>">
                 <span><?php _e('Subscribe', 'greenpark'); ?></span>
                 <?php _e('Subscribe to my blogs feed', 'greenpark'); ?>
             </a>
@@ -54,10 +54,10 @@ if ( $options && isset($options['cgp2_textbox']) ) {
 
 <?php if ( is_front_page() || is_page() ) { ?>
 <li id="about" class="clearfix">
-    <div class="sb-title"><?php echo esc_html(get_option('greenpark2_sidebar_about_title')); ?></div>
+    <div class="sb-title"><?php echo esc_html(greenpark2_get_option('sidebar_about_title', 'About')); ?></div>
     <ul>
         <li>
-            <?php echo wp_kses_post(get_option('greenpark2_sidebar_about_content'));?>
+            <?php echo wp_kses_post(greenpark2_get_option('sidebar_about_content', ''));?>
         </li>
     </ul>
 </li>

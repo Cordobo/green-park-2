@@ -217,6 +217,20 @@ function greenpark2_page_menu_args($args) {
 add_filter('wp_page_menu_args', 'greenpark2_page_menu_args');
 
 
+/**
+ * Helper function to get theme options
+ * All theme options are stored in a single array to follow WordPress best practices
+ *
+ * @param string $key The option key to retrieve
+ * @param mixed $default The default value if option doesn't exist
+ * @return mixed The option value or default
+ */
+function greenpark2_get_option($key, $default = '') {
+    $options = get_option('greenpark2_options', array());
+    return isset($options[$key]) ? $options[$key] : $default;
+}
+
+
 // ------------------------------ @TODO: REFACTOR ------------------------------
 // ------------------------------ @TODO: REFACTOR ------------------------------
 // ------------------------------ @TODO: REFACTOR ------------------------------
@@ -249,14 +263,17 @@ function greenpark2_options() {
         // Verify nonce for security
         check_admin_referer('greenpark2_options_update', 'greenpark2_nonce');
 
-        // Sanitize and update text options
-        update_option("greenpark2_sidebar_about_title", sanitize_text_field(wp_unslash($_POST['sidebar_about_title'] ?? '')));
-        update_option("greenpark2_sidebar_about_content", wp_kses_post(wp_unslash($_POST['sidebar_about_content'] ?? '')));
-        update_option("greenpark2_feed_uri", sanitize_text_field(wp_unslash($_POST['feed_uri'] ?? '')));
-        update_option("greenpark2_twitter_uri", esc_url_raw(wp_unslash($_POST['twitter_uri'] ?? '')));
+        // Prepare options array - all theme options stored in a single array (WordPress best practice)
+        $options = array();
+
+        // Sanitize and add text options
+        $options['sidebar_about_title'] = sanitize_text_field(wp_unslash($_POST['sidebar_about_title'] ?? ''));
+        $options['sidebar_about_content'] = wp_kses_post(wp_unslash($_POST['sidebar_about_content'] ?? ''));
+        $options['feed_uri'] = sanitize_text_field(wp_unslash($_POST['feed_uri'] ?? ''));
+        $options['twitter_uri'] = esc_url_raw(wp_unslash($_POST['twitter_uri'] ?? ''));
 
         // Sanitize code snippets (Google Analytics, AdSense) - allow only safe script tags
-        update_option("google_analytics", wp_kses(wp_unslash($_POST['google_analytics'] ?? ''), array(
+        $options['google_analytics'] = wp_kses(wp_unslash($_POST['google_analytics'] ?? ''), array(
             'script' => array(
                 'src' => array(),
                 'type' => array(),
@@ -264,53 +281,42 @@ function greenpark2_options() {
                 'defer' => array(),
             ),
             'noscript' => array(),
-        )));
-        update_option("google_adsense_bottom", wp_kses_post(wp_unslash($_POST['google_adsense_bottom'] ?? '')));
-        update_option("greenpark2_advertisement_single_bottom", wp_kses_post(wp_unslash($_POST['greenpark2_advertisement_single_bottom'] ?? '')));
-        update_option("greenpark2_advertisement_sidebar", wp_kses_post(wp_unslash($_POST['greenpark2_advertisement_sidebar'] ?? '')));
-        // @TODO
-        // update_option("google_adsense_sidebar", stripslashes($_POST['google_adsense_sidebar']));
+        ));
+        $options['google_adsense_bottom'] = wp_kses_post(wp_unslash($_POST['google_adsense_bottom'] ?? ''));
+        $options['advertisement_single_bottom'] = wp_kses_post(wp_unslash($_POST['greenpark2_advertisement_single_bottom'] ?? ''));
+        $options['advertisement_sidebar'] = wp_kses_post(wp_unslash($_POST['greenpark2_advertisement_sidebar'] ?? ''));
 
         // Boolean/yes-no options with proper sanitization
-        update_option("greenpark2_logo_show", (isset($_POST['logo_show']) && $_POST['logo_show'] === 'yes') ? 'yes' : 'no');
-        update_option("greenpark2_twitter_enable", (isset($_POST['twitter_enable']) && $_POST['twitter_enable'] === 'yes') ? 'yes' : 'no');
-        update_option("greenpark2_feed_enable", (isset($_POST['feed_enable']) && $_POST['feed_enable'] === 'yes') ? 'yes' : 'no');
+        $options['logo_show'] = (isset($_POST['logo_show']) && $_POST['logo_show'] === 'yes') ? 'yes' : 'no';
+        $options['twitter_enable'] = (isset($_POST['twitter_enable']) && $_POST['twitter_enable'] === 'yes') ? 'yes' : 'no';
+        $options['feed_enable'] = (isset($_POST['feed_enable']) && $_POST['feed_enable'] === 'yes') ? 'yes' : 'no';
 
-
-        if (isset($_POST['sidebar_about_title']) and $_POST['sidebar_about_title'] == '') {
-            update_option("greenpark2_sidebar_about_title", "About");
+        // Set defaults for empty values
+        if (empty($options['sidebar_about_title'])) {
+            $options['sidebar_about_title'] = "About";
         }
 
-
-        if (isset($_POST['sidebar_about_content']) and $_POST['sidebar_about_content'] == '') {
-            update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
+        if (empty($options['sidebar_about_content'])) {
+            $options['sidebar_about_content'] = "Change this text in the Green Park 2 Settings in your Wordpress admin section";
         }
-
-
-        if (get_option('greenpark2_sidebar_about_title') == '') {
-            update_option("greenpark2_sidebar_about_title", "About");
-        }
-
-        if (get_option('greenpark2_sidebar_about_content') == '') {
-            update_option("greenpark2_sidebar_about_content", "Change this text in the Green Park 2 Settings in your Wordpress admin section");
-        }
-
 
         // Boolean options with proper sanitization
-        update_option("greenpark2_sidebar_disablesidebar", !empty($_POST['sidebar_disablesidebar']));
-        update_option("greenpark2_accessibility_disable", !empty($_POST['accessibility_disable']));
-        update_option("greenpark2_accessibility_home", !empty($_POST['accessibility_home']));
+        $options['sidebar_disablesidebar'] = !empty($_POST['sidebar_disablesidebar']);
+        $options['accessibility_disable'] = !empty($_POST['accessibility_disable']);
+        $options['accessibility_home'] = !empty($_POST['accessibility_home']);
 
         // Yes/no accessibility options
-        update_option("greenpark2_accessibility_content", (isset($_POST['accessibility_content']) && $_POST['accessibility_content'] === 'yes') ? 'yes' : 'no');
-        update_option("greenpark2_accessibility_feed", (isset($_POST['accessibility_feed']) && $_POST['accessibility_feed'] === 'yes') ? 'yes' : 'no');
-        update_option("greenpark2_accessibility_meta", (isset($_POST['accessibility_meta']) && $_POST['accessibility_meta'] === 'yes') ? 'yes' : 'no');
-        update_option("greenpark2_accessibility_register", (isset($_POST['accessibility_register']) && $_POST['accessibility_register'] === 'yes') ? 'yes' : 'no');
-        update_option("greenpark2_accessibility_loginout", (isset($_POST['accessibility_loginout']) && $_POST['accessibility_loginout'] === 'yes') ? 'yes' : 'no');
+        $options['accessibility_content'] = (isset($_POST['accessibility_content']) && $_POST['accessibility_content'] === 'yes') ? 'yes' : 'no';
+        $options['accessibility_feed'] = (isset($_POST['accessibility_feed']) && $_POST['accessibility_feed'] === 'yes') ? 'yes' : 'no';
+        $options['accessibility_meta'] = (isset($_POST['accessibility_meta']) && $_POST['accessibility_meta'] === 'yes') ? 'yes' : 'no';
+        $options['accessibility_register'] = (isset($_POST['accessibility_register']) && $_POST['accessibility_register'] === 'yes') ? 'yes' : 'no';
+        $options['accessibility_loginout'] = (isset($_POST['accessibility_loginout']) && $_POST['accessibility_loginout'] === 'yes') ? 'yes' : 'no';
 
         // Comments page disable option
-        update_option("greenpark2_comments_page_disable", (isset($_POST['comments_page_disable']) && $_POST['comments_page_disable'] === 'yes') ? 'yes' : 'no');
+        $options['comments_page_disable'] = (isset($_POST['comments_page_disable']) && $_POST['comments_page_disable'] === 'yes') ? 'yes' : 'no';
 
+        // Save all options in a single array (WordPress best practice - reduces database queries)
+        update_option('greenpark2_options', $options);
 
         echo "<div id=\"message\" class=\"updated fade\"><p><strong>Your settings have been saved.</strong></p></div>";
     endif;
@@ -319,35 +325,35 @@ function greenpark2_options() {
 
     $data = array(
         'twitter' => array(
-            'uri' => get_option('greenpark2_twitter_uri'),
-            'enable' => get_option('greenpark2_twitter_enable')
+            'uri' => greenpark2_get_option('twitter_uri'),
+            'enable' => greenpark2_get_option('twitter_enable')
         ),
         'feed' => array(
-            'uri' => get_option('greenpark2_feed_uri'),
-            'enable' => get_option('greenpark2_feed_enable')
+            'uri' => greenpark2_get_option('feed_uri'),
+            'enable' => greenpark2_get_option('feed_enable')
         ),
         'sidebar' => array(
-            'about_title' => get_option('greenpark2_sidebar_about_title'),
-            'about_content' => get_option('greenpark2_sidebar_about_content'),
-            'disablesidebar' => get_option('greenpark2_sidebar_disablesidebar')
+            'about_title' => greenpark2_get_option('sidebar_about_title', 'About'),
+            'about_content' => greenpark2_get_option('sidebar_about_content', 'Change this text in the Green Park 2 Settings in your Wordpress admin section'),
+            'disablesidebar' => greenpark2_get_option('sidebar_disablesidebar')
         ),
         'logo' => array(
-            'show' => get_option('greenpark2_logo_show')
+            'show' => greenpark2_get_option('logo_show')
         ),
         'accessibility' => array(
-            'disable' => get_option('greenpark2_accessibility_disable'),
-            'home' => get_option('greenpark2_accessibility_home'),
-            'content' => get_option('greenpark2_accessibility_content'),
-            'feed' => get_option('greenpark2_accessibility_feed'),
-            'meta' => get_option('greenpark2_accessibility_meta'),
-            'register' => get_option('greenpark2_accessibility_register'),
-            'loginout' => get_option('greenpark2_accessibility_loginout')
+            'disable' => greenpark2_get_option('accessibility_disable'),
+            'home' => greenpark2_get_option('accessibility_home'),
+            'content' => greenpark2_get_option('accessibility_content'),
+            'feed' => greenpark2_get_option('accessibility_feed'),
+            'meta' => greenpark2_get_option('accessibility_meta'),
+            'register' => greenpark2_get_option('accessibility_register'),
+            'loginout' => greenpark2_get_option('accessibility_loginout')
         ),
-        'aside' => get_option('greenpark2_aside_cat'),
+        'aside' => greenpark2_get_option('aside_cat'),
         'comments' => array(
-            'page_disable' => get_option('greenpark2_comments_page_disable')
+            'page_disable' => greenpark2_get_option('comments_page_disable')
         ),
-        'about' => get_option('greenpark2_about_site')
+        'about' => greenpark2_get_option('about_site')
     );
 
 

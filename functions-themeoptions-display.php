@@ -107,7 +107,7 @@
                     <tr>
                         <th>Google Adsense:<br />(Bottom of Post)</th>
                         <td>
-                            <textarea name="google_adsense_bottom" style="width: 95%;" rows="10"><?php echo esc_textarea(get_option('google_adsense_bottom')); ?></textarea>
+                            <textarea name="google_adsense_bottom" style="width: 95%;" rows="10"><?php echo esc_textarea(greenpark2_get_option('google_adsense_bottom')); ?></textarea>
                             <br />Paste your Google Adsense Code for the bottom of each post.
                             <br /><strong>Size of 468x60 Recommended.</strong>
                         </td>
@@ -121,7 +121,7 @@
                     <tr>
                         <th>Google Analytics:</th>
                         <td>
-                            <textarea name="google_analytics" style="width: 95%;" rows="10"><?php echo esc_textarea(get_option('google_analytics')); ?></textarea>
+                            <textarea name="google_analytics" style="width: 95%;" rows="10"><?php echo esc_textarea(greenpark2_get_option('google_analytics')); ?></textarea>
                             <br />Paste your Google Analytics code here. It will appear at the end of each page.
                         </td>
                     </tr>

@@ -8,5 +8,5 @@
     </div> <!-- #content -->
 </div> <!-- #container -->
 
-<?php if(get_option('greenpark2_sidebar_disablesidebar') != true) get_sidebar(); ?>
+<?php if(greenpark2_get_option('sidebar_disablesidebar') != true) get_sidebar(); ?>
 <?php get_footer(); ?>

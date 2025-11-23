@@ -25,7 +25,7 @@
 
 <?php
 // Output Google Analytics code with proper escaping
-$google_analytics = get_option('google_analytics');
+$google_analytics = greenpark2_get_option('google_analytics');
 if (!empty($google_analytics)) {
     // Use wp_kses to allow only safe script tags
     echo wp_kses($google_analytics, array(
