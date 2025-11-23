@@ -210,3 +210,221 @@ select:focus {
         display: block;
     }
 }
+
+/* =============================================================================
+   Performance Optimizations - Reduce Reflows & Repaints
+   ========================================================================== */
+
+/* GPU Acceleration for frequently animated elements */
+#header,
+#main,
+#footer,
+.menu ul.children,
+.menu ul.sub-menu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Will-change hints for interactive elements to prepare for animations */
+.menu > ul > li > a,
+.menu ul.children li a,
+.menu ul.sub-menu li a,
+.top-link,
+.more-link,
+a.button-style,
+a.comment-reply-link,
+input#submit,
+#s,
+#searchsubmit {
+    will-change: auto;
+}
+
+/* Activate will-change on hover/focus for parent containers */
+.menu > ul > li:hover > a,
+.menu ul.children li:hover a,
+.menu ul.sub-menu li:hover a {
+    will-change: text-shadow, background-color, border-color, color;
+}
+
+.top-link:hover {
+    will-change: background-position;
+}
+
+.more-link:hover,
+a.button-style:hover,
+a.comment-reply-link:hover {
+    will-change: background-color, border-color, color;
+}
+
+input:focus,
+textarea:focus,
+#s:focus,
+#searchsubmit:focus,
+input#submit:hover {
+    will-change: border-color, box-shadow, color;
+}
+
+/* CSS Containment to limit layout/paint scope */
+.post,
+.comment,
+#sidebar .widget,
+.sb-tools li {
+    contain: layout style paint;
+}
+
+#content,
+#sidebar {
+    contain: layout style;
+}
+
+/* Content-visibility for off-screen content optimization */
+.comment {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 200px;
+}
+
+.post {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 400px;
+}
+
+/* Optimize dropdown menus with hardware acceleration */
+.menu ul.children,
+.menu ul.sub-menu {
+    will-change: opacity, transform;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.menu li:hover > ul.children,
+.menu li:hover > ul.sub-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Force layer promotion for fixed/absolute positioned elements */
+#branding,
+#accessibility,
+#access,
+#nav_l,
+#nav_r,
+#nav-search {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Optimize images for faster repainting */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.entry img,
+.wp-caption img,
+img.avatar {
+    will-change: auto;
+    transform: translateZ(0);
+}
+
+/* Reduce paint complexity for shadows */
+#header,
+#main,
+#footer {
+    isolation: isolate;
+}
+
+/* Optimize table rendering */
+table {
+    table-layout: fixed;
+}
+
+/* Batch layout changes with CSS containment */
+.widget,
+.sb-tools,
+.categories,
+.archives,
+.linkcat {
+    contain: layout paint;
+}
+
+/* Optimize form element rendering */
+input,
+textarea,
+select,
+button {
+    font-display: swap;
+}
+
+/* Prevent layout shift from font loading */
+@supports (font-display: swap) {
+    body {
+        font-display: swap;
+    }
+}
+
+/* Intersection observer hint for lazy-loaded content */
+.aligncenter img,
+.alignleft img,
+.alignright img {
+    content-visibility: auto;
+}
+
+/* Optimize breadcrumb with containment */
+#breadcrumb {
+    contain: layout style;
+}
+
+/* Performance hint for navigation */
+#access {
+    contain: layout paint style;
+    will-change: transform;
+}
+
+/* Reduce repaint area for meta information */
+.meta,
+.postmetadata {
+    contain: layout paint;
+}
+
+/* Optimize comment threading with containment */
+.commentlist {
+    contain: layout;
+}
+
+.comment ul.children {
+    contain: layout style;
+}
+
+/* Footer optimization */
+#footer {
+    contain: layout style paint;
+}
+
+/* Optimize sidebar widgets for independent painting */
+#sidebar .widget,
+#sidebar #about,
+#sidebar .categories,
+#sidebar .archives {
+    isolation: isolate;
+    contain: layout style paint;
+}
+
+/* Prevent unnecessary reflows in responsive images */
+.entry img,
+.wp-caption img {
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Optimize print layout calculations */
+@media print {
+    * {
+        contain: none !important;
+        will-change: auto !important;
+        content-visibility: visible !important;
+    }
+}
