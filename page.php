@@ -13,12 +13,12 @@
             </div>
         </div>
 
-        <?php if (get_option('greenpark2_comments_page_disable') != 'yes') { comments_template('', true); } ?>
+        <?php if (greenpark2_get_option('comments_page_disable') != 'yes') { comments_template('', true); } ?>
 
     <?php endwhile; endif; ?>
 
 </div> <!-- #content -->
 </div> <!-- #container -->
 
-<?php if(get_option('greenpark2_sidebar_disablesidebar') != true) get_sidebar(); ?>
+<?php if(greenpark2_get_option('sidebar_disablesidebar') != true) get_sidebar(); ?>
 <?php get_footer(); ?>
