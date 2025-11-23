@@ -63,6 +63,14 @@ if ( function_exists( 'wp_body_open' ) ) {
                     </li>
                 <?php endif; ?>
 
+                <?php if (get_theme_mod('greenpark_accessibility_edit') != 'yes' && is_user_logged_in() && is_singular() && current_user_can('edit_post', get_the_ID())) : ?>
+                    <li>
+                        <a href="<?php echo esc_url(get_edit_post_link()); ?>" title="<?php esc_attr_e('Edit this page', 'greenpark'); ?>">
+                            <?php esc_html_e('Edit', 'greenpark'); ?>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
                 <?php if (get_theme_mod('greenpark_accessibility_loginout') != 'yes') : ?>
                     <li class="last-item">
                         <?php wp_loginout(); ?>
