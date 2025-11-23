@@ -89,6 +89,11 @@ function greenpark_setup() {
 
 add_action('after_setup_theme', 'greenpark_setup');
 
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
+
 
 // Loads custom CSS for the Themes Settings page in WP Backend
 function greenpark_load_admin_styles() {

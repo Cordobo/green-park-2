@@ -13,7 +13,7 @@
 
 <div id="header">
 
-    <?php if (greenpark2_get_option('accessibility_disable') != true) : ?>
+    <?php if (!get_theme_mod('greenpark_accessibility_disable')) : ?>
         <?php
         // Check if a custom accessibility menu has been assigned
         if (has_nav_menu('accessibility_menu')) {
@@ -28,7 +28,7 @@
             // Fallback to hardcoded accessibility links if no menu is assigned
             ?>
             <ul id="accessibility">
-                <?php if (greenpark2_get_option('accessibility_home') != true) : ?>
+                <?php if (!get_theme_mod('greenpark_accessibility_home')) : ?>
                     <li>
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e('Go to homepage', 'greenpark'); ?>">
                             <?php esc_html_e('Home', 'greenpark'); ?>
@@ -36,7 +36,7 @@
                     </li>
                 <?php endif; ?>
 
-                <?php if (greenpark2_get_option('accessibility_content') != 'yes') : ?>
+                <?php if (get_theme_mod('greenpark_accessibility_content') != 'yes') : ?>
                     <li>
                         <a href="#content" title="<?php esc_attr_e('Skip to content', 'greenpark'); ?>">
                             <?php esc_html_e('Content', 'greenpark'); ?>
@@ -44,11 +44,11 @@
                     </li>
                 <?php endif; ?>
 
-                <?php if (greenpark2_get_option('accessibility_feed') != 'yes') : ?>
+                <?php if (get_theme_mod('greenpark_accessibility_feed') != 'yes') : ?>
                     <li>
                         <a href="<?php
-                            if (greenpark2_get_option('feed_enable') == 'yes') {
-                                echo esc_url('https://feeds.feedburner.com/' . greenpark2_get_option('feed_uri'));
+                            if (get_theme_mod('greenpark_feed_enable')) {
+                                echo esc_url('https://feeds.feedburner.com/' . get_theme_mod('greenpark_feed_uri'));
                             } else {
                                 echo esc_url(get_bloginfo('rss2_url'));
                             }
@@ -58,7 +58,7 @@
                     </li>
                 <?php endif; ?>
 
-                <?php if (greenpark2_get_option('accessibility_loginout') != 'yes') : ?>
+                <?php if (get_theme_mod('greenpark_accessibility_loginout') != 'yes') : ?>
                     <li class="last-item">
                         <?php wp_loginout(); ?>
                     </li>
@@ -69,10 +69,10 @@
 
     <div id="branding" role="banner">
         <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
-        <<?php echo $heading_tag; ?> id="site-title" class="<?php if(greenpark2_get_option('logo_show')!= 'yes') { echo 'brand'; } else { echo 'logo'; } ?>">
+        <<?php echo $heading_tag; ?> id="site-title" class="<?php if(!get_theme_mod('greenpark_logo_show')) { echo 'brand'; } else { echo 'logo'; } ?>">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-        <?php if(greenpark2_get_option('logo_show')== 'yes') { ?>
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" alt="Cordobo Green Park 2 logo" title="Cordobo Green Park 2" width="87" height="19" />
+        <?php if(get_theme_mod('greenpark_logo_show')) { ?>
+            <img src="<?php echo esc_url(get_theme_mod('greenpark_logo')); ?>" alt="<?php bloginfo('name'); ?>" />
         <?php } else { ?>
             <?php bloginfo( 'name' ); ?>
         <?php } ?>
@@ -98,4 +98,4 @@
 </div> <!-- #header -->
 
 
-<div id="main" class="clearfix <?php if (greenpark2_get_option('sidebar_disablesidebar') == true) { echo 'no-sidebar'; } ?>">
+<div id="main" class="clearfix <?php if (get_theme_mod('greenpark_sidebar_disable')) { echo 'no-sidebar'; } ?>">
