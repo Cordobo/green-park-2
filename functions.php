@@ -147,7 +147,7 @@ function greenpark_widgets_init() {
     register_sidebar(array(
         'name' => __('Sidebar', 'greenpark'),
         'id' => 'primary-widget-area',
-        'description' => __('Not in use yet', 'greenpark'),
+        'description' => __('The main sidebar area. If you add widgets here, the default theme sidebar content will be hidden.', 'greenpark'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -165,7 +165,7 @@ function greenpark_widgets_init() {
     register_sidebar(array(
         'name' => __('One', 'greenpark'),
         'id' => 'sidebar-1',
-        'description' => __('Sidebar Widget 1', 'greenpark'),
+        'description' => __('Sidebar Widget 1 (Legacy)', 'greenpark'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -174,7 +174,7 @@ function greenpark_widgets_init() {
     register_sidebar(array(
         'name' => __('Two', 'greenpark'),
         'id' => 'sidebar-2',
-        'description' => __('Sidebar Widget 2', 'greenpark'),
+        'description' => __('Sidebar Widget 2 (Legacy)', 'greenpark'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -183,7 +183,7 @@ function greenpark_widgets_init() {
     register_sidebar(array(
         'name' => __('Three', 'greenpark'),
         'id' => 'sidebar-3',
-        'description' => __('Sidebar Widget 3', 'greenpark'),
+        'description' => __('Sidebar Widget 3 (Legacy)', 'greenpark'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',
@@ -192,7 +192,7 @@ function greenpark_widgets_init() {
     register_sidebar(array(
         'name' => __('Four', 'greenpark'),
         'id' => 'sidebar-4',
-        'description' => __('Sidebar Widget 4', 'greenpark'),
+        'description' => __('Sidebar Widget 4 (Legacy)', 'greenpark'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h4 class="widget-title">',

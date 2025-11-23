@@ -9,6 +9,11 @@
 </head>
 
 <body id="home" <?php body_class(); ?> itemscope itemtype="https://schema.org/Blog">
+<?php
+if ( function_exists( 'wp_body_open' ) ) {
+    wp_body_open();
+}
+?>
 
 
 <div id="header">
